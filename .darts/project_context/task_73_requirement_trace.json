@@ -1,0 +1,129 @@
+{
+  "task_id": 73,
+  "task_name": "HRMS",
+  "execution_path": "planner_coder",
+  "complexity_tier": "medium",
+  "requirement_text": "Implement role-based authentication and authorization. Includes User and Role entities, Authentication controller, and login views using the Knockout.js/AJAX pattern.\n\nAcceptance Criteria:\n- Identity or custom role-based middleware is active.\n- Login page authenticates against database.\n- Controllers use Authorize attributes.\n\nDependencies: Task database_persistence_setup",
+  "generated_at": "2026-07-27T06:12:09.388Z",
+  "requirements": [
+    {
+      "req_id": "R-001",
+      "text": "Implement User and Role domain entities.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-002",
+      "text": "Configure identity or custom role-based middleware in the application pipeline.",
+      "status": "covered",
+      "covered_by": [
+        "T-002"
+      ]
+    },
+    {
+      "req_id": "R-003",
+      "text": "Create an Authentication controller to handle login logic against the database.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-004",
+      "text": "Develop a login view utilizing the Knockout.js and AJAX pattern.",
+      "status": "covered",
+      "covered_by": [
+        "T-003"
+      ]
+    },
+    {
+      "req_id": "R-005",
+      "text": "Secure controllers using Authorize attributes for role-based access control.",
+      "status": "uncovered",
+      "covered_by": []
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "T-001",
+      "name": "Backend — User/Role Entities, Auth Controller, DbContext update",
+      "status": "completed",
+      "req_refs": [
+        "R-001",
+        "R-003"
+      ],
+      "files_written": [
+        "HRMS.UI/Controllers/EmployeesController.cs"
+      ],
+      "module": "PlannerCoder",
+      "feature": "Implement role-based authentication and authorization. In...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    },
+    {
+      "task_id": "T-002",
+      "name": "Entry points — Program.cs Auth registration",
+      "status": "completed",
+      "req_refs": [
+        "R-002"
+      ],
+      "files_written": [
+        "HRMS.UI/Controllers/EmployeesController.cs"
+      ],
+      "module": "PlannerCoder",
+      "feature": "Implement role-based authentication and authorization. In...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    },
+    {
+      "task_id": "T-003",
+      "name": "Frontend UI — Login view and KnockoutJS script",
+      "status": "completed",
+      "req_refs": [
+        "R-004"
+      ],
+      "files_written": [
+        "HRMS.UI/Controllers/EmployeesController.cs"
+      ],
+      "module": "PlannerCoder",
+      "feature": "Implement role-based authentication and authorization. In...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    },
+    {
+      "task_id": "T-0",
+      "name": "Analysing and planning implementation...",
+      "status": "pending",
+      "req_refs": [],
+      "files_written": [
+        "HRMS.UI/Controllers/EmployeesController.cs"
+      ],
+      "module": "PlannerCoder",
+      "feature": "Implement role-based authentication and authorization. Includes User and Role en",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 5,
+    "covered": 4,
+    "partial": 0,
+    "uncovered": 1,
+    "coverage_pct": 80,
+    "total_tasks": 4,
+    "tasks_completed": 3,
+    "tasks_failed": 0,
+    "files_written": 1,
+    "validation_status": "passed"
+  }
+}

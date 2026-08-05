@@ -1,0 +1,1136 @@
+{
+  "project_id": 4,
+  "project_name": "HRMS",
+  "source_requirement_hash": "e51cde43e27de7fd7acd5ade78a43001",
+  "generated_at": "2026-07-27T05:56:18.156Z",
+  "last_updated_at": "2026-08-05T07:29:16.850Z",
+  "requirements": [
+    {
+      "req_id": "R-001",
+      "text": "The system shall be built using C# and .NET 6.",
+      "status": "covered",
+      "covered_by_tasks": [
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        81,
+        84,
+        85,
+        88,
+        92
+      ]
+    },
+    {
+      "req_id": "R-002",
+      "text": "The system shall use Entity Framework Core for data persistence.",
+      "status": "covered",
+      "covered_by_tasks": [
+        72,
+        74,
+        75,
+        84,
+        86,
+        87,
+        89,
+        92
+      ]
+    },
+    {
+      "req_id": "R-003",
+      "text": "The database shall be SQL Server LocalDB.",
+      "status": "covered",
+      "covered_by_tasks": [
+        72,
+        75,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89
+      ]
+    },
+    {
+      "req_id": "R-004",
+      "text": "The frontend shall use Razor Views (.cshtml).",
+      "status": "covered",
+      "covered_by_tasks": [
+        71,
+        74,
+        75,
+        78,
+        79,
+        80,
+        81,
+        90,
+        93
+      ]
+    },
+    {
+      "req_id": "R-005",
+      "text": "The frontend shall use Knockout.js for client-side view models and data binding.",
+      "status": "covered",
+      "covered_by_tasks": [
+        73,
+        74,
+        75,
+        76,
+        78,
+        79,
+        80,
+        81,
+        90,
+        92,
+        93
+      ]
+    },
+    {
+      "req_id": "R-006",
+      "text": "The frontend shall use jQuery.",
+      "status": "uncovered",
+      "covered_by_tasks": []
+    },
+    {
+      "req_id": "R-007",
+      "text": "The system shall use DataTables for displaying list data.",
+      "status": "covered",
+      "covered_by_tasks": [
+        74,
+        75,
+        76,
+        78,
+        79
+      ]
+    },
+    {
+      "req_id": "R-008",
+      "text": "The UI framework shall be Bootstrap 5.",
+      "status": "covered",
+      "covered_by_tasks": [
+        71,
+        75,
+        76,
+        78,
+        80,
+        81
+      ]
+    },
+    {
+      "req_id": "R-009",
+      "text": "The system shall use Dependency Injection.",
+      "status": "covered",
+      "covered_by_tasks": [
+        71,
+        72,
+        74,
+        75,
+        76,
+        77,
+        78,
+        81,
+        84,
+        85,
+        89
+      ]
+    },
+    {
+      "req_id": "R-010",
+      "text": "All CRUD operations must use AJAX to avoid full page refreshes.",
+      "status": "covered",
+      "covered_by_tasks": [
+        73,
+        74,
+        75,
+        76,
+        78,
+        79,
+        80,
+        81,
+        91,
+        92
+      ]
+    },
+    {
+      "req_id": "R-011",
+      "text": "The solution must contain a project named HRMS.Data responsible only for persistence.",
+      "status": "covered",
+      "covered_by_tasks": [
+        71,
+        72,
+        74,
+        75,
+        76,
+        78,
+        81,
+        83,
+        85,
+        86,
+        87,
+        88,
+        89
+      ]
+    },
+    {
+      "req_id": "R-012",
+      "text": "The HRMS.Data project must contain the DbContext and EF Configurations.",
+      "status": "covered",
+      "covered_by_tasks": [
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        78,
+        81,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        91
+      ]
+    },
+    {
+      "req_id": "R-013",
+      "text": "The HRMS.Data project must contain EF Core Migrations.",
+      "status": "covered",
+      "covered_by_tasks": [
+        71,
+        72,
+        76,
+        78,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90
+      ]
+    },
+    {
+      "req_id": "R-014",
+      "text": "The solution must contain a project for shared models containing Entities, DTOs, and ViewModels.",
+      "status": "covered",
+      "covered_by_tasks": [
+        71,
+        73,
+        74,
+        75,
+        76,
+        78,
+        79,
+        81
+      ]
+    },
+    {
+      "req_id": "R-015",
+      "text": "The solution must contain an application business layer project for logic, validation, and CRUD.",
+      "status": "covered",
+      "covered_by_tasks": [
+        71,
+        74,
+        75,
+        76,
+        78,
+        79,
+        80,
+        81,
+        91,
+        92
+      ]
+    },
+    {
+      "req_id": "R-016",
+      "text": "The business layer project must communicate with HRMS.Data.",
+      "status": "covered",
+      "covered_by_tasks": [
+        71,
+        74,
+        75,
+        76,
+        78,
+        85,
+        91,
+        92
+      ]
+    },
+    {
+      "req_id": "R-017",
+      "text": "The solution must contain a Web project responsible for background processing using Quartz Jobs.",
+      "status": "covered",
+      "covered_by_tasks": [
+        71,
+        77
+      ]
+    },
+    {
+      "req_id": "R-018",
+      "text": "The solution must contain a web application project containing Controllers and Razor Views.",
+      "status": "covered",
+      "covered_by_tasks": [
+        71,
+        73,
+        74,
+        75,
+        76,
+        78,
+        79,
+        80,
+        81,
+        85,
+        86,
+        90,
+        92
+      ]
+    },
+    {
+      "req_id": "R-019",
+      "text": "The UI must follow a pattern where every page consists of a Controller, a .cshtml view, and a ViewModel.js.",
+      "status": "covered",
+      "covered_by_tasks": [
+        73,
+        74,
+        75,
+        76,
+        78,
+        79,
+        80,
+        81,
+        82,
+        90,
+        92,
+        93
+      ]
+    },
+    {
+      "req_id": "R-020",
+      "text": "Knockout ViewModels must expose load, save, update, delete, search, reset, refresh, export, import, and validate methods.",
+      "status": "covered",
+      "covered_by_tasks": [
+        73,
+        74,
+        75,
+        76,
+        78,
+        79,
+        80,
+        81,
+        93
+      ]
+    },
+    {
+      "req_id": "R-021",
+      "text": "DataTables must support sorting, paging, searching, and filtering.",
+      "status": "covered",
+      "covered_by_tasks": [
+        74,
+        75,
+        76,
+        78,
+        79
+      ]
+    },
+    {
+      "req_id": "R-022",
+      "text": "The system must implement role-based authentication.",
+      "status": "covered",
+      "covered_by_tasks": [
+        73,
+        74,
+        75,
+        86,
+        88,
+        90,
+        91,
+        92
+      ]
+    },
+    {
+      "req_id": "R-023",
+      "text": "Controllers must validate permissions before rendering pages.",
+      "status": "covered",
+      "covered_by_tasks": [
+        73,
+        74,
+        75,
+        78
+      ]
+    },
+    {
+      "req_id": "R-024",
+      "text": "Services must validate permissions for sensitive operations.",
+      "status": "covered",
+      "covered_by_tasks": [
+        74,
+        75,
+        78
+      ]
+    },
+    {
+      "req_id": "R-025",
+      "text": "Database schema management must be handled through EF Migrations only.",
+      "status": "covered",
+      "covered_by_tasks": [
+        72,
+        75,
+        78,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90
+      ]
+    },
+    {
+      "req_id": "R-026",
+      "text": "The system must include a Dashboard module.",
+      "status": "uncovered",
+      "covered_by_tasks": []
+    },
+    {
+      "req_id": "R-027",
+      "text": "The system must include an Employee management module.",
+      "status": "covered",
+      "covered_by_tasks": [
+        74,
+        86,
+        88
+      ]
+    },
+    {
+      "req_id": "R-028",
+      "text": "The system must include a Department management module.",
+      "status": "covered",
+      "covered_by_tasks": [
+        74
+      ]
+    },
+    {
+      "req_id": "R-029",
+      "text": "The system must include an Attendance tracking module.",
+      "status": "covered",
+      "covered_by_tasks": [
+        75
+      ]
+    },
+    {
+      "req_id": "R-030",
+      "text": "The system must include a Payroll module.",
+      "status": "covered",
+      "covered_by_tasks": [
+        76
+      ]
+    },
+    {
+      "req_id": "R-031",
+      "text": "The system must include Audit Logs and Notification modules.",
+      "status": "covered",
+      "covered_by_tasks": [
+        77,
+        80,
+        81
+      ]
+    },
+    {
+      "req_id": "R-032",
+      "text": "Files must be organized into folders segregated by business domain.",
+      "status": "covered",
+      "covered_by_tasks": [
+        71,
+        74,
+        75,
+        76,
+        78,
+        81
+      ]
+    },
+    {
+      "req_id": "R-033",
+      "text": "The project must include a README.md file at the root with setup and architecture documentation.",
+      "status": "covered",
+      "covered_by_tasks": [
+        82
+      ]
+    },
+    {
+      "req_id": "R-034",
+      "text": "The project shall exclude React, Angular, Vue, and Blazor frameworks.",
+      "status": "covered",
+      "covered_by_tasks": [
+        71,
+        74,
+        78,
+        81
+      ]
+    },
+    {
+      "req_id": "R-035",
+      "text": "The project shall exclude MediatR, CQRS, and Clean/Onion Architecture patterns.",
+      "status": "covered",
+      "covered_by_tasks": [
+        71,
+        74,
+        78,
+        81
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": 71,
+      "task_name": "solution_initialization",
+      "task_order": 1,
+      "status": "completed",
+      "req_refs": [
+        "R-001",
+        "R-011",
+        "R-012",
+        "R-014",
+        "R-015",
+        "R-017",
+        "R-018",
+        "R-032",
+        "R-004",
+        "R-008",
+        "R-009",
+        "R-013",
+        "R-016",
+        "R-034",
+        "R-035"
+      ],
+      "files_written": [
+        "HRMS.sln",
+        "HRMS.Models/HRMS.Models.csproj",
+        "HRMS.Data/HRMS.Data.csproj",
+        "HRMS.Services/HRMS.Services.csproj",
+        "HRMS.Web/HRMS.Web.csproj",
+        "HRMS.UI/HRMS.UI.csproj",
+        "HRMS.Models/Entities/.gitkeep",
+        "HRMS.Models/DTOs/.gitkeep",
+        "HRMS.Data/Repositories/.gitkeep",
+        "HRMS.Data/Configurations/.gitkeep",
+        "HRMS.Services/Interfaces/.gitkeep",
+        "HRMS.Services/Implementations/.gitkeep",
+        "HRMS.Web/Jobs/.gitkeep",
+        "HRMS.UI/Controllers/.gitkeep",
+        "HRMS.UI/Views/.gitkeep",
+        "HRMS.UI/wwwroot/js/.gitkeep",
+        "HRMS.Data/ApplicationDbContext.cs",
+        "HRMS.UI/Program.cs",
+        "HRMS.Web/Program.cs",
+        "HRMS.UI/appsettings.json"
+      ]
+    },
+    {
+      "task_id": 72,
+      "task_name": "database_persistence_setup",
+      "task_order": 2,
+      "status": "completed",
+      "req_refs": [
+        "R-002",
+        "R-003",
+        "R-009",
+        "R-011",
+        "R-012",
+        "R-013",
+        "R-025",
+        "R-001"
+      ],
+      "files_written": [
+        "HRMS.Web/Program.cs",
+        "HRMS.Web/appsettings.json",
+        "HRMS.Data/Migrations/20231027120000_InitialCreate.cs",
+        "HRMS.Data/Migrations/ApplicationDbContextModelSnapshot.cs"
+      ]
+    },
+    {
+      "task_id": 73,
+      "task_name": "auth_implementation",
+      "task_order": 3,
+      "status": "completed",
+      "req_refs": [
+        "R-022",
+        "R-023",
+        "R-001",
+        "R-005",
+        "R-010",
+        "R-012",
+        "R-014",
+        "R-018",
+        "R-019",
+        "R-020"
+      ],
+      "files_written": [
+        "HRMS.UI/Controllers/EmployeesController.cs"
+      ]
+    },
+    {
+      "task_id": 74,
+      "task_name": "core_employee_dept_modules_crud",
+      "task_order": 4,
+      "status": "completed",
+      "req_refs": [
+        "R-004",
+        "R-005",
+        "R-007",
+        "R-009",
+        "R-010",
+        "R-018",
+        "R-019",
+        "R-020",
+        "R-021",
+        "R-027",
+        "R-028",
+        "R-001",
+        "R-002",
+        "R-011",
+        "R-012",
+        "R-014",
+        "R-015",
+        "R-016",
+        "R-022",
+        "R-023",
+        "R-024",
+        "R-032",
+        "R-034",
+        "R-035"
+      ],
+      "files_written": [
+        "HRMS.Models/Entities/Department.cs",
+        "HRMS.Models/DTOs/DepartmentRequest.cs",
+        "HRMS.Models/DTOs/DepartmentResponse.cs",
+        "HRMS.Services/Interfaces/IDepartmentService.cs",
+        "HRMS.Services/DepartmentService.cs",
+        "HRMS.UI/Controllers/DepartmentsController.cs",
+        "HRMS.UI/Views/Departments/Index.cshtml",
+        "HRMS.UI/wwwroot/js/departments.js",
+        "HRMS.Models/Entities/Employee.cs",
+        "HRMS.Models/DTOs/EmployeeRequest.cs",
+        "HRMS.Models/DTOs/EmployeeResponse.cs",
+        "HRMS.Services/Interfaces/IEmployeeService.cs",
+        "HRMS.Services/EmployeeService.cs",
+        "HRMS.Data/Configurations/EmployeeConfiguration.cs",
+        "HRMS.UI/Controllers/EmployeesController.cs",
+        "HRMS.UI/Views/Employees/Index.cshtml",
+        "HRMS.UI/wwwroot/js/employees.js"
+      ]
+    },
+    {
+      "task_id": 75,
+      "task_name": "attendance_leave_management_mvp",
+      "task_order": 5,
+      "status": "completed",
+      "req_refs": [
+        "R-004",
+        "R-005",
+        "R-007",
+        "R-008",
+        "R-010",
+        "R-018",
+        "R-019",
+        "R-020",
+        "R-021",
+        "R-029",
+        "R-001",
+        "R-002",
+        "R-003",
+        "R-009",
+        "R-011",
+        "R-012",
+        "R-014",
+        "R-015",
+        "R-016",
+        "R-022",
+        "R-023",
+        "R-024",
+        "R-025",
+        "R-032"
+      ],
+      "files_written": [
+        "HRMS.Models/Entities/Attendance.cs",
+        "HRMS.Data/Configurations/AttendanceConfiguration.cs",
+        "HRMS.Models/DTOs/AttendanceRequest.cs",
+        "HRMS.Models/DTOs/AttendanceResponse.cs",
+        "HRMS.Services/Interfaces/IAttendanceService.cs",
+        "HRMS.Services/AttendanceService.cs",
+        "HRMS.UI/Controllers/AttendanceController.cs",
+        "HRMS.UI/wwwroot/js/attendance.js",
+        "HRMS.UI/Views/Attendance/Index.cshtml",
+        "HRMS.Models/Entities/Leave.cs",
+        "HRMS.Data/Configurations/LeaveConfiguration.cs",
+        "HRMS.Models/DTOs/LeaveRequest.cs",
+        "HRMS.Models/DTOs/LeaveResponse.cs",
+        "HRMS.Services/Interfaces/ILeaveService.cs",
+        "HRMS.Services/LeaveService.cs",
+        "HRMS.UI/Controllers/LeaveController.cs",
+        "HRMS.UI/wwwroot/js/leaves.js",
+        "HRMS.UI/Views/Leave/Index.cshtml",
+        "task_75_result.json"
+      ]
+    },
+    {
+      "task_id": 76,
+      "task_name": "payroll_processing_engine",
+      "task_order": 6,
+      "status": "completed",
+      "req_refs": [
+        "R-001",
+        "R-005",
+        "R-007",
+        "R-008",
+        "R-009",
+        "R-010",
+        "R-011",
+        "R-012",
+        "R-013",
+        "R-014",
+        "R-015",
+        "R-016",
+        "R-018",
+        "R-019",
+        "R-030",
+        "R-032",
+        "R-020",
+        "R-021"
+      ],
+      "files_written": []
+    },
+    {
+      "task_id": 77,
+      "task_name": "background_jobs_infrastructure",
+      "task_order": 7,
+      "status": "completed",
+      "req_refs": [
+        "R-009",
+        "R-017",
+        "R-001",
+        "R-031"
+      ],
+      "files_written": [
+        "HRMS.Web/HRMS.Web.csproj",
+        "HRMS.Web/Jobs/AttendanceProcessingJob.cs",
+        "HRMS.Web/Program.cs"
+      ]
+    },
+    {
+      "task_id": 78,
+      "task_name": "designation_holiday_audit_modules",
+      "task_order": 8,
+      "status": "completed",
+      "req_refs": [
+        "R-001",
+        "R-004",
+        "R-005",
+        "R-007",
+        "R-008",
+        "R-009",
+        "R-010",
+        "R-011",
+        "R-012",
+        "R-013",
+        "R-014",
+        "R-015",
+        "R-016",
+        "R-018",
+        "R-019",
+        "R-020",
+        "R-021",
+        "R-025",
+        "R-032",
+        "R-034",
+        "R-035",
+        "R-023",
+        "R-024"
+      ],
+      "files_written": [
+        "HRMS.Models/Entities/Designation.cs",
+        "HRMS.Models/Entities/Holiday.cs",
+        "HRMS.Models/Entities/AuditLog.cs",
+        "HRMS.Models/DTOs/DesignationRequest.cs",
+        "HRMS.Models/DTOs/DesignationResponse.cs",
+        "HRMS.Models/DTOs/HolidayRequest.cs",
+        "HRMS.Models/DTOs/HolidayResponse.cs",
+        "HRMS.Models/DTOs/AuditLogResponse.cs",
+        "HRMS.Data/Configurations/DesignationConfiguration.cs",
+        "HRMS.Data/Configurations/HolidayConfiguration.cs",
+        "HRMS.Data/Configurations/AuditLogConfiguration.cs",
+        "HRMS.Data/ApplicationDbContext.cs",
+        "HRMS.UI/Controllers/DesignationsController.cs",
+        "HRMS.UI/Controllers/HolidaysController.cs",
+        "HRMS.UI/Controllers/AuditController.cs",
+        "HRMS.UI/Program.cs",
+        "HRMS.UI/Views/Shared/_Layout.cshtml",
+        "HRMS.Services/Interfaces/IDesignationService.cs",
+        "HRMS.Services/Interfaces/IHolidayService.cs",
+        "HRMS.Services/Interfaces/IAuditService.cs",
+        "HRMS.Services/DesignationService.cs",
+        "HRMS.Services/HolidayService.cs",
+        "HRMS.Services/AuditService.cs",
+        "HRMS.UI/wwwroot/js/designations.js",
+        "HRMS.UI/wwwroot/js/holidays.js",
+        "HRMS.UI/wwwroot/js/audit.js",
+        "HRMS.UI/Views/Designations/Index.cshtml",
+        "HRMS.UI/Views/Holidays/Index.cshtml",
+        "HRMS.UI/Views/Audit/Index.cshtml"
+      ]
+    },
+    {
+      "task_id": 79,
+      "task_name": "advanced_filtering_export",
+      "task_order": 9,
+      "status": "completed",
+      "req_refs": [
+        "R-007",
+        "R-021",
+        "R-004",
+        "R-005",
+        "R-010",
+        "R-014",
+        "R-015",
+        "R-018",
+        "R-019",
+        "R-020"
+      ],
+      "files_written": [
+        "C:/DARTS-development-environment/sandbox/rmanoj/HRMS/HRMS.Models/DTOs/SearchRequest.cs",
+        "C:/DARTS-development-environment/sandbox/rmanoj/HRMS/HRMS.UI/Controllers/EmployeesController.cs",
+        "C:/DARTS-development-environment/sandbox/rmanoj/HRMS/HRMS.UI/Controllers/DepartmentsController.cs",
+        "C:/DARTS-development-environment/sandbox/rmanoj/HRMS/HRMS.UI/Controllers/DesignationsController.cs",
+        "C:/DARTS-development-environment/sandbox/rmanoj/HRMS/HRMS.UI/Views/Shared/_Layout.cshtml",
+        "C:/DARTS-development-environment/sandbox/rmanoj/HRMS/HRMS.UI/wwwroot/js/employees.js",
+        "C:/DARTS-development-environment/sandbox/rmanoj/HRMS/HRMS.UI/wwwroot/js/departments.js",
+        "C:/DARTS-development-environment/sandbox/rmanoj/HRMS/HRMS.UI/wwwroot/js/designations.js",
+        "C:/DARTS-development-environment/sandbox/rmanoj/HRMS/HRMS.UI/Views/Employees/Index.cshtml",
+        "C:/DARTS-development-environment/sandbox/rmanoj/HRMS/HRMS.UI/Views/Departments/Index.cshtml",
+        "C:/DARTS-development-environment/sandbox/rmanoj/HRMS/HRMS.UI/Views/Designations/Index.cshtml"
+      ]
+    },
+    {
+      "task_id": 80,
+      "task_name": "dashboard_metrics_ui",
+      "task_order": 10,
+      "status": "completed",
+      "req_refs": [
+        "R-005",
+        "R-018",
+        "R-019",
+        "R-031",
+        "R-004",
+        "R-008",
+        "R-010",
+        "R-015",
+        "R-020"
+      ],
+      "files_written": [
+        "HRMS.Models/DTOs/DashboardStatsResponse.cs",
+        "HRMS.UI/Controllers/HomeController.cs",
+        "HRMS.UI/wwwroot/js/dashboard.js",
+        "HRMS.UI/Views/Home/Index.cshtml"
+      ]
+    },
+    {
+      "task_id": 81,
+      "task_name": "notifications_settings_module",
+      "task_order": 11,
+      "status": "completed",
+      "req_refs": [
+        "R-031",
+        "R-001",
+        "R-004",
+        "R-005",
+        "R-008",
+        "R-009",
+        "R-010",
+        "R-011",
+        "R-012",
+        "R-014",
+        "R-015",
+        "R-018",
+        "R-019",
+        "R-020",
+        "R-032",
+        "R-034",
+        "R-035"
+      ],
+      "files_written": [
+        "HRMS.Models/Entities/Notification.cs",
+        "HRMS.Models/Entities/SystemSetting.cs",
+        "HRMS.Models/DTOs/NotificationResponse.cs",
+        "HRMS.Models/DTOs/SettingRequest.cs",
+        "HRMS.Data/Configurations/NotificationConfiguration.cs",
+        "HRMS.Data/Configurations/SystemSettingConfiguration.cs",
+        "HRMS.Data/ApplicationDbContext.cs",
+        "HRMS.UI/Controllers/NotificationsController.cs",
+        "HRMS.UI/Controllers/SettingsController.cs",
+        "HRMS.UI/Program.cs",
+        "HRMS.Services/Interfaces/INotificationService.cs",
+        "HRMS.Services/Interfaces/ISettingService.cs",
+        "HRMS.Services/NotificationService.cs",
+        "HRMS.Services/SettingService.cs",
+        "HRMS.UI/Views/Shared/_Layout.cshtml",
+        "HRMS.UI/wwwroot/js/notifications.js",
+        "HRMS.UI/wwwroot/js/settings.js",
+        "HRMS.UI/Views/Settings/Index.cshtml"
+      ]
+    },
+    {
+      "task_id": 82,
+      "task_name": "project_documentation_readme",
+      "task_order": 12,
+      "status": "completed",
+      "req_refs": [
+        "R-033",
+        "R-019",
+        "R-025"
+      ],
+      "files_written": [
+        "README.md"
+      ]
+    },
+    {
+      "task_id": 83,
+      "task_name": "Task 13",
+      "task_order": 13,
+      "status": "completed",
+      "req_refs": [
+        "R-003",
+        "R-013",
+        "R-025",
+        "R-011",
+        "R-012"
+      ],
+      "files_written": [
+        "HRMS.UI/Program.cs",
+        "HRMS.UI/appsettings.json",
+        "HRMS.Web/appsettings.json"
+      ]
+    },
+    {
+      "task_id": 84,
+      "task_name": "Task 14",
+      "task_order": 14,
+      "status": "completed",
+      "req_refs": [
+        "R-003",
+        "R-025",
+        "R-001",
+        "R-002",
+        "R-009",
+        "R-012",
+        "R-013"
+      ],
+      "files_written": [
+        "HRMS.UI/Program.cs",
+        "HRMS.Web/Program.cs"
+      ]
+    },
+    {
+      "task_id": 85,
+      "task_name": "Task 15",
+      "task_order": 15,
+      "status": "completed",
+      "req_refs": [
+        "R-001",
+        "R-003",
+        "R-009",
+        "R-011",
+        "R-012",
+        "R-013",
+        "R-025",
+        "R-016",
+        "R-018"
+      ],
+      "files_written": [
+        "HRMS.Data/HRMS.Data.csproj",
+        "HRMS.Data/Implementations/DatabaseInitializer.cs"
+      ]
+    },
+    {
+      "task_id": 86,
+      "task_name": "Task 16",
+      "task_order": 16,
+      "status": "completed",
+      "req_refs": [
+        "R-012",
+        "R-013",
+        "R-022",
+        "R-025",
+        "R-002",
+        "R-003",
+        "R-011",
+        "R-018",
+        "R-027"
+      ],
+      "files_written": [
+        "HRMS.Data/HRMS.Data.csproj",
+        "HRMS.UI/Program.cs",
+        "HRMS.UI/Controllers/AccountController.cs"
+      ]
+    },
+    {
+      "task_id": 87,
+      "task_name": "Task 17",
+      "task_order": 17,
+      "status": "completed",
+      "req_refs": [
+        "R-003",
+        "R-012",
+        "R-013",
+        "R-002",
+        "R-011",
+        "R-025"
+      ],
+      "files_written": [
+        "HRMS.UI/Program.cs",
+        "HRMS.Web/Program.cs",
+        "HRMS.UI/appsettings.json",
+        "HRMS.Web/appsettings.json",
+        "HRMS.Data/HRMS.Data.csproj",
+        "HRMS.UI/HRMS.UI.csproj",
+        "HRMS.Web/HRMS.Web.csproj"
+      ]
+    },
+    {
+      "task_id": 88,
+      "task_name": "Task 18",
+      "task_order": 18,
+      "status": "completed",
+      "req_refs": [
+        "R-001",
+        "R-003",
+        "R-012",
+        "R-025",
+        "R-011",
+        "R-013",
+        "R-022",
+        "R-027"
+      ],
+      "files_written": [
+        "HRMS.Data/Configurations/EmployeeConfiguration.cs",
+        "HRMS.Data/Configurations/RoleConfiguration.cs",
+        "HRMS.Data/Implementations/DatabaseInitializer.cs"
+      ]
+    },
+    {
+      "task_id": 89,
+      "task_name": "Task 19",
+      "task_order": 19,
+      "status": "completed",
+      "req_refs": [
+        "R-002",
+        "R-011",
+        "R-012",
+        "R-025",
+        "R-003",
+        "R-009",
+        "R-013"
+      ],
+      "files_written": [
+        "HRMS.UI/Program.cs",
+        "HRMS.UI/appsettings.json",
+        "HRMS.Web/appsettings.json",
+        "HRMS.Data/Implementations/DatabaseInitializer.cs"
+      ]
+    },
+    {
+      "task_id": 90,
+      "task_name": "Task 20",
+      "task_order": 20,
+      "status": "completed",
+      "req_refs": [
+        "R-013",
+        "R-025",
+        "R-004",
+        "R-005",
+        "R-018",
+        "R-019",
+        "R-022"
+      ],
+      "files_written": [
+        "HRMS.Models/DTOs/RegisterRequest.cs",
+        "HRMS.UI/Controllers/AccountController.cs",
+        "HRMS.UI/Views/Account/Register.cshtml",
+        "HRMS.UI/Views/Account/Login.cshtml",
+        "HRMS.UI/wwwroot/js/auth.js"
+      ]
+    },
+    {
+      "task_id": 91,
+      "task_name": "Task 21",
+      "task_order": 21,
+      "status": "completed",
+      "req_refs": [
+        "R-015",
+        "R-022",
+        "R-010",
+        "R-012",
+        "R-016"
+      ],
+      "files_written": [
+        "HRMS.UI/Controllers/AccountController.cs"
+      ]
+    },
+    {
+      "task_id": 92,
+      "task_name": "Task 22",
+      "task_order": 22,
+      "status": "completed",
+      "req_refs": [
+        "R-001",
+        "R-002",
+        "R-005",
+        "R-010",
+        "R-015",
+        "R-016",
+        "R-018",
+        "R-019",
+        "R-022"
+      ],
+      "files_written": [
+        "HRMS.UI/Controllers/AccountController.cs"
+      ]
+    },
+    {
+      "task_id": 93,
+      "task_name": "Task 23",
+      "task_order": 23,
+      "status": "completed",
+      "req_refs": [
+        "R-004",
+        "R-005",
+        "R-019",
+        "R-020"
+      ],
+      "files_written": [
+        "HRMS.UI/Views/Account/Register.cshtml",
+        "HRMS.UI/wwwroot/js/auth.js"
+      ]
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 35,
+    "covered": 33,
+    "partial": 0,
+    "uncovered": 2,
+    "coverage_pct": 94,
+    "total_tasks": 23,
+    "tasks_completed": 23,
+    "tasks_failed": 0,
+    "files_written": 125
+  }
+}

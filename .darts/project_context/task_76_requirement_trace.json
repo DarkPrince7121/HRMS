@@ -1,0 +1,131 @@
+{
+  "task_id": 76,
+  "task_name": "HRMS",
+  "execution_path": "full_pipeline",
+  "complexity_tier": "medium",
+  "requirement_text": "Implement Payroll processing module. Includes salary configuration, payroll generation logic in Services, and calculation models.\n\nAcceptance Criteria:\n- Payroll entity and Service created.\n- Service method to calculate net pay.\n\nDependencies: Task attendance_leave_management_mvp",
+  "generated_at": "2026-07-27T06:33:36.730Z",
+  "requirements": [
+    {
+      "req_id": "R-001",
+      "text": "The system shall include a salary configuration and data model for payroll entities.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-002",
+      "text": "The system shall implement payroll generation logic within a dedicated service.",
+      "status": "covered",
+      "covered_by": [
+        "T-002"
+      ]
+    },
+    {
+      "req_id": "R-003",
+      "text": "The service shall include a method to calculate net pay by subtracting deductions from base salary.",
+      "status": "covered",
+      "covered_by": [
+        "T-002"
+      ]
+    },
+    {
+      "req_id": "R-004",
+      "text": "The system shall provide an API to generate and retrieve payroll records.",
+      "status": "covered",
+      "covered_by": [
+        "T-003"
+      ]
+    },
+    {
+      "req_id": "R-005",
+      "text": "The system shall include a user interface to trigger payroll generation and view payroll records.",
+      "status": "covered",
+      "covered_by": [
+        "T-004"
+      ]
+    },
+    {
+      "req_id": "R-006",
+      "text": "The payroll module shall depend on the attendance and leave management functionality.",
+      "status": "uncovered",
+      "covered_by": []
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "T-001",
+      "name": "Implement Payroll Data Models and Database Schema",
+      "status": "completed",
+      "req_refs": [
+        "R-001"
+      ],
+      "files_written": [],
+      "module": "Payroll Management",
+      "feature": "Payroll Processing",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    },
+    {
+      "task_id": "T-002",
+      "name": "Implement Payroll Service and Calculation Logic",
+      "status": "completed",
+      "req_refs": [
+        "R-002",
+        "R-003"
+      ],
+      "files_written": [],
+      "module": "Payroll Management",
+      "feature": "Payroll Processing",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    },
+    {
+      "task_id": "T-003",
+      "name": "Implement Payroll API Controller and DTOs",
+      "status": "completed",
+      "req_refs": [
+        "R-004"
+      ],
+      "files_written": [],
+      "module": "Payroll Management",
+      "feature": "Payroll Processing",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    },
+    {
+      "task_id": "T-004",
+      "name": "Implement Payroll UI with KnockoutJS",
+      "status": "completed",
+      "req_refs": [
+        "R-005"
+      ],
+      "files_written": [],
+      "module": "Payroll Management",
+      "feature": "Payroll Processing",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 6,
+    "covered": 5,
+    "partial": 0,
+    "uncovered": 1,
+    "coverage_pct": 83,
+    "total_tasks": 4,
+    "tasks_completed": 4,
+    "tasks_failed": 0,
+    "files_written": 0,
+    "validation_status": "passed"
+  }
+}

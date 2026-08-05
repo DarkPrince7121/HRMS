@@ -1,0 +1,206 @@
+{
+  "task_id": 81,
+  "task_name": "HRMS",
+  "execution_path": "planner_coder",
+  "complexity_tier": "medium",
+  "requirement_text": "Implement the Notifications and Settings module. Includes system-wide settings and user-specific notification alerts.\n\nAcceptance Criteria:\n- Notification entity and Service implemented.\n- UI notification bell or toast updates on new events.\n\nDependencies: Task background_jobs_infrastructure",
+  "generated_at": "2026-07-27T06:52:07.388Z",
+  "requirements": [
+    {
+      "req_id": "R-001",
+      "text": "Implement a system-wide settings module for managing global application configurations.",
+      "status": "covered",
+      "covered_by": [
+        "T-001",
+        "T-002",
+        "T-003",
+        "T-004"
+      ]
+    },
+    {
+      "req_id": "R-002",
+      "text": "Implement user-specific notification alerts and preferences.",
+      "status": "covered",
+      "covered_by": [
+        "T-001",
+        "T-003",
+        "T-004"
+      ]
+    },
+    {
+      "req_id": "R-003",
+      "text": "Develop the Notification database entity and associated backend service logic.",
+      "status": "covered",
+      "covered_by": [
+        "T-001",
+        "T-002"
+      ]
+    },
+    {
+      "req_id": "R-004",
+      "text": "Implement real-time UI updates for notification bells or toast messages triggered by new events.",
+      "status": "covered",
+      "covered_by": [
+        "T-003",
+        "T-004"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "T-001",
+      "name": "Backend — ALL models + ALL controllers + DbContext updates",
+      "status": "completed",
+      "req_refs": [
+        "R-001",
+        "R-002",
+        "R-003"
+      ],
+      "files_written": [
+        "HRMS.Models/Entities/Notification.cs",
+        "HRMS.Models/Entities/SystemSetting.cs",
+        "HRMS.Models/DTOs/NotificationResponse.cs",
+        "HRMS.Models/DTOs/SettingRequest.cs",
+        "HRMS.Data/Configurations/NotificationConfiguration.cs",
+        "HRMS.Data/Configurations/SystemSettingConfiguration.cs",
+        "HRMS.Data/ApplicationDbContext.cs",
+        "HRMS.UI/Controllers/NotificationsController.cs",
+        "HRMS.UI/Controllers/SettingsController.cs",
+        "HRMS.UI/Program.cs",
+        "HRMS.Services/Interfaces/INotificationService.cs",
+        "HRMS.Services/Interfaces/ISettingService.cs",
+        "HRMS.Services/NotificationService.cs",
+        "HRMS.Services/SettingService.cs",
+        "HRMS.UI/Views/Shared/_Layout.cshtml",
+        "HRMS.UI/wwwroot/js/notifications.js",
+        "HRMS.UI/wwwroot/js/settings.js",
+        "HRMS.UI/Views/Settings/Index.cshtml"
+      ],
+      "module": "PlannerCoder",
+      "feature": "Implement the Notifications and Settings module. Includes...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    },
+    {
+      "task_id": "T-002",
+      "name": "Entry points — Program.cs registration",
+      "status": "completed",
+      "req_refs": [
+        "R-001",
+        "R-003"
+      ],
+      "files_written": [
+        "HRMS.Models/Entities/Notification.cs",
+        "HRMS.Models/Entities/SystemSetting.cs",
+        "HRMS.Models/DTOs/NotificationResponse.cs",
+        "HRMS.Models/DTOs/SettingRequest.cs",
+        "HRMS.Data/Configurations/NotificationConfiguration.cs",
+        "HRMS.Data/Configurations/SystemSettingConfiguration.cs",
+        "HRMS.Data/ApplicationDbContext.cs",
+        "HRMS.UI/Controllers/NotificationsController.cs",
+        "HRMS.UI/Controllers/SettingsController.cs",
+        "HRMS.UI/Program.cs",
+        "HRMS.Services/Interfaces/INotificationService.cs",
+        "HRMS.Services/Interfaces/ISettingService.cs",
+        "HRMS.Services/NotificationService.cs",
+        "HRMS.Services/SettingService.cs",
+        "HRMS.UI/Views/Shared/_Layout.cshtml",
+        "HRMS.UI/wwwroot/js/notifications.js",
+        "HRMS.UI/wwwroot/js/settings.js",
+        "HRMS.UI/Views/Settings/Index.cshtml"
+      ],
+      "module": "PlannerCoder",
+      "feature": "Implement the Notifications and Settings module. Includes...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    },
+    {
+      "task_id": "T-003",
+      "name": "Frontend services — ALL API service files",
+      "status": "completed",
+      "req_refs": [
+        "R-001",
+        "R-002",
+        "R-004"
+      ],
+      "files_written": [
+        "HRMS.Models/Entities/Notification.cs",
+        "HRMS.Models/Entities/SystemSetting.cs",
+        "HRMS.Models/DTOs/NotificationResponse.cs",
+        "HRMS.Models/DTOs/SettingRequest.cs",
+        "HRMS.Data/Configurations/NotificationConfiguration.cs",
+        "HRMS.Data/Configurations/SystemSettingConfiguration.cs",
+        "HRMS.Data/ApplicationDbContext.cs",
+        "HRMS.UI/Controllers/NotificationsController.cs",
+        "HRMS.UI/Controllers/SettingsController.cs",
+        "HRMS.UI/Program.cs",
+        "HRMS.Services/Interfaces/INotificationService.cs",
+        "HRMS.Services/Interfaces/ISettingService.cs",
+        "HRMS.Services/NotificationService.cs",
+        "HRMS.Services/SettingService.cs",
+        "HRMS.UI/Views/Shared/_Layout.cshtml",
+        "HRMS.UI/wwwroot/js/notifications.js",
+        "HRMS.UI/wwwroot/js/settings.js",
+        "HRMS.UI/Views/Settings/Index.cshtml"
+      ],
+      "module": "PlannerCoder",
+      "feature": "Implement the Notifications and Settings module. Includes...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    },
+    {
+      "task_id": "T-004",
+      "name": "Frontend UI — ALL components + CSS + App.tsx/router updates",
+      "status": "completed",
+      "req_refs": [
+        "R-001",
+        "R-002",
+        "R-004"
+      ],
+      "files_written": [
+        "HRMS.Models/Entities/Notification.cs",
+        "HRMS.Models/Entities/SystemSetting.cs",
+        "HRMS.Models/DTOs/NotificationResponse.cs",
+        "HRMS.Models/DTOs/SettingRequest.cs",
+        "HRMS.Data/Configurations/NotificationConfiguration.cs",
+        "HRMS.Data/Configurations/SystemSettingConfiguration.cs",
+        "HRMS.Data/ApplicationDbContext.cs",
+        "HRMS.UI/Controllers/NotificationsController.cs",
+        "HRMS.UI/Controllers/SettingsController.cs",
+        "HRMS.UI/Program.cs",
+        "HRMS.Services/Interfaces/INotificationService.cs",
+        "HRMS.Services/Interfaces/ISettingService.cs",
+        "HRMS.Services/NotificationService.cs",
+        "HRMS.Services/SettingService.cs",
+        "HRMS.UI/Views/Shared/_Layout.cshtml",
+        "HRMS.UI/wwwroot/js/notifications.js",
+        "HRMS.UI/wwwroot/js/settings.js",
+        "HRMS.UI/Views/Settings/Index.cshtml"
+      ],
+      "module": "PlannerCoder",
+      "feature": "Implement the Notifications and Settings module. Includes...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 4,
+    "covered": 4,
+    "partial": 0,
+    "uncovered": 0,
+    "coverage_pct": 100,
+    "total_tasks": 4,
+    "tasks_completed": 4,
+    "tasks_failed": 0,
+    "files_written": 18,
+    "validation_status": "passed"
+  }
+}

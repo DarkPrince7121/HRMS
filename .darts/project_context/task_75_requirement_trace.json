@@ -1,0 +1,243 @@
+{
+  "task_id": 75,
+  "task_name": "HRMS",
+  "execution_path": "full_pipeline",
+  "complexity_tier": "medium",
+  "requirement_text": "Develop Attendance and Leave management modules following the established service/view/viewModel pattern. Includes tracking, status updates, and reporting.\n\nAcceptance Criteria:\n- Attendance and Leave entities created.\n- AJAX-based submission for leave requests and attendance marking.\n\nDependencies: Task core_employee_dept_modules_crud",
+  "generated_at": "2026-07-27T06:25:43.617Z",
+  "requirements": [
+    {
+      "req_id": "R-001",
+      "text": "Develop the Attendance management module following the service, view, and viewModel patterns.",
+      "status": "covered",
+      "covered_by": [
+        "T-001",
+        "T-002"
+      ]
+    },
+    {
+      "req_id": "R-002",
+      "text": "Develop the Leave management module following the service, view, and viewModel patterns.",
+      "status": "covered",
+      "covered_by": [
+        "T-003",
+        "T-004"
+      ]
+    },
+    {
+      "req_id": "R-003",
+      "text": "Implement tracking and status updates for attendance records.",
+      "status": "covered",
+      "covered_by": [
+        "T-001",
+        "T-002"
+      ]
+    },
+    {
+      "req_id": "R-004",
+      "text": "Implement tracking and status updates for leave requests.",
+      "status": "covered",
+      "covered_by": [
+        "T-003",
+        "T-004"
+      ]
+    },
+    {
+      "req_id": "R-005",
+      "text": "Create database entities for Attendance and Leave in the PostgreSQL database.",
+      "status": "covered",
+      "covered_by": [
+        "T-001",
+        "T-003"
+      ]
+    },
+    {
+      "req_id": "R-006",
+      "text": "Implement AJAX-based submission for marking attendance and requesting leave.",
+      "status": "covered",
+      "covered_by": [
+        "T-001",
+        "T-002",
+        "T-003",
+        "T-004"
+      ]
+    },
+    {
+      "req_id": "R-007",
+      "text": "Provide reporting and display of records via UI tables and navigation menus.",
+      "status": "covered",
+      "covered_by": [
+        "T-001",
+        "T-002",
+        "T-004"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "T-001",
+      "name": "Implement Attendance Tracking — Data, Service, and API",
+      "status": "completed",
+      "req_refs": [
+        "R-001",
+        "R-003",
+        "R-005",
+        "R-006",
+        "R-007"
+      ],
+      "files_written": [
+        "HRMS.Models/Entities/Attendance.cs",
+        "HRMS.Data/Configurations/AttendanceConfiguration.cs",
+        "HRMS.Models/DTOs/AttendanceRequest.cs",
+        "HRMS.Models/DTOs/AttendanceResponse.cs",
+        "HRMS.Services/Interfaces/IAttendanceService.cs",
+        "HRMS.Services/AttendanceService.cs",
+        "HRMS.UI/Controllers/AttendanceController.cs",
+        "HRMS.UI/wwwroot/js/attendance.js",
+        "HRMS.UI/Views/Attendance/Index.cshtml",
+        "HRMS.Models/Entities/Leave.cs",
+        "HRMS.Data/Configurations/LeaveConfiguration.cs",
+        "HRMS.Models/DTOs/LeaveRequest.cs",
+        "HRMS.Models/DTOs/LeaveResponse.cs",
+        "HRMS.Services/Interfaces/ILeaveService.cs",
+        "HRMS.Services/LeaveService.cs",
+        "HRMS.UI/Controllers/LeaveController.cs",
+        "HRMS.UI/wwwroot/js/leaves.js",
+        "HRMS.UI/Views/Leave/Index.cshtml",
+        "task_75_result.json"
+      ],
+      "module": "Attendance Management",
+      "feature": "Attendance Tracking",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    },
+    {
+      "task_id": "T-002",
+      "name": "Implement Attendance Tracking — UI and ViewModel",
+      "status": "completed",
+      "req_refs": [
+        "R-001",
+        "R-003",
+        "R-006",
+        "R-007"
+      ],
+      "files_written": [
+        "HRMS.Models/Entities/Attendance.cs",
+        "HRMS.Data/Configurations/AttendanceConfiguration.cs",
+        "HRMS.Models/DTOs/AttendanceRequest.cs",
+        "HRMS.Models/DTOs/AttendanceResponse.cs",
+        "HRMS.Services/Interfaces/IAttendanceService.cs",
+        "HRMS.Services/AttendanceService.cs",
+        "HRMS.UI/Controllers/AttendanceController.cs",
+        "HRMS.UI/wwwroot/js/attendance.js",
+        "HRMS.UI/Views/Attendance/Index.cshtml",
+        "HRMS.Models/Entities/Leave.cs",
+        "HRMS.Data/Configurations/LeaveConfiguration.cs",
+        "HRMS.Models/DTOs/LeaveRequest.cs",
+        "HRMS.Models/DTOs/LeaveResponse.cs",
+        "HRMS.Services/Interfaces/ILeaveService.cs",
+        "HRMS.Services/LeaveService.cs",
+        "HRMS.UI/Controllers/LeaveController.cs",
+        "HRMS.UI/wwwroot/js/leaves.js",
+        "HRMS.UI/Views/Leave/Index.cshtml",
+        "task_75_result.json"
+      ],
+      "module": "Attendance Management",
+      "feature": "Attendance Tracking",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    },
+    {
+      "task_id": "T-003",
+      "name": "Implement Leave Management — Data, Service, and API",
+      "status": "completed",
+      "req_refs": [
+        "R-002",
+        "R-004",
+        "R-005",
+        "R-006"
+      ],
+      "files_written": [
+        "HRMS.Models/Entities/Attendance.cs",
+        "HRMS.Data/Configurations/AttendanceConfiguration.cs",
+        "HRMS.Models/DTOs/AttendanceRequest.cs",
+        "HRMS.Models/DTOs/AttendanceResponse.cs",
+        "HRMS.Services/Interfaces/IAttendanceService.cs",
+        "HRMS.Services/AttendanceService.cs",
+        "HRMS.UI/Controllers/AttendanceController.cs",
+        "HRMS.UI/wwwroot/js/attendance.js",
+        "HRMS.UI/Views/Attendance/Index.cshtml",
+        "HRMS.Models/Entities/Leave.cs",
+        "HRMS.Data/Configurations/LeaveConfiguration.cs",
+        "HRMS.Models/DTOs/LeaveRequest.cs",
+        "HRMS.Models/DTOs/LeaveResponse.cs",
+        "HRMS.Services/Interfaces/ILeaveService.cs",
+        "HRMS.Services/LeaveService.cs",
+        "HRMS.UI/Controllers/LeaveController.cs",
+        "HRMS.UI/wwwroot/js/leaves.js",
+        "HRMS.UI/Views/Leave/Index.cshtml",
+        "task_75_result.json"
+      ],
+      "module": "Leave Management",
+      "feature": "Leave Requests",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    },
+    {
+      "task_id": "T-004",
+      "name": "Implement Leave Management — UI and ViewModel",
+      "status": "completed",
+      "req_refs": [
+        "R-002",
+        "R-004",
+        "R-006",
+        "R-007"
+      ],
+      "files_written": [
+        "HRMS.Models/Entities/Attendance.cs",
+        "HRMS.Data/Configurations/AttendanceConfiguration.cs",
+        "HRMS.Models/DTOs/AttendanceRequest.cs",
+        "HRMS.Models/DTOs/AttendanceResponse.cs",
+        "HRMS.Services/Interfaces/IAttendanceService.cs",
+        "HRMS.Services/AttendanceService.cs",
+        "HRMS.UI/Controllers/AttendanceController.cs",
+        "HRMS.UI/wwwroot/js/attendance.js",
+        "HRMS.UI/Views/Attendance/Index.cshtml",
+        "HRMS.Models/Entities/Leave.cs",
+        "HRMS.Data/Configurations/LeaveConfiguration.cs",
+        "HRMS.Models/DTOs/LeaveRequest.cs",
+        "HRMS.Models/DTOs/LeaveResponse.cs",
+        "HRMS.Services/Interfaces/ILeaveService.cs",
+        "HRMS.Services/LeaveService.cs",
+        "HRMS.UI/Controllers/LeaveController.cs",
+        "HRMS.UI/wwwroot/js/leaves.js",
+        "HRMS.UI/Views/Leave/Index.cshtml",
+        "task_75_result.json"
+      ],
+      "module": "Leave Management",
+      "feature": "Leave Requests",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 7,
+    "covered": 7,
+    "partial": 0,
+    "uncovered": 0,
+    "coverage_pct": 100,
+    "total_tasks": 4,
+    "tasks_completed": 4,
+    "tasks_failed": 0,
+    "files_written": 19,
+    "validation_status": "passed"
+  }
+}

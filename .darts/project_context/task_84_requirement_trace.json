@@ -1,0 +1,86 @@
+{
+  "task_id": 84,
+  "task_name": "HRMS",
+  "execution_path": "planner_coder",
+  "complexity_tier": "simple",
+  "requirement_text": "For the given Database ConnectionString in the appsettings.json file, on application startup itself try to connect to the database, and if there is no database and tables exists for the given connectionstring then create it first and apply the initial migration and create _MigrationHistory table that will contains the list of migrations applied to it.",
+  "generated_at": "2026-07-30T17:40:49.073Z",
+  "requirements": [
+    {
+      "req_id": "R-001",
+      "text": "The application must retrieve the database connection string from the appsettings.json file.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-002",
+      "text": "The application must attempt to connect to the database automatically during the application startup process.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-003",
+      "text": "The application must create the database and required tables if they do not exist for the specified connection string.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-004",
+      "text": "The application must apply the initial migration to the database upon successful connection or creation.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-005",
+      "text": "The application must create a metadata table to track the history of applied migrations.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "T-001",
+      "name": "Update Entry Points with Migration Logic",
+      "status": "completed",
+      "req_refs": [
+        "R-001",
+        "R-002",
+        "R-003",
+        "R-004",
+        "R-005"
+      ],
+      "files_written": [
+        "HRMS.UI/Program.cs",
+        "HRMS.Web/Program.cs"
+      ],
+      "module": "PlannerCoder",
+      "feature": "For the given Database ConnectionString in the appsetting...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 5,
+    "covered": 5,
+    "partial": 0,
+    "uncovered": 0,
+    "coverage_pct": 100,
+    "total_tasks": 1,
+    "tasks_completed": 1,
+    "tasks_failed": 0,
+    "files_written": 2,
+    "validation_status": "passed"
+  }
+}

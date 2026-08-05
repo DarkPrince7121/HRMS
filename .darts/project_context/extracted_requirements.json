@@ -1,0 +1,145 @@
+{
+  "hash": "e51cde43e27de7fd7acd5ade78a43001",
+  "requirements": [
+    {
+      "req_id": "R-001",
+      "text": "The system shall be built using C# and .NET 6."
+    },
+    {
+      "req_id": "R-002",
+      "text": "The system shall use Entity Framework Core for data persistence."
+    },
+    {
+      "req_id": "R-003",
+      "text": "The database shall be SQL Server LocalDB."
+    },
+    {
+      "req_id": "R-004",
+      "text": "The frontend shall use Razor Views (.cshtml)."
+    },
+    {
+      "req_id": "R-005",
+      "text": "The frontend shall use Knockout.js for client-side view models and data binding."
+    },
+    {
+      "req_id": "R-006",
+      "text": "The frontend shall use jQuery."
+    },
+    {
+      "req_id": "R-007",
+      "text": "The system shall use DataTables for displaying list data."
+    },
+    {
+      "req_id": "R-008",
+      "text": "The UI framework shall be Bootstrap 5."
+    },
+    {
+      "req_id": "R-009",
+      "text": "The system shall use Dependency Injection."
+    },
+    {
+      "req_id": "R-010",
+      "text": "All CRUD operations must use AJAX to avoid full page refreshes."
+    },
+    {
+      "req_id": "R-011",
+      "text": "The solution must contain a project named HRMS.Data responsible only for persistence."
+    },
+    {
+      "req_id": "R-012",
+      "text": "The HRMS.Data project must contain the DbContext and EF Configurations."
+    },
+    {
+      "req_id": "R-013",
+      "text": "The HRMS.Data project must contain EF Core Migrations."
+    },
+    {
+      "req_id": "R-014",
+      "text": "The solution must contain a project for shared models containing Entities, DTOs, and ViewModels."
+    },
+    {
+      "req_id": "R-015",
+      "text": "The solution must contain an application business layer project for logic, validation, and CRUD."
+    },
+    {
+      "req_id": "R-016",
+      "text": "The business layer project must communicate with HRMS.Data."
+    },
+    {
+      "req_id": "R-017",
+      "text": "The solution must contain a Web project responsible for background processing using Quartz Jobs."
+    },
+    {
+      "req_id": "R-018",
+      "text": "The solution must contain a web application project containing Controllers and Razor Views."
+    },
+    {
+      "req_id": "R-019",
+      "text": "The UI must follow a pattern where every page consists of a Controller, a .cshtml view, and a ViewModel.js."
+    },
+    {
+      "req_id": "R-020",
+      "text": "Knockout ViewModels must expose load, save, update, delete, search, reset, refresh, export, import, and validate methods."
+    },
+    {
+      "req_id": "R-021",
+      "text": "DataTables must support sorting, paging, searching, and filtering."
+    },
+    {
+      "req_id": "R-022",
+      "text": "The system must implement role-based authentication."
+    },
+    {
+      "req_id": "R-023",
+      "text": "Controllers must validate permissions before rendering pages."
+    },
+    {
+      "req_id": "R-024",
+      "text": "Services must validate permissions for sensitive operations."
+    },
+    {
+      "req_id": "R-025",
+      "text": "Database schema management must be handled through EF Migrations only."
+    },
+    {
+      "req_id": "R-026",
+      "text": "The system must include a Dashboard module."
+    },
+    {
+      "req_id": "R-027",
+      "text": "The system must include an Employee management module."
+    },
+    {
+      "req_id": "R-028",
+      "text": "The system must include a Department management module."
+    },
+    {
+      "req_id": "R-029",
+      "text": "The system must include an Attendance tracking module."
+    },
+    {
+      "req_id": "R-030",
+      "text": "The system must include a Payroll module."
+    },
+    {
+      "req_id": "R-031",
+      "text": "The system must include Audit Logs and Notification modules."
+    },
+    {
+      "req_id": "R-032",
+      "text": "Files must be organized into folders segregated by business domain."
+    },
+    {
+      "req_id": "R-033",
+      "text": "The project must include a README.md file at the root with setup and architecture documentation."
+    },
+    {
+      "req_id": "R-034",
+      "text": "The project shall exclude React, Angular, Vue, and Blazor frameworks."
+    },
+    {
+      "req_id": "R-035",
+      "text": "The project shall exclude MediatR, CQRS, and Clean/Onion Architecture patterns."
+    }
+  ]
+}

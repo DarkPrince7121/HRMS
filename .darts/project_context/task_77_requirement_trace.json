@@ -1,0 +1,89 @@
+{
+  "task_id": 77,
+  "task_name": "HRMS",
+  "execution_path": "planner_coder",
+  "complexity_tier": "medium",
+  "requirement_text": "Setup HRMS.Web for background processing using Quartz.NET. Include schedulers and hosted services for scheduled tasks like report generation or email notifications.\n\nAcceptance Criteria:\n- Quartz.NET configured in HRMS.Web.\n- Sample job created for attendance or notification processing.\n\nDependencies: Task solution_initialization",
+  "generated_at": "2026-07-27T06:38:03.638Z",
+  "requirements": [
+    {
+      "req_id": "R-001",
+      "text": "Configure the HRMS.Web project for background processing using the specified external library.",
+      "status": "covered",
+      "covered_by": [
+        "T-002"
+      ]
+    },
+    {
+      "req_id": "R-002",
+      "text": "Implement hosted services and schedulers to manage background tasks.",
+      "status": "covered",
+      "covered_by": [
+        "T-001",
+        "T-002"
+      ]
+    },
+    {
+      "req_id": "R-003",
+      "text": "Create a sample job for attendance or notification processing to verify the scheduler functionality.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "T-001",
+      "name": "Configure Quartz and Implement Sample Job",
+      "status": "completed",
+      "req_refs": [
+        "R-002",
+        "R-003"
+      ],
+      "files_written": [
+        "HRMS.Web/HRMS.Web.csproj",
+        "HRMS.Web/Jobs/AttendanceProcessingJob.cs",
+        "HRMS.Web/Program.cs"
+      ],
+      "module": "PlannerCoder",
+      "feature": "Setup HRMS.Web for background processing using Quartz.NET...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    },
+    {
+      "task_id": "T-002",
+      "name": "Register Quartz in Program.cs",
+      "status": "completed",
+      "req_refs": [
+        "R-001",
+        "R-002"
+      ],
+      "files_written": [
+        "HRMS.Web/HRMS.Web.csproj",
+        "HRMS.Web/Jobs/AttendanceProcessingJob.cs",
+        "HRMS.Web/Program.cs"
+      ],
+      "module": "PlannerCoder",
+      "feature": "Setup HRMS.Web for background processing using Quartz.NET...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 3,
+    "covered": 3,
+    "partial": 0,
+    "uncovered": 0,
+    "coverage_pct": 100,
+    "total_tasks": 2,
+    "tasks_completed": 2,
+    "tasks_failed": 0,
+    "files_written": 3,
+    "validation_status": "passed"
+  }
+}

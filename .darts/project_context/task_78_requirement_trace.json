@@ -1,0 +1,243 @@
+{
+  "task_id": 78,
+  "task_name": "HRMS",
+  "execution_path": "planner_coder",
+  "complexity_tier": "medium",
+  "requirement_text": "Implement auxiliary modules: Designation, Holiday Calendar, and Audit Logging to track system changes.\n\nAcceptance Criteria:\n- Designation and Holiday Calendar views functional.\n- Audit log table capturing entity changes.\n\nDependencies: Task core_employee_dept_modules_crud",
+  "generated_at": "2026-07-27T06:40:57.429Z",
+  "requirements": [
+    {
+      "req_id": "R-001",
+      "text": "Implement a functional Designation module with user interface views.",
+      "status": "covered",
+      "covered_by": [
+        "T-001",
+        "T-002",
+        "T-003",
+        "T-004"
+      ]
+    },
+    {
+      "req_id": "R-002",
+      "text": "Implement a functional Holiday Calendar module with user interface views.",
+      "status": "covered",
+      "covered_by": [
+        "T-001",
+        "T-002",
+        "T-003",
+        "T-004"
+      ]
+    },
+    {
+      "req_id": "R-003",
+      "text": "Implement an Audit Logging system to track and store entity changes in a database table.",
+      "status": "covered",
+      "covered_by": [
+        "T-001",
+        "T-003",
+        "T-004"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "T-001",
+      "name": "Backend — ALL models + ALL controllers + DbContext updates",
+      "status": "completed",
+      "req_refs": [
+        "R-001",
+        "R-002",
+        "R-003"
+      ],
+      "files_written": [
+        "HRMS.Models/Entities/Designation.cs",
+        "HRMS.Models/Entities/Holiday.cs",
+        "HRMS.Models/Entities/AuditLog.cs",
+        "HRMS.Models/DTOs/DesignationRequest.cs",
+        "HRMS.Models/DTOs/DesignationResponse.cs",
+        "HRMS.Models/DTOs/HolidayRequest.cs",
+        "HRMS.Models/DTOs/HolidayResponse.cs",
+        "HRMS.Models/DTOs/AuditLogResponse.cs",
+        "HRMS.Data/Configurations/DesignationConfiguration.cs",
+        "HRMS.Data/Configurations/HolidayConfiguration.cs",
+        "HRMS.Data/Configurations/AuditLogConfiguration.cs",
+        "HRMS.Data/ApplicationDbContext.cs",
+        "HRMS.UI/Controllers/DesignationsController.cs",
+        "HRMS.UI/Controllers/HolidaysController.cs",
+        "HRMS.UI/Controllers/AuditController.cs",
+        "HRMS.UI/Program.cs",
+        "HRMS.UI/Views/Shared/_Layout.cshtml",
+        "HRMS.Services/Interfaces/IDesignationService.cs",
+        "HRMS.Services/Interfaces/IHolidayService.cs",
+        "HRMS.Services/Interfaces/IAuditService.cs",
+        "HRMS.Services/DesignationService.cs",
+        "HRMS.Services/HolidayService.cs",
+        "HRMS.Services/AuditService.cs",
+        "HRMS.UI/wwwroot/js/designations.js",
+        "HRMS.UI/wwwroot/js/holidays.js",
+        "HRMS.UI/wwwroot/js/audit.js",
+        "HRMS.UI/Views/Designations/Index.cshtml",
+        "HRMS.UI/Views/Holidays/Index.cshtml",
+        "HRMS.UI/Views/Audit/Index.cshtml"
+      ],
+      "module": "PlannerCoder",
+      "feature": "Implement auxiliary modules: Designation, Holiday Calenda...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    },
+    {
+      "task_id": "T-002",
+      "name": "Entry points — Program.cs / Startup, Layout updates",
+      "status": "completed",
+      "req_refs": [
+        "R-001",
+        "R-002"
+      ],
+      "files_written": [
+        "HRMS.Models/Entities/Designation.cs",
+        "HRMS.Models/Entities/Holiday.cs",
+        "HRMS.Models/Entities/AuditLog.cs",
+        "HRMS.Models/DTOs/DesignationRequest.cs",
+        "HRMS.Models/DTOs/DesignationResponse.cs",
+        "HRMS.Models/DTOs/HolidayRequest.cs",
+        "HRMS.Models/DTOs/HolidayResponse.cs",
+        "HRMS.Models/DTOs/AuditLogResponse.cs",
+        "HRMS.Data/Configurations/DesignationConfiguration.cs",
+        "HRMS.Data/Configurations/HolidayConfiguration.cs",
+        "HRMS.Data/Configurations/AuditLogConfiguration.cs",
+        "HRMS.Data/ApplicationDbContext.cs",
+        "HRMS.UI/Controllers/DesignationsController.cs",
+        "HRMS.UI/Controllers/HolidaysController.cs",
+        "HRMS.UI/Controllers/AuditController.cs",
+        "HRMS.UI/Program.cs",
+        "HRMS.UI/Views/Shared/_Layout.cshtml",
+        "HRMS.Services/Interfaces/IDesignationService.cs",
+        "HRMS.Services/Interfaces/IHolidayService.cs",
+        "HRMS.Services/Interfaces/IAuditService.cs",
+        "HRMS.Services/DesignationService.cs",
+        "HRMS.Services/HolidayService.cs",
+        "HRMS.Services/AuditService.cs",
+        "HRMS.UI/wwwroot/js/designations.js",
+        "HRMS.UI/wwwroot/js/holidays.js",
+        "HRMS.UI/wwwroot/js/audit.js",
+        "HRMS.UI/Views/Designations/Index.cshtml",
+        "HRMS.UI/Views/Holidays/Index.cshtml",
+        "HRMS.UI/Views/Audit/Index.cshtml"
+      ],
+      "module": "PlannerCoder",
+      "feature": "Implement auxiliary modules: Designation, Holiday Calenda...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    },
+    {
+      "task_id": "T-003",
+      "name": "Frontend services — ALL API service files",
+      "status": "completed",
+      "req_refs": [
+        "R-001",
+        "R-002",
+        "R-003"
+      ],
+      "files_written": [
+        "HRMS.Models/Entities/Designation.cs",
+        "HRMS.Models/Entities/Holiday.cs",
+        "HRMS.Models/Entities/AuditLog.cs",
+        "HRMS.Models/DTOs/DesignationRequest.cs",
+        "HRMS.Models/DTOs/DesignationResponse.cs",
+        "HRMS.Models/DTOs/HolidayRequest.cs",
+        "HRMS.Models/DTOs/HolidayResponse.cs",
+        "HRMS.Models/DTOs/AuditLogResponse.cs",
+        "HRMS.Data/Configurations/DesignationConfiguration.cs",
+        "HRMS.Data/Configurations/HolidayConfiguration.cs",
+        "HRMS.Data/Configurations/AuditLogConfiguration.cs",
+        "HRMS.Data/ApplicationDbContext.cs",
+        "HRMS.UI/Controllers/DesignationsController.cs",
+        "HRMS.UI/Controllers/HolidaysController.cs",
+        "HRMS.UI/Controllers/AuditController.cs",
+        "HRMS.UI/Program.cs",
+        "HRMS.UI/Views/Shared/_Layout.cshtml",
+        "HRMS.Services/Interfaces/IDesignationService.cs",
+        "HRMS.Services/Interfaces/IHolidayService.cs",
+        "HRMS.Services/Interfaces/IAuditService.cs",
+        "HRMS.Services/DesignationService.cs",
+        "HRMS.Services/HolidayService.cs",
+        "HRMS.Services/AuditService.cs",
+        "HRMS.UI/wwwroot/js/designations.js",
+        "HRMS.UI/wwwroot/js/holidays.js",
+        "HRMS.UI/wwwroot/js/audit.js",
+        "HRMS.UI/Views/Designations/Index.cshtml",
+        "HRMS.UI/Views/Holidays/Index.cshtml",
+        "HRMS.UI/Views/Audit/Index.cshtml"
+      ],
+      "module": "PlannerCoder",
+      "feature": "Implement auxiliary modules: Designation, Holiday Calenda...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    },
+    {
+      "task_id": "T-004",
+      "name": "Frontend UI — ALL components + CSS + App.tsx/router updates",
+      "status": "completed",
+      "req_refs": [
+        "R-001",
+        "R-002",
+        "R-003"
+      ],
+      "files_written": [
+        "HRMS.Models/Entities/Designation.cs",
+        "HRMS.Models/Entities/Holiday.cs",
+        "HRMS.Models/Entities/AuditLog.cs",
+        "HRMS.Models/DTOs/DesignationRequest.cs",
+        "HRMS.Models/DTOs/DesignationResponse.cs",
+        "HRMS.Models/DTOs/HolidayRequest.cs",
+        "HRMS.Models/DTOs/HolidayResponse.cs",
+        "HRMS.Models/DTOs/AuditLogResponse.cs",
+        "HRMS.Data/Configurations/DesignationConfiguration.cs",
+        "HRMS.Data/Configurations/HolidayConfiguration.cs",
+        "HRMS.Data/Configurations/AuditLogConfiguration.cs",
+        "HRMS.Data/ApplicationDbContext.cs",
+        "HRMS.UI/Controllers/DesignationsController.cs",
+        "HRMS.UI/Controllers/HolidaysController.cs",
+        "HRMS.UI/Controllers/AuditController.cs",
+        "HRMS.UI/Program.cs",
+        "HRMS.UI/Views/Shared/_Layout.cshtml",
+        "HRMS.Services/Interfaces/IDesignationService.cs",
+        "HRMS.Services/Interfaces/IHolidayService.cs",
+        "HRMS.Services/Interfaces/IAuditService.cs",
+        "HRMS.Services/DesignationService.cs",
+        "HRMS.Services/HolidayService.cs",
+        "HRMS.Services/AuditService.cs",
+        "HRMS.UI/wwwroot/js/designations.js",
+        "HRMS.UI/wwwroot/js/holidays.js",
+        "HRMS.UI/wwwroot/js/audit.js",
+        "HRMS.UI/Views/Designations/Index.cshtml",
+        "HRMS.UI/Views/Holidays/Index.cshtml",
+        "HRMS.UI/Views/Audit/Index.cshtml"
+      ],
+      "module": "PlannerCoder",
+      "feature": "Implement auxiliary modules: Designation, Holiday Calenda...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 3,
+    "covered": 3,
+    "partial": 0,
+    "uncovered": 0,
+    "coverage_pct": 100,
+    "total_tasks": 4,
+    "tasks_completed": 4,
+    "tasks_failed": 0,
+    "files_written": 29,
+    "validation_status": "passed"
+  }
+}

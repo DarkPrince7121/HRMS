@@ -1,0 +1,91 @@
+{
+  "task_id": 90,
+  "task_name": "HRMS",
+  "execution_path": "planner_coder",
+  "complexity_tier": "simple",
+  "requirement_text": "In the Login Page, add link to register new user, and make changes accordingly.\nIf needed add migration and apply it",
+  "generated_at": "2026-08-05T06:27:01.431Z",
+  "requirements": [
+    {
+      "req_id": "R-001",
+      "text": "Add a link to the Login Page for registering a new user.",
+      "status": "covered",
+      "covered_by": [
+        "T-002"
+      ]
+    },
+    {
+      "req_id": "R-002",
+      "text": "Perform necessary backend changes to support new user registration.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-003",
+      "text": "Create and apply a database migration if required for the registration functionality.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "T-001",
+      "name": "Backend — Register DTO & Controller Updates",
+      "status": "completed",
+      "req_refs": [
+        "R-002",
+        "R-003"
+      ],
+      "files_written": [
+        "HRMS.Models/DTOs/RegisterRequest.cs",
+        "HRMS.UI/Controllers/AccountController.cs",
+        "HRMS.UI/Views/Account/Register.cshtml",
+        "HRMS.UI/Views/Account/Login.cshtml",
+        "HRMS.UI/wwwroot/js/auth.js"
+      ],
+      "module": "PlannerCoder",
+      "feature": "In the Login Page, add link to register new user, and mak...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    },
+    {
+      "task_id": "T-002",
+      "name": "Frontend — Register View & UI Updates",
+      "status": "completed",
+      "req_refs": [
+        "R-001"
+      ],
+      "files_written": [
+        "HRMS.Models/DTOs/RegisterRequest.cs",
+        "HRMS.UI/Controllers/AccountController.cs",
+        "HRMS.UI/Views/Account/Register.cshtml",
+        "HRMS.UI/Views/Account/Login.cshtml",
+        "HRMS.UI/wwwroot/js/auth.js"
+      ],
+      "module": "PlannerCoder",
+      "feature": "In the Login Page, add link to register new user, and mak...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 3,
+    "covered": 3,
+    "partial": 0,
+    "uncovered": 0,
+    "coverage_pct": 100,
+    "total_tasks": 2,
+    "tasks_completed": 2,
+    "tasks_failed": 0,
+    "files_written": 5,
+    "validation_status": "passed"
+  }
+}

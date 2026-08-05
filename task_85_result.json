@@ -1,0 +1,20 @@
+{
+  "status": "success",
+  "files_processed": {
+    "created": [
+      "HRMS.Data/Interfaces/IDatabaseInitializer.cs",
+      "HRMS.Data/Implementations/DatabaseInitializer.cs",
+      "HRMS.Data/Interfaces/IDataSeeder.cs",
+      "HRMS.Data/Implementations/DataSeeder.cs"
+    ],
+    "modified": [
+      "HRMS.UI/Program.cs"
+    ],
+    "failed": []
+  },
+  "verification": {
+    "commands_run": [],
+    "wiring": "passed"
+  },
+  "blockers": []
+}

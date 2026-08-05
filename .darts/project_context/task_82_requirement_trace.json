@@ -1,0 +1,88 @@
+{
+  "task_id": 82,
+  "task_name": "HRMS",
+  "execution_path": "planner_coder",
+  "complexity_tier": "simple",
+  "requirement_text": "Generate comprehensive project documentation (README.md) covering installation, architecture, and the mandatory AI development workflow.\n\nAcceptance Criteria:\n- README.md exists with all sections: Overview, Prerequisites, Setup, Database, Workflow, Standards, Troubleshooting.\n\nDependencies: Task solution_initialization",
+  "generated_at": "2026-07-27T09:44:49.164Z",
+  "requirements": [
+    {
+      "req_id": "R-001",
+      "text": "Generate comprehensive project documentation at the specified URL covering installation and architecture.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-002",
+      "text": "Document the mandatory AI development workflow and standards.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-003",
+      "text": "Ensure the documentation includes Overview, Prerequisites, Setup, Database, Workflow, Standards, and Troubleshooting sections.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-004",
+      "text": "Satisfy the dependency on the solution_initialization task.",
+      "status": "uncovered",
+      "covered_by": []
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "T-001",
+      "name": "Generate Documentation",
+      "status": "completed",
+      "req_refs": [
+        "R-001",
+        "R-002",
+        "R-003"
+      ],
+      "files_written": [
+        "README.md"
+      ],
+      "module": "PlannerCoder",
+      "feature": "Generate comprehensive project documentation (README.md) ...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    },
+    {
+      "task_id": "T-0",
+      "name": "Analysing and planning implementation...",
+      "status": "pending",
+      "req_refs": [],
+      "files_written": [
+        "README.md"
+      ],
+      "module": "PlannerCoder",
+      "feature": "Generate comprehensive project documentation (README.md) covering installation, ",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 4,
+    "covered": 3,
+    "partial": 0,
+    "uncovered": 1,
+    "coverage_pct": 75,
+    "total_tasks": 2,
+    "tasks_completed": 1,
+    "tasks_failed": 0,
+    "files_written": 1,
+    "validation_status": "passed"
+  }
+}

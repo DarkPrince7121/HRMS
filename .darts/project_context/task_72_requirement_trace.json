@@ -1,0 +1,110 @@
+{
+  "task_id": 72,
+  "task_name": "HRMS",
+  "execution_path": "planner_coder",
+  "complexity_tier": "medium",
+  "requirement_text": "Configure EF Core in HRMS.Data using SQL Server LocalDB. Implement IDataFactory and DataFactoryServiceProvider. Setup initial DbContext with required Fluent API mappings for core entities.\n\nAcceptance Criteria:\n- DbContext is configured with SQL Server LocalDB.\n- IDataFactory and DataFactory implementations exist.\n- Initial migration is created for base entities.\n\nDependencies: Task solution_initialization",
+  "generated_at": "2026-07-27T06:06:34.404Z",
+  "requirements": [
+    {
+      "req_id": "R-001",
+      "text": "Configure Entity Framework Core in the HRMS.Data project using SQL Server LocalDB.",
+      "status": "covered",
+      "covered_by": [
+        "T-002"
+      ]
+    },
+    {
+      "req_id": "R-002",
+      "text": "Implement the IDataFactory interface and the DataFactoryServiceProvider class.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-003",
+      "text": "Set up the initial DbContext with Fluent API mappings for core entities.",
+      "status": "uncovered",
+      "covered_by": []
+    },
+    {
+      "req_id": "R-004",
+      "text": "Create the initial database migration for the base entities.",
+      "status": "uncovered",
+      "covered_by": []
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "T-001",
+      "name": "Backend Data Architecture — Implement IDataFactory, DataFactoryServiceProvider and update ApplicationDbContext",
+      "status": "completed",
+      "req_refs": [
+        "R-002"
+      ],
+      "files_written": [
+        "HRMS.Web/Program.cs",
+        "HRMS.Web/appsettings.json",
+        "HRMS.Data/Migrations/20231027120000_InitialCreate.cs",
+        "HRMS.Data/Migrations/ApplicationDbContextModelSnapshot.cs"
+      ],
+      "module": "PlannerCoder",
+      "feature": "Configure EF Core in HRMS.Data using SQL Server LocalDB. ...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    },
+    {
+      "task_id": "T-002",
+      "name": "Entry points — Update Program.cs and appsettings.json for SQL Server LocalDB configuration",
+      "status": "completed",
+      "req_refs": [
+        "R-001"
+      ],
+      "files_written": [
+        "HRMS.Web/Program.cs",
+        "HRMS.Web/appsettings.json",
+        "HRMS.Data/Migrations/20231027120000_InitialCreate.cs",
+        "HRMS.Data/Migrations/ApplicationDbContextModelSnapshot.cs"
+      ],
+      "module": "PlannerCoder",
+      "feature": "Configure EF Core in HRMS.Data using SQL Server LocalDB. ...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    },
+    {
+      "task_id": "T-0",
+      "name": "Analysing and planning implementation...",
+      "status": "pending",
+      "req_refs": [],
+      "files_written": [
+        "HRMS.Web/Program.cs",
+        "HRMS.Web/appsettings.json",
+        "HRMS.Data/Migrations/20231027120000_InitialCreate.cs",
+        "HRMS.Data/Migrations/ApplicationDbContextModelSnapshot.cs"
+      ],
+      "module": "PlannerCoder",
+      "feature": "Configure EF Core in HRMS.Data using SQL Server LocalDB. Implement IDataFactory ",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 4,
+    "covered": 2,
+    "partial": 0,
+    "uncovered": 2,
+    "coverage_pct": 50,
+    "total_tasks": 3,
+    "tasks_completed": 2,
+    "tasks_failed": 0,
+    "files_written": 4,
+    "validation_status": "passed"
+  }
+}

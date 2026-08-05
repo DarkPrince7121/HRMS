@@ -1,0 +1,133 @@
+{
+  "task_id": 79,
+  "task_name": "HRMS",
+  "execution_path": "planner_coder",
+  "complexity_tier": "medium",
+  "requirement_text": "Enhance all DataTables with advanced filtering, search models, and export capabilities as requested in the frontend architecture.\n\nAcceptance Criteria:\n- Export buttons functional on DataTables (CSV/Excel/PDF).\n- Search filters correctly reload DataTables via AJAX.\n\nDependencies: Task core_employee_dept_modules_crud",
+  "generated_at": "2026-07-27T06:43:49.537Z",
+  "requirements": [
+    {
+      "req_id": "R-001",
+      "text": "Implement advanced filtering and search models for DataTables.",
+      "status": "covered",
+      "covered_by": [
+        "T-001",
+        "T-003"
+      ]
+    },
+    {
+      "req_id": "R-002",
+      "text": "Enable CSV, Excel, and PDF export capabilities for DataTables.",
+      "status": "covered",
+      "covered_by": [
+        "T-002"
+      ]
+    },
+    {
+      "req_id": "R-003",
+      "text": "Ensure search filters correctly trigger DataTable reloads via the frontend architecture.",
+      "status": "covered",
+      "covered_by": [
+        "T-001",
+        "T-003"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "T-001",
+      "name": "Backend — Update Controllers and DTOs for filtering",
+      "status": "completed",
+      "req_refs": [
+        "R-001",
+        "R-003"
+      ],
+      "files_written": [
+        "C:/DARTS-development-environment/sandbox/rmanoj/HRMS/HRMS.Models/DTOs/SearchRequest.cs",
+        "C:/DARTS-development-environment/sandbox/rmanoj/HRMS/HRMS.UI/Controllers/EmployeesController.cs",
+        "C:/DARTS-development-environment/sandbox/rmanoj/HRMS/HRMS.UI/Controllers/DepartmentsController.cs",
+        "C:/DARTS-development-environment/sandbox/rmanoj/HRMS/HRMS.UI/Controllers/DesignationsController.cs",
+        "C:/DARTS-development-environment/sandbox/rmanoj/HRMS/HRMS.UI/Views/Shared/_Layout.cshtml",
+        "C:/DARTS-development-environment/sandbox/rmanoj/HRMS/HRMS.UI/wwwroot/js/employees.js",
+        "C:/DARTS-development-environment/sandbox/rmanoj/HRMS/HRMS.UI/wwwroot/js/departments.js",
+        "C:/DARTS-development-environment/sandbox/rmanoj/HRMS/HRMS.UI/wwwroot/js/designations.js",
+        "C:/DARTS-development-environment/sandbox/rmanoj/HRMS/HRMS.UI/Views/Employees/Index.cshtml",
+        "C:/DARTS-development-environment/sandbox/rmanoj/HRMS/HRMS.UI/Views/Departments/Index.cshtml",
+        "C:/DARTS-development-environment/sandbox/rmanoj/HRMS/HRMS.UI/Views/Designations/Index.cshtml"
+      ],
+      "module": "PlannerCoder",
+      "feature": "Enhance all DataTables with advanced filtering, search mo...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    },
+    {
+      "task_id": "T-002",
+      "name": "Entry points — Update Layout for DataTables Buttons",
+      "status": "completed",
+      "req_refs": [
+        "R-002"
+      ],
+      "files_written": [
+        "C:/DARTS-development-environment/sandbox/rmanoj/HRMS/HRMS.Models/DTOs/SearchRequest.cs",
+        "C:/DARTS-development-environment/sandbox/rmanoj/HRMS/HRMS.UI/Controllers/EmployeesController.cs",
+        "C:/DARTS-development-environment/sandbox/rmanoj/HRMS/HRMS.UI/Controllers/DepartmentsController.cs",
+        "C:/DARTS-development-environment/sandbox/rmanoj/HRMS/HRMS.UI/Controllers/DesignationsController.cs",
+        "C:/DARTS-development-environment/sandbox/rmanoj/HRMS/HRMS.UI/Views/Shared/_Layout.cshtml",
+        "C:/DARTS-development-environment/sandbox/rmanoj/HRMS/HRMS.UI/wwwroot/js/employees.js",
+        "C:/DARTS-development-environment/sandbox/rmanoj/HRMS/HRMS.UI/wwwroot/js/departments.js",
+        "C:/DARTS-development-environment/sandbox/rmanoj/HRMS/HRMS.UI/wwwroot/js/designations.js",
+        "C:/DARTS-development-environment/sandbox/rmanoj/HRMS/HRMS.UI/Views/Employees/Index.cshtml",
+        "C:/DARTS-development-environment/sandbox/rmanoj/HRMS/HRMS.UI/Views/Departments/Index.cshtml",
+        "C:/DARTS-development-environment/sandbox/rmanoj/HRMS/HRMS.UI/Views/Designations/Index.cshtml"
+      ],
+      "module": "PlannerCoder",
+      "feature": "Enhance all DataTables with advanced filtering, search mo...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    },
+    {
+      "task_id": "T-003",
+      "name": "Frontend UI — Enhance JS and Views with Export and Advanced Search",
+      "status": "completed",
+      "req_refs": [
+        "R-001",
+        "R-003"
+      ],
+      "files_written": [
+        "C:/DARTS-development-environment/sandbox/rmanoj/HRMS/HRMS.Models/DTOs/SearchRequest.cs",
+        "C:/DARTS-development-environment/sandbox/rmanoj/HRMS/HRMS.UI/Controllers/EmployeesController.cs",
+        "C:/DARTS-development-environment/sandbox/rmanoj/HRMS/HRMS.UI/Controllers/DepartmentsController.cs",
+        "C:/DARTS-development-environment/sandbox/rmanoj/HRMS/HRMS.UI/Controllers/DesignationsController.cs",
+        "C:/DARTS-development-environment/sandbox/rmanoj/HRMS/HRMS.UI/Views/Shared/_Layout.cshtml",
+        "C:/DARTS-development-environment/sandbox/rmanoj/HRMS/HRMS.UI/wwwroot/js/employees.js",
+        "C:/DARTS-development-environment/sandbox/rmanoj/HRMS/HRMS.UI/wwwroot/js/departments.js",
+        "C:/DARTS-development-environment/sandbox/rmanoj/HRMS/HRMS.UI/wwwroot/js/designations.js",
+        "C:/DARTS-development-environment/sandbox/rmanoj/HRMS/HRMS.UI/Views/Employees/Index.cshtml",
+        "C:/DARTS-development-environment/sandbox/rmanoj/HRMS/HRMS.UI/Views/Departments/Index.cshtml",
+        "C:/DARTS-development-environment/sandbox/rmanoj/HRMS/HRMS.UI/Views/Designations/Index.cshtml"
+      ],
+      "module": "PlannerCoder",
+      "feature": "Enhance all DataTables with advanced filtering, search mo...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 3,
+    "covered": 3,
+    "partial": 0,
+    "uncovered": 0,
+    "coverage_pct": 100,
+    "total_tasks": 3,
+    "tasks_completed": 3,
+    "tasks_failed": 0,
+    "files_written": 11,
+    "validation_status": "passed"
+  }
+}

@@ -1,0 +1,116 @@
+# Dependencies
+**/node_modules/
+
+# Build outputs
+**/dist/
+**/build/
+**/.next/
+**/coverage/
+**/.turbo/
+**/.cache/
+
+# Logs and temp files
+**/*.log
+**/*.tmp
+**/*.temp
+
+# Local env files
+.env
+.env.local
+.env.*.local
+
+# DARTS blocked large binary
+.aimfire/AUTOAIMFIRE.exe
+# .NET / Visual Studio / common OS ignores tailored for this HRMS solution
+# Keep source-controlled files (migrations, configs, .vscode) unless explicitly local.
+
+### Visual Studio ###
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+### Rider / JetBrains ###
+.idea/
+*.sln.iml
+*.DotSettings.user
+
+### Build outputs ###
+bin/
+obj/
+out/
+publish/
+dist/
+
+### ASP.NET / front-end ###
+node_modules/
+wwwroot/lib/
+npm-debug.log*
+yarn-error.log*
+.npm/
+.eslintcache
+
+### NuGet ###
+*.nupkg
+packages/
+project.lock.json
+
+### Logs & temp ###
+*.log
+*.tmp
+*.temp
+*.cache
+
+### OS files ###
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+### Certificates & keys ###
+*.pfx
+*.key
+
+### Local development secrets ###
+.env
+.env.local
+.env.*.local
+secrets.json
+
+### LocalDB / database files (do not commit local MDF/LDF files) ###
+*.mdf
+*.ldf
+*.ndf
+*.db
+*.sqlite
+
+### EF Core / Migrations ###
+# Keep Migrations folders tracked — they belong in source control.
+# Ignore Visual Studio's local SQL files or DB project outputs if created locally:
+**/*.userdb
+**/App_Data/
+
+### Test results ###
+TestResults/
+*.trx
+.vscode-test/
+
+### Tooling ###
+.terraform/
+.terraform.lock.hcl
+
+### ReSharper ###
+_ReSharper*/
+*.ReSharper
+*.resharper.user
+
+### Editor directories ###
+.vscode/
+# Note: If you want to keep .vscode in repo, remove the above line. This repo currently includes a shared .vscode/launch.json,
+# so remove this entry if you want to track those settings.
+
+### DARTS blocked large binary (kept from original) ###
+.aimfire/AUTOAIMFIRE.exe
+
+# End of file

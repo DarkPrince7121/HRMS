@@ -1,0 +1,170 @@
+{
+  "task_id": 85,
+  "task_name": "HRMS",
+  "execution_path": "full_pipeline",
+  "complexity_tier": "medium",
+  "requirement_text": "Implement an automatic database initialization process that executes during application startup. The application must read the connection string from `appsettings.json`, create the `DbContext` using Dependency Injection, verify the SQL Server connection, create the database if it does not exist, automatically apply all pending Entity Framework Core migrations, validate the schema, and execute all required seed data (roles, default admin user, lookup tables, application settings, and other mandatory reference data) in an idempotent manner without creating duplicates. Keep all initialization, migration, and seed logic within the **HRMS.Data** project using dedicated initializer and seed classes, and invoke only a single initialization service from `Program.cs` in **HRMS.UI**. The application should be fully self-initializing for development, allowing any developer to clone the repository, configure `appsettings.json`, run the application, and have the database, schema, and initial data prepared automatically without manually creating the database or executing Entity Framework migration commands.\n",
+  "generated_at": "2026-07-31T06:30:12.279Z",
+  "requirements": [
+    {
+      "req_id": "R-001",
+      "text": "The application must read the database connection string from appsettings.json for initialization.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-002",
+      "text": "The DbContext must be created using Dependency Injection for the initialization process.",
+      "status": "covered",
+      "covered_by": [
+        "T-001",
+        "T-003"
+      ]
+    },
+    {
+      "req_id": "R-003",
+      "text": "The application must verify the database server connection during startup.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-004",
+      "text": "The application must automatically create the database if it does not already exist.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-005",
+      "text": "All pending Entity Framework migrations must be applied automatically during startup.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-006",
+      "text": "The application must validate the database schema after initialization.",
+      "status": "uncovered",
+      "covered_by": []
+    },
+    {
+      "req_id": "R-007",
+      "text": "The application must execute seed data for roles, admin users, lookup tables, and settings in an idempotent manner.",
+      "status": "covered",
+      "covered_by": [
+        "T-002"
+      ]
+    },
+    {
+      "req_id": "R-008",
+      "text": "All initialization, migration, and seed logic must be contained within the HRMS.Data project using dedicated classes.",
+      "status": "covered",
+      "covered_by": [
+        "T-001",
+        "T-002"
+      ]
+    },
+    {
+      "req_id": "R-009",
+      "text": "The startup process must invoke only a single initialization service to trigger the full database setup.",
+      "status": "covered",
+      "covered_by": [
+        "T-003"
+      ]
+    },
+    {
+      "req_id": "R-010",
+      "text": "The system must be fully self-initializing to allow development without manual database creation or CLI migration commands.",
+      "status": "covered",
+      "covered_by": [
+        "T-001",
+        "T-002",
+        "T-003"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "T-001",
+      "name": "Implement Database Initializer Service in HRMS.Data",
+      "status": "completed",
+      "req_refs": [
+        "R-001",
+        "R-002",
+        "R-003",
+        "R-004",
+        "R-005",
+        "R-008",
+        "R-010"
+      ],
+      "files_written": [
+        "HRMS.Data/HRMS.Data.csproj",
+        "HRMS.Data/Implementations/DatabaseInitializer.cs"
+      ],
+      "module": "Core Infrastructure",
+      "feature": "Database Self-Initialization",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    },
+    {
+      "task_id": "T-002",
+      "name": "Implement Idempotent Data Seeding Logic",
+      "status": "completed",
+      "req_refs": [
+        "R-007",
+        "R-008",
+        "R-010"
+      ],
+      "files_written": [
+        "HRMS.Data/HRMS.Data.csproj",
+        "HRMS.Data/Implementations/DatabaseInitializer.cs"
+      ],
+      "module": "Core Infrastructure",
+      "feature": "Database Self-Initialization",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    },
+    {
+      "task_id": "T-003",
+      "name": "Refactor Startup to Invoke Initialization Service",
+      "status": "completed",
+      "req_refs": [
+        "R-002",
+        "R-009",
+        "R-010"
+      ],
+      "files_written": [
+        "HRMS.Data/HRMS.Data.csproj",
+        "HRMS.Data/Implementations/DatabaseInitializer.cs"
+      ],
+      "module": "Core Infrastructure",
+      "feature": "Database Self-Initialization",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 10,
+    "covered": 9,
+    "partial": 0,
+    "uncovered": 1,
+    "coverage_pct": 90,
+    "total_tasks": 3,
+    "tasks_completed": 3,
+    "tasks_failed": 0,
+    "files_written": 2,
+    "validation_status": "passed"
+  }
+}

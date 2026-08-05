@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "HRMS.Web": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:53586;http://localhost:53588"
+    }
+  }
+}

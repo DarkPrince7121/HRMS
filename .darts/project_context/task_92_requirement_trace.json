@@ -1,0 +1,58 @@
+{
+  "task_id": 92,
+  "task_name": "HRMS",
+  "execution_path": "planner_coder",
+  "complexity_tier": "simple",
+  "requirement_text": "Register is still not working completely.\nRegister page is displayed, after entering the username, email & password, on clicking Register, there is nothing happened, but the data entered should be added in the database.\nPlease find the root cause and fix it",
+  "generated_at": "2026-08-05T07:19:12.941Z",
+  "requirements": [
+    {
+      "req_id": "R-001",
+      "text": "The registration process must trigger an action when the registration button is clicked.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-002",
+      "text": "The system must save the entered username, email, and password into the database upon registration.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "T-001",
+      "name": "Backend — Fix AccountController Register logic",
+      "status": "completed",
+      "req_refs": [
+        "R-001",
+        "R-002"
+      ],
+      "files_written": [
+        "HRMS.UI/Controllers/AccountController.cs"
+      ],
+      "module": "PlannerCoder",
+      "feature": "Register is still not working completely.\nRegister page i...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 2,
+    "covered": 2,
+    "partial": 0,
+    "uncovered": 0,
+    "coverage_pct": 100,
+    "total_tasks": 1,
+    "tasks_completed": 1,
+    "tasks_failed": 0,
+    "files_written": 1,
+    "validation_status": "passed"
+  }
+}
