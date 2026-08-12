@@ -69,7 +69,3 @@ function AttendanceViewModel() {
     self.loadEmployees();
     self.initDataTable();
 }
-
-$(document).ready(function () {
-    ko.applyBindings(new AttendanceViewModel());
-});

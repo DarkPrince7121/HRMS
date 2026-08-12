@@ -132,7 +132,3 @@ function EmployeeViewModel() {
     self.loadDepartments();
     self.initDataTable();
 }
-
-$(document).ready(function () {
-    ko.applyBindings(new EmployeeViewModel());
-});

@@ -10,7 +10,3 @@ function AuditViewModel() {
 
     self.loadLogs();
 }
-
-$(document).ready(function() {
-    ko.applyBindings(new AuditViewModel());
-});

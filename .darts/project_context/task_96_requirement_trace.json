@@ -1,0 +1,183 @@
+{
+  "task_id": 96,
+  "task_name": "HRMS",
+  "execution_path": "planner_coder",
+  "complexity_tier": "medium",
+  "requirement_text": "On loading/navigating to most of the pages, I'm getting the below error in the browser console\njquery-3.6.0.min.js:2 Uncaught Error: You cannot apply bindings multiple times to the same element.\n\nVerify all the cshtml & their respective viewmodel file an fix all the binding issue and as an user, i should not get any error for binding in the browser console for any page.\nAnalyze the root cause and fix the issue and also the fix that you have provided for the department page is still not yet fixed",
+  "generated_at": "2026-08-11T05:51:02.483Z",
+  "requirements": [
+    {
+      "req_id": "R-001",
+      "text": "Resolve the 'Uncaught Error: You cannot apply bindings multiple times to the same element' error occurring in the browser console.",
+      "status": "covered",
+      "covered_by": [
+        "T-001",
+        "T-002",
+        "T-003"
+      ]
+    },
+    {
+      "req_id": "R-002",
+      "text": "Audit and verify all CSHTML files and their corresponding ViewModel files to identify and correct KnockoutJS binding issues.",
+      "status": "covered",
+      "covered_by": [
+        "T-002",
+        "T-003"
+      ]
+    },
+    {
+      "req_id": "R-003",
+      "text": "Ensure that the binding error is specifically resolved for the Department page.",
+      "status": "covered",
+      "covered_by": [
+        "T-002",
+        "T-003"
+      ]
+    },
+    {
+      "req_id": "R-004",
+      "text": "Ensure that no binding errors appear in the browser console across any page within the application.",
+      "status": "covered",
+      "covered_by": [
+        "T-001",
+        "T-002",
+        "T-003"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "T-001",
+      "name": "Fix Layout and Global Notifications Binding",
+      "status": "completed",
+      "req_refs": [
+        "R-001",
+        "R-004"
+      ],
+      "files_written": [
+        "HRMS.UI/Views/Shared/_Layout.cshtml",
+        "HRMS.UI/wwwroot/js/notifications.js",
+        "HRMS.UI/wwwroot/js/attendance.js",
+        "HRMS.UI/wwwroot/js/audit.js",
+        "HRMS.UI/wwwroot/js/dashboard.js",
+        "HRMS.UI/wwwroot/js/departments.js",
+        "HRMS.UI/wwwroot/js/designations.js",
+        "HRMS.UI/wwwroot/js/employees.js",
+        "HRMS.UI/wwwroot/js/holidays.js",
+        "HRMS.UI/wwwroot/js/leaves.js",
+        "HRMS.UI/wwwroot/js/payroll.js",
+        "HRMS.UI/wwwroot/js/settings.js",
+        "HRMS.UI/Views/Departments/Index.cshtml",
+        "HRMS.UI/Views/Employees/Index.cshtml",
+        "HRMS.UI/Views/Designations/Index.cshtml",
+        "HRMS.UI/Views/Attendance/Index.cshtml",
+        "HRMS.UI/Views/Audit/Index.cshtml",
+        "HRMS.UI/Views/Holidays/Index.cshtml",
+        "HRMS.UI/Views/Home/Index.cshtml",
+        "HRMS.UI/Views/Leave/Index.cshtml",
+        "HRMS.UI/Views/Payroll/Index.cshtml",
+        "HRMS.UI/Views/Settings/Index.cshtml"
+      ],
+      "module": "PlannerCoder",
+      "feature": "On loading/navigating to most of the pages, I'm getting t...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    },
+    {
+      "task_id": "T-002",
+      "name": "Clean up Page-Specific ViewModels (Remove Auto-binding)",
+      "status": "completed",
+      "req_refs": [
+        "R-001",
+        "R-002",
+        "R-003",
+        "R-004"
+      ],
+      "files_written": [
+        "HRMS.UI/Views/Shared/_Layout.cshtml",
+        "HRMS.UI/wwwroot/js/notifications.js",
+        "HRMS.UI/wwwroot/js/attendance.js",
+        "HRMS.UI/wwwroot/js/audit.js",
+        "HRMS.UI/wwwroot/js/dashboard.js",
+        "HRMS.UI/wwwroot/js/departments.js",
+        "HRMS.UI/wwwroot/js/designations.js",
+        "HRMS.UI/wwwroot/js/employees.js",
+        "HRMS.UI/wwwroot/js/holidays.js",
+        "HRMS.UI/wwwroot/js/leaves.js",
+        "HRMS.UI/wwwroot/js/payroll.js",
+        "HRMS.UI/wwwroot/js/settings.js",
+        "HRMS.UI/Views/Departments/Index.cshtml",
+        "HRMS.UI/Views/Employees/Index.cshtml",
+        "HRMS.UI/Views/Designations/Index.cshtml",
+        "HRMS.UI/Views/Attendance/Index.cshtml",
+        "HRMS.UI/Views/Audit/Index.cshtml",
+        "HRMS.UI/Views/Holidays/Index.cshtml",
+        "HRMS.UI/Views/Home/Index.cshtml",
+        "HRMS.UI/Views/Leave/Index.cshtml",
+        "HRMS.UI/Views/Payroll/Index.cshtml",
+        "HRMS.UI/Views/Settings/Index.cshtml"
+      ],
+      "module": "PlannerCoder",
+      "feature": "On loading/navigating to most of the pages, I'm getting t...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    },
+    {
+      "task_id": "T-003",
+      "name": "Update Views to use Targeted Bindings",
+      "status": "completed",
+      "req_refs": [
+        "R-001",
+        "R-002",
+        "R-003",
+        "R-004"
+      ],
+      "files_written": [
+        "HRMS.UI/Views/Shared/_Layout.cshtml",
+        "HRMS.UI/wwwroot/js/notifications.js",
+        "HRMS.UI/wwwroot/js/attendance.js",
+        "HRMS.UI/wwwroot/js/audit.js",
+        "HRMS.UI/wwwroot/js/dashboard.js",
+        "HRMS.UI/wwwroot/js/departments.js",
+        "HRMS.UI/wwwroot/js/designations.js",
+        "HRMS.UI/wwwroot/js/employees.js",
+        "HRMS.UI/wwwroot/js/holidays.js",
+        "HRMS.UI/wwwroot/js/leaves.js",
+        "HRMS.UI/wwwroot/js/payroll.js",
+        "HRMS.UI/wwwroot/js/settings.js",
+        "HRMS.UI/Views/Departments/Index.cshtml",
+        "HRMS.UI/Views/Employees/Index.cshtml",
+        "HRMS.UI/Views/Designations/Index.cshtml",
+        "HRMS.UI/Views/Attendance/Index.cshtml",
+        "HRMS.UI/Views/Audit/Index.cshtml",
+        "HRMS.UI/Views/Holidays/Index.cshtml",
+        "HRMS.UI/Views/Home/Index.cshtml",
+        "HRMS.UI/Views/Leave/Index.cshtml",
+        "HRMS.UI/Views/Payroll/Index.cshtml",
+        "HRMS.UI/Views/Settings/Index.cshtml"
+      ],
+      "module": "PlannerCoder",
+      "feature": "On loading/navigating to most of the pages, I'm getting t...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 4,
+    "covered": 4,
+    "partial": 0,
+    "uncovered": 0,
+    "coverage_pct": 100,
+    "total_tasks": 3,
+    "tasks_completed": 3,
+    "tasks_failed": 0,
+    "files_written": 22,
+    "validation_status": "passed"
+  }
+}

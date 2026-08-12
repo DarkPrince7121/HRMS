@@ -2,6 +2,7 @@
     ViewData["Title"] = "Employees";
 }
 
+<div id="pageContent">
 <div class="d-flex justify-content-between align-items-center mb-3">
     <h2>Employees</h2>
     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#employeeModal" data-bind="click: resetForm">Add Employee</button>
@@ -68,7 +69,16 @@
         </div>
     </div>
 </div>
+</div>
 
 @section Scripts {
     <script src="~/js/employees.js"></script>
+    <script>
+        $(document).ready(function () {
+            var el = document.getElementById('pageContent');
+            if (el && !ko.dataFor(el)) {
+                ko.applyBindings(new EmployeeViewModel(), el);
+            }
+        });
+    </script>
 }

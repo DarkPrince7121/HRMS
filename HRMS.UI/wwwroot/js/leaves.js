@@ -99,7 +99,3 @@ function LeaveViewModel() {
     self.loadEmployees();
     self.initDataTable();
 }
-
-$(document).ready(function () {
-    ko.applyBindings(new LeaveViewModel());
-});

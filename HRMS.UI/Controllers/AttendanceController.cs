@@ -44,7 +44,14 @@ public class AttendanceController : Controller
     public async Task<IActionResult> Mark([FromBody] AttendanceRequest request)
     {
         if (!ModelState.IsValid) return BadRequest(ModelState);
-        var result = await _attendanceService.MarkAsync(request);
-        return Json(new { success = true, data = result });
+        try
+        {
+            var result = await _attendanceService.MarkAsync(request);
+            return Json(new { success = true, data = result });
+        }
+        catch (System.InvalidOperationException ex)
+        {
+            return BadRequest(new { success = false, message = ex.Message });
+        }
     }
 }

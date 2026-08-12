@@ -103,7 +103,3 @@ function DepartmentViewModel() {
 
     self.initDataTable();
 }
-
-$(document).ready(function () {
-    ko.applyBindings(new DepartmentViewModel());
-});

@@ -23,6 +23,9 @@ function NotificationViewModel() {
 }
 
 $(document).ready(function () {
-    var notificationVm = new NotificationViewModel();
-    ko.applyBindings(notificationVm, document.getElementById('notificationDropdown'));
+    var notificationArea = document.getElementById('notificationArea');
+    if (notificationArea && !ko.dataFor(notificationArea)) {
+        var notificationVm = new NotificationViewModel();
+        ko.applyBindings(notificationVm, notificationArea);
+    }
 });

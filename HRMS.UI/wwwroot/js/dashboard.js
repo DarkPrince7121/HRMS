@@ -26,7 +26,3 @@ function DashboardViewModel() {
 
     self.loadStats();
 }
-
-$(document).ready(function() {
-    ko.applyBindings(new DashboardViewModel(), document.getElementById("dashboard-container"));
-});

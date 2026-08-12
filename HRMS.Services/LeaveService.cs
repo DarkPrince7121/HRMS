@@ -19,8 +19,7 @@ public class LeaveService : ILeaveService
     }
 
     public async Task<IEnumerable<LeaveResponse>> GetAllAsync()
-    {
-        return await _context.Leaves
+    {        return await _context.Leaves
             .Include(l => l.Employee)
             .Select(l => new LeaveResponse
             {
@@ -37,12 +36,15 @@ public class LeaveService : ILeaveService
     }
 
     public async Task<LeaveResponse> RequestAsync(LeaveRequest request)
-    {
+    {        // Ensure UTC Kind for PostgreSQL timestamp with time zone
+        var startDateUtc = DateTime.SpecifyKind(request.StartDate, DateTimeKind.Utc);
+        var endDateUtc = DateTime.SpecifyKind(request.EndDate, DateTimeKind.Utc);
+
         var leave = new Leave
         {
             EmployeeId = request.EmployeeId,
-            StartDate = request.StartDate,
-            EndDate = request.EndDate,
+            StartDate = startDateUtc,
+            EndDate = endDateUtc,
             LeaveType = request.LeaveType,
             Reason = request.Reason,
             Status = "Pending"
@@ -67,8 +69,7 @@ public class LeaveService : ILeaveService
     }
 
     public async Task<bool> UpdateStatusAsync(int id, string status)
-    {
-        var leave = await _context.Leaves.FindAsync(id);
+    {        var leave = await _context.Leaves.FindAsync(id);
         if (leave == null) return false;
 
         leave.Status = status;

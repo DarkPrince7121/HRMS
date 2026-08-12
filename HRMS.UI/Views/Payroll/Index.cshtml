@@ -2,7 +2,7 @@
     ViewData["Title"] = "Payroll Management";
 }
 
-<div class="container mt-4">
+<div id="pageContent" class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h2>Payroll Management</h2>
         <div>
@@ -33,4 +33,19 @@
 
 @section Scripts {
     <script src="~/js/payroll.js"></script>
+    <script>
+        $(document).ready(function () {
+            var el = document.getElementById('pageContent');
+            if (el) {
+                var existingVM = ko.dataFor(el);
+                if (!existingVM) {
+                    var vm = new PayrollViewModel();
+                    ko.applyBindings(vm, el);
+                    vm.initDataTable();
+                } else if (existingVM.initDataTable) {
+                    existingVM.initDataTable();
+                }
+            }
+        });
+    </script>
 }

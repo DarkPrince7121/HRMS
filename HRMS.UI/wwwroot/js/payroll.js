@@ -7,6 +7,10 @@ function PayrollViewModel() {
     var table;
 
     self.initDataTable = function () {
+        if ($.fn.DataTable.isDataTable('#payrollTable')) {
+            $('#payrollTable').DataTable().destroy();
+        }
+
         table = $('#payrollTable').DataTable({
             ajax: '/Payroll/GetAll',
             order: [[1, 'desc']],
@@ -67,7 +71,11 @@ function PayrollViewModel() {
             data: JSON.stringify(payload),
             success: function (response) {
                 if (response.success) {
-                    table.ajax.reload();
+                    if (table) {
+                        table.ajax.reload();
+                    } else {
+                        self.initDataTable();
+                    }
                     alert('Payroll generated successfully');
                 } else {
                     alert('Error generating payroll');
@@ -81,10 +89,4 @@ function PayrollViewModel() {
             }
         });
     };
-
-    self.initDataTable();
 }
-
-$(document).ready(function () {
-    ko.applyBindings(new PayrollViewModel());
-});

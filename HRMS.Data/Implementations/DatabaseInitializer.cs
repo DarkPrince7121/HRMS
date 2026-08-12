@@ -43,23 +43,18 @@ namespace HRMS.Data.Implementations
                     throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
                 }
 
-                if (_environment.IsDevelopment())
+                // Check if database exists
+                var databaseExists = await _context.Database.CanConnectAsync();
+                
+                if (!databaseExists)
                 {
-                    _logger.LogInformation("Development environment detected. Ensuring fresh PostgreSQL schema.");
-
-                    // Drop and recreate to bypass broken migration history during provider transition
-                    //_logger.LogInformation("Deleting existing database if any...");
-                    //await _context.Database.EnsureDeletedAsync();
-
-                    _logger.LogInformation("Creating clean PostgreSQL schema from models...");
+                    _logger.LogInformation("Database does not exist. Creating database and schema...");
                     await _context.Database.EnsureCreatedAsync();
                     _logger.LogInformation("Database and schema created successfully.");
-                    _logger.LogInformation("Non-development environment. Applying migrations...");
-                    await _context.Database.MigrateAsync();
                 }
                 else
                 {
-                    _logger.LogInformation("Non-development environment. Applying migrations...");
+                    _logger.LogInformation("Database already exists. Applying any pending migrations...");
                     await _context.Database.MigrateAsync();
                 }
 

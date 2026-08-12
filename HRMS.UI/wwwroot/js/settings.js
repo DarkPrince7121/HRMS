@@ -22,7 +22,3 @@ function SettingsViewModel() {
 
     self.loadSettings();
 }
-
-$(document).ready(function () {
-    ko.applyBindings(new SettingsViewModel(), document.getElementById('settings-page'));
-});

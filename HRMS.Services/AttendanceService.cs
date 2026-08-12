@@ -19,8 +19,7 @@ public class AttendanceService : IAttendanceService
     }
 
     public async Task<IEnumerable<AttendanceResponse>> GetAllAsync()
-    {
-        return await _context.Attendances
+    {        return await _context.Attendances
             .Include(a => a.Employee)
             .Select(a => new AttendanceResponse
             {
@@ -35,11 +34,21 @@ public class AttendanceService : IAttendanceService
     }
 
     public async Task<AttendanceResponse> MarkAsync(AttendanceRequest request)
-    {
+    {        // Ensure UTC Kind for PostgreSQL timestamp with time zone
+        var dateUtc = DateTime.SpecifyKind(request.Date, DateTimeKind.Utc);
+
+        var existingAttendance = await _context.Attendances
+            .FirstOrDefaultAsync(a => a.EmployeeId == request.EmployeeId && a.Date.Date == dateUtc.Date);
+
+        if (existingAttendance != null)
+        {
+            throw new System.InvalidOperationException("Attendance already marked for this employee on the specified date.");
+        }
+
         var attendance = new Attendance
         {
             EmployeeId = request.EmployeeId,
-            Date = request.Date,
+            Date = dateUtc,
             Status = request.Status,
             Remarks = request.Remarks
         };

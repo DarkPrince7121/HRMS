@@ -107,7 +107,3 @@ function DesignationsViewModel() {
 
     self.initDataTable();
 }
-
-$(document).ready(function () {
-    ko.applyBindings(new DesignationsViewModel());
-});

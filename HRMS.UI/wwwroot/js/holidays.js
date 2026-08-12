@@ -43,7 +43,3 @@ function HolidaysViewModel() {
 
     self.loadHolidays();
 }
-
-$(document).ready(function() {
-    ko.applyBindings(new HolidaysViewModel());
-});

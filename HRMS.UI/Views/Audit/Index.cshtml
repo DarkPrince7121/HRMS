@@ -2,6 +2,7 @@
     ViewData["Title"] = "Audit Logs";
 }
 
+<div id="pageContent">
 <h2>Audit Logs</h2>
 
 <table class="table">
@@ -24,7 +25,16 @@
         </tr>
     </tbody>
 </table>
+</div>
 
 @section Scripts {
     <script src="~/js/audit.js"></script>
+    <script>
+        $(document).ready(function () {
+            var el = document.getElementById('pageContent');
+            if (el && !ko.dataFor(el)) {
+                ko.applyBindings(new AuditViewModel(), el);
+            }
+        });
+    </script>
 }

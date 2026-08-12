@@ -2,7 +2,7 @@
     ViewData["Title"] = "System Settings";
 }
 
-<div id="settings-page" class="container">
+<div id="pageContent" class="container">
     <h2>System Settings</h2>
     <div class="row mt-4">
         <div class="col-md-8">
@@ -34,4 +34,12 @@
 
 @section Scripts {
     <script src="~/js/settings.js"></script>
+    <script>
+        $(document).ready(function () {
+            var el = document.getElementById('pageContent');
+            if (el && !ko.dataFor(el)) {
+                ko.applyBindings(new SettingsViewModel(), el);
+            }
+        });
+    </script>
 }

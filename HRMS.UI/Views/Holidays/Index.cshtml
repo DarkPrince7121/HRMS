@@ -2,6 +2,7 @@
     ViewData["Title"] = "Holiday Calendar";
 }
 
+<div id="pageContent">
 <h2>Holiday Calendar</h2>
 
 <div class="row mb-3">
@@ -42,7 +43,16 @@
         </tr>
     </tbody>
 </table>
+</div>
 
 @section Scripts {
     <script src="~/js/holidays.js"></script>
+    <script>
+        $(document).ready(function () {
+            var el = document.getElementById('pageContent');
+            if (el && !ko.dataFor(el)) {
+                ko.applyBindings(new HolidaysViewModel(), el);
+            }
+        });
+    </script>
 }

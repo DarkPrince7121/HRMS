@@ -2,6 +2,7 @@
     ViewData["Title"] = "Designations";
 }
 
+<div id="pageContent">
 <div class="d-flex justify-content-between align-items-center mb-3">
     <h2>Designations</h2>
     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#designationModal" data-bind="click: resetForm">Add Designation</button>
@@ -55,7 +56,16 @@
         </div>
     </div>
 </div>
+</div>
 
 @section Scripts {
     <script src="~/js/designations.js"></script>
+    <script>
+        $(document).ready(function () {
+            var el = document.getElementById('pageContent');
+            if (el && !ko.dataFor(el)) {
+                ko.applyBindings(new DesignationsViewModel(), el);
+            }
+        });
+    </script>
 }

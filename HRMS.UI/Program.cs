@@ -6,6 +6,9 @@ using HRMS.Services;
 using HRMS.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
+// Enable legacy timestamp behavior for Npgsql to handle Kind=Unspecified as UTC
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.

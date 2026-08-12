@@ -2,7 +2,7 @@
     ViewData["Title"] = "Dashboard";
 }
 
-<div id="dashboard-container">
+<div id="pageContent">
     <div class="text-center mb-4">
         <h1 class="display-4">HRMS Dashboard</h1>
         <p class="lead">High-level metrics and visual summaries</p>
@@ -109,6 +109,13 @@
 </div>
 
 @section Scripts {
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.js"></script>
     <script src="~/js/dashboard.js"></script>
+    <script>
+        $(document).ready(function () {
+            var el = document.getElementById('pageContent');
+            if (el && !ko.dataFor(el)) {
+                ko.applyBindings(new DashboardViewModel(), el);
+            }
+        });
+    </script>
 }
