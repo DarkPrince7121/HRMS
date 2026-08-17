@@ -3,7 +3,7 @@
   "project_name": "HRMS",
   "source_requirement_hash": "e51cde43e27de7fd7acd5ade78a43001",
   "generated_at": "2026-07-27T05:56:18.156Z",
-  "last_updated_at": "2026-08-11T06:50:52.458Z",
+  "last_updated_at": "2026-08-17T07:13:42.134Z",
   "requirements": [
     {
       "req_id": "R-001",
@@ -57,7 +57,8 @@
         87,
         88,
         89,
-        94
+        94,
+        99
       ]
     },
     {
@@ -207,7 +208,8 @@
         89,
         91,
         94,
-        97
+        97,
+        99
       ]
     },
     {
@@ -227,7 +229,8 @@
         88,
         89,
         90,
-        94
+        94,
+        99
       ]
     },
     {
@@ -415,7 +418,8 @@
         88,
         89,
         90,
-        94
+        94,
+        99
       ]
     },
     {
@@ -1241,6 +1245,23 @@
         "HRMS.UI/wwwroot/js/payroll.js",
         "HRMS.UI/Views/Payroll/Index.cshtml"
       ]
+    },
+    {
+      "task_id": 99,
+      "task_name": "Task 29",
+      "task_order": 29,
+      "status": "completed",
+      "req_refs": [
+        "R-013",
+        "R-025",
+        "R-003",
+        "R-012"
+      ],
+      "files_written": [
+        "docker-compose.yml",
+        "HRMS.UI/Program.cs",
+        "HRMS.Web/Program.cs"
+      ]
     }
   ],
   "coverage_summary": {
@@ -1249,9 +1270,9 @@
     "partial": 0,
     "uncovered": 1,
     "coverage_pct": 97,
-    "total_tasks": 27,
-    "tasks_completed": 27,
+    "total_tasks": 28,
+    "tasks_completed": 28,
     "tasks_failed": 0,
-    "files_written": 127
+    "files_written": 128
   }
 }
