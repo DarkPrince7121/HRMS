@@ -1,0 +1,37 @@
+{
+  "status": "success",
+  "files_processed": {
+    "created": [
+      "HRMS.Models/Entities/Attendance.cs",
+      "HRMS.Data/Configurations/AttendanceConfiguration.cs",
+      "HRMS.Models/DTOs/AttendanceRequest.cs",
+      "HRMS.Models/DTOs/AttendanceResponse.cs",
+      "HRMS.Services/Interfaces/IAttendanceService.cs",
+      "HRMS.Services/AttendanceService.cs",
+      "HRMS.UI/Controllers/AttendanceController.cs",
+      "HRMS.UI/wwwroot/js/attendance.js",
+      "HRMS.UI/Views/Attendance/Index.cshtml",
+      "HRMS.Models/Entities/Leave.cs",
+      "HRMS.Data/Configurations/LeaveConfiguration.cs",
+      "HRMS.Models/DTOs/LeaveRequest.cs",
+      "HRMS.Models/DTOs/LeaveResponse.cs",
+      "HRMS.Services/Interfaces/ILeaveService.cs",
+      "HRMS.Services/LeaveService.cs",
+      "HRMS.UI/Controllers/LeaveController.cs",
+      "HRMS.UI/wwwroot/js/leaves.js",
+      "HRMS.UI/Views/Leave/Index.cshtml"
+    ],
+    "modified": [
+      "HRMS.Data/ApplicationDbContext.cs",
+      "HRMS.UI/Program.cs",
+      "HRMS.UI/Views/Shared/_Layout.cshtml",
+      "HRMS.UI/Views/Home/Index.cshtml"
+    ],
+    "failed": []
+  },
+  "verification": {
+    "commands_run": [],
+    "wiring": "not_run"
+  },
+  "blockers": []
+}

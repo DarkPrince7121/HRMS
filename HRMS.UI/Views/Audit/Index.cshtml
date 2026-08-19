@@ -1,0 +1,40 @@
+@{
+    ViewData["Title"] = "Audit Logs";
+}
+
+<div id="pageContent">
+<h2>Audit Logs</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Timestamp</th>
+            <th>Entity</th>
+            <th>Action</th>
+            <th>Changes</th>
+            <th>User</th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: logs">
+        <tr>
+            <td data-bind="text: new Date(timestamp).toLocaleString()"></td>
+            <td data-bind="text: entityName + ' (' + entityId + ')'"></td>
+            <td data-bind="text: action"></td>
+            <td data-bind="text: changes"></td>
+            <td data-bind="text: userId"></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+@section Scripts {
+    <script src="~/js/audit.js"></script>
+    <script>
+        $(document).ready(function () {
+            var el = document.getElementById('pageContent');
+            if (el && !ko.dataFor(el)) {
+                ko.applyBindings(new AuditViewModel(), el);
+            }
+        });
+    </script>
+}

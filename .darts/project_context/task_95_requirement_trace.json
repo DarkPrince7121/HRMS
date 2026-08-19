@@ -1,0 +1,85 @@
+{
+  "task_id": 95,
+  "task_name": "HRMS",
+  "execution_path": "planner_coder",
+  "complexity_tier": "simple",
+  "requirement_text": "On navigating to the Departments Page, I'm getting the below error message in the console\njquery-3.6.0.min.js:2\n Uncaught Error: You cannot apply bindings multiple times to the same element.\n\nI checked the viewmodel file, in that... instead of apply the binding in the viewmodel, can you please do that in the cshtml level",
+  "generated_at": "2026-08-05T08:15:46.865Z",
+  "requirements": [
+    {
+      "req_id": "R-001",
+      "text": "Resolve the 'Uncaught Error: You cannot apply bindings multiple times to the same element' JavaScript console error.",
+      "status": "partial",
+      "covered_by": [
+        "T-001",
+        "T-0"
+      ]
+    },
+    {
+      "req_id": "R-002",
+      "text": "Remove the Knockout.js applyBindings call from the ViewModel file.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-003",
+      "text": "Implement the Knockout.js applyBindings call within the CSHTML file level.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "T-001",
+      "name": "Move Knockout binding from JS to CSHTML",
+      "status": "completed",
+      "req_refs": [
+        "R-001",
+        "R-002",
+        "R-003"
+      ],
+      "files_written": [
+        "HRMS.UI/Views/Departments/Index.cshtml"
+      ],
+      "module": "PlannerCoder",
+      "feature": "On navigating to the Departments Page, I'm getting the be...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    },
+    {
+      "task_id": "T-0",
+      "name": "Analysing and planning implementation...",
+      "status": "pending",
+      "req_refs": [
+        "R-001"
+      ],
+      "files_written": [
+        "HRMS.UI/Views/Departments/Index.cshtml"
+      ],
+      "module": "PlannerCoder",
+      "feature": "On navigating to the Departments Page, I'm getting the below error message in th",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 3,
+    "covered": 2,
+    "partial": 1,
+    "uncovered": 0,
+    "coverage_pct": 83,
+    "total_tasks": 2,
+    "tasks_completed": 1,
+    "tasks_failed": 0,
+    "files_written": 1,
+    "validation_status": "passed"
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "task_id": 97,
+  "task_name": "HRMS",
+  "execution_path": "planner_coder",
+  "complexity_tier": "simple",
+  "requirement_text": "As an user, If i try to create a new attendance or leave request, on submitting the form pop up with date field in it, I'm getting the below error 500\n Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware[1]\n      An unhandled exception has occurred while executing the request.\n      Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.\n       ---> System.InvalidCastException: Cannot write DateTime with Kind=Unspecified to PostgreSQL type 'timestamp with time zone', only UTC is supported. Note that it's not possible to mix DateTimes with different Kinds in an array/range. See the Npgsql.EnableLegacyTimestampBehavior AppContext switch to enable legacy behavior.\n         at Npgsql.Internal.TypeHandlers.DateTimeHandlers.TimestampTzHandler.ValidateAndGetLength(DateTime value, NpgsqlParameter parameter)\n\n\nCheck all the pages with input form that contains date/datetime field in it and find the root cause of this issue and fix it\n",
+  "generated_at": "2026-08-11T06:26:35.501Z",
+  "requirements": [
+    {
+      "req_id": "R-001",
+      "text": "The system must successfully save attendance or leave request forms without triggering a 500 error during entity changes.",
+      "status": "covered",
+      "covered_by": [
+        "T-001",
+        "T-002"
+      ]
+    },
+    {
+      "req_id": "R-002",
+      "text": "The system must ensure that DateTime values sent to PostgreSQL use 'timestamp with time zone' compatible formats, specifically avoiding 'Kind=Unspecified'.",
+      "status": "covered",
+      "covered_by": [
+        "T-001",
+        "T-002"
+      ]
+    },
+    {
+      "req_id": "R-003",
+      "text": "The fix must be applied across all pages containing input forms with date or datetime fields to prevent similar exceptions.",
+      "status": "covered",
+      "covered_by": [
+        "T-002"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "T-001",
+      "name": "Backend Fix — AppContext Switch for Npgsql",
+      "status": "completed",
+      "req_refs": [
+        "R-001",
+        "R-002"
+      ],
+      "files_written": [
+        "HRMS.UI/Program.cs",
+        "HRMS.Services/AttendanceService.cs",
+        "HRMS.Services/LeaveService.cs"
+      ],
+      "module": "PlannerCoder",
+      "feature": "As an user, If i try to create a new attendance or leave ...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    },
+    {
+      "task_id": "T-002",
+      "name": "Service Layer Fix — Force UTC Kind",
+      "status": "completed",
+      "req_refs": [
+        "R-001",
+        "R-002",
+        "R-003"
+      ],
+      "files_written": [
+        "HRMS.UI/Program.cs",
+        "HRMS.Services/AttendanceService.cs",
+        "HRMS.Services/LeaveService.cs"
+      ],
+      "module": "PlannerCoder",
+      "feature": "As an user, If i try to create a new attendance or leave ...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 3,
+    "covered": 3,
+    "partial": 0,
+    "uncovered": 0,
+    "coverage_pct": 100,
+    "total_tasks": 2,
+    "tasks_completed": 2,
+    "tasks_failed": 0,
+    "files_written": 3,
+    "validation_status": "passed"
+  }
+}

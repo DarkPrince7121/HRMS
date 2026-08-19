@@ -1,0 +1,67 @@
+{
+  "task_id": 94,
+  "task_name": "HRMS",
+  "execution_path": "planner_coder",
+  "complexity_tier": "simple",
+  "requirement_text": "In the DatabaseInitializer, i don't want to delete the database each and every time the application starts. I only said that if there is no database created, then create the database similarly, if no other required tables was created then create the tables needed. \nPlease check the file and make changes \nreference:\n// Drop and recreate to bypass broken migration history during provider transition\n_logger.LogInformation(\"Deleting existing database if any...\");\nawait _context.Database.EnsureDeletedAsync();",
+  "generated_at": "2026-08-05T08:03:01.529Z",
+  "requirements": [
+    {
+      "req_id": "R-001",
+      "text": "The DatabaseInitializer must not delete the existing database upon every application startup.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-002",
+      "text": "The application must create the database if it does not already exist.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-003",
+      "text": "The application must create required tables if they are missing from the database.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "T-001",
+      "name": "Update DatabaseInitializer to avoid EnsureDeletedAsync and use EnsureCreatedAsync/MigrateAsync selectively",
+      "status": "completed",
+      "req_refs": [
+        "R-001",
+        "R-002",
+        "R-003"
+      ],
+      "files_written": [
+        "HRMS.Data/Implementations/DatabaseInitializer.cs"
+      ],
+      "module": "PlannerCoder",
+      "feature": "In the DatabaseInitializer, i don't want to delete the da...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 3,
+    "covered": 3,
+    "partial": 0,
+    "uncovered": 0,
+    "coverage_pct": 100,
+    "total_tasks": 1,
+    "tasks_completed": 1,
+    "tasks_failed": 0,
+    "files_written": 1,
+    "validation_status": "passed"
+  }
+}

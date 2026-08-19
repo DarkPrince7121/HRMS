@@ -1,0 +1,83 @@
+@{
+    ViewData["Title"] = "Leaves";
+}
+
+<div id="pageContent" class="container mt-4">
+    <h2>Leave Management</h2>
+    <hr />
+
+    <div class="mb-3">
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#leaveModal" data-bind="click: resetForm">Request Leave</button>
+    </div>
+
+    <table id="leavesTable" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th>Employee</th>
+                <th>Type</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+    </table>
+
+<!-- Modal -->
+<div class="modal fade" id="leaveModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Request Leave</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label class="form-label">Employee</label>
+                        <select class="form-control" data-bind="options: employees, optionsText: function(item) { return item.firstName + ' ' + item.lastName; }, optionsValue: 'id', value: currentLeave.employeeId, optionsCaption: 'Choose Employee...'" required></select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Leave Type</label>
+                        <select class="form-control" data-bind="value: currentLeave.leaveType">
+                            <option value="Sick Leave">Sick Leave</option>
+                            <option value="Casual Leave">Casual Leave</option>
+                            <option value="Annual Leave">Annual Leave</option>
+                            <option value="Maternity Leave">Maternity Leave</option>
+                            <option value="Paternity Leave">Paternity Leave</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Start Date</label>
+                        <input type="date" class="form-control" data-bind="value: currentLeave.startDate" required />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">End Date</label>
+                        <input type="date" class="form-control" data-bind="value: currentLeave.endDate" required />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Reason</label>
+                        <textarea class="form-control" data-bind="value: currentLeave.reason" required></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-bind="click: requestLeave">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+@section Scripts {
+    <script src="~/js/leaves.js"></script>
+    <script>
+        $(document).ready(function () {
+            var el = document.getElementById('pageContent');
+            if (el && !ko.dataFor(el)) {
+                ko.applyBindings(new LeaveViewModel(), el);
+            }
+        });
+    </script>
+}

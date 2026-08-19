@@ -1,0 +1,165 @@
+{
+  "task_id": 71,
+  "task_name": "HRMS",
+  "execution_path": "planner_coder",
+  "complexity_tier": "medium",
+  "requirement_text": "Create the base .NET 6 solution with projects: HRMS.Data (Persistence), HRMS.Models (DTOs/Entities), HRMS.Services (Logic), HRMS.Web (Background Jobs), and HRMS.UI (Web Application). Initialize folder structures for each as specified in the architecture.\n\nAcceptance Criteria:\n- Solution file (.sln) contains five projects: HRMS.Data, HRMS.Models, HRMS.Services, HRMS.Web, and HRMS.UI.\n- All projects target .NET 6.0.\n- Folder structures for each project match the mandatory segregation by domain.",
+  "generated_at": "2026-07-27T05:46:48.707Z",
+  "requirements": [
+    {
+      "req_id": "R-001",
+      "text": "Create a .NET 6 solution file (.sln) containing five specific projects: HRMS.Data, HRMS.Models, HRMS.Services, HRMS.Web, and HRMS.UI.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-002",
+      "text": "Ensure all projects within the solution target the .NET 6.0 framework.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-003",
+      "text": "Initialize mandatory folder structures for each project based on domain-driven segregation as specified in the architecture.",
+      "status": "covered",
+      "covered_by": [
+        "T-002"
+      ]
+    },
+    {
+      "req_id": "R-004",
+      "text": "Implement basic wiring and entry points for the projects to ensure functional connectivity.",
+      "status": "covered",
+      "covered_by": [
+        "T-003"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "T-001",
+      "name": "Create Solution and Project files",
+      "status": "completed",
+      "req_refs": [
+        "R-001",
+        "R-002"
+      ],
+      "files_written": [
+        "HRMS.sln",
+        "HRMS.Models/HRMS.Models.csproj",
+        "HRMS.Data/HRMS.Data.csproj",
+        "HRMS.Services/HRMS.Services.csproj",
+        "HRMS.Web/HRMS.Web.csproj",
+        "HRMS.UI/HRMS.UI.csproj",
+        "HRMS.Models/Entities/.gitkeep",
+        "HRMS.Models/DTOs/.gitkeep",
+        "HRMS.Data/Repositories/.gitkeep",
+        "HRMS.Data/Configurations/.gitkeep",
+        "HRMS.Services/Interfaces/.gitkeep",
+        "HRMS.Services/Implementations/.gitkeep",
+        "HRMS.Web/Jobs/.gitkeep",
+        "HRMS.UI/Controllers/.gitkeep",
+        "HRMS.UI/Views/.gitkeep",
+        "HRMS.UI/wwwroot/js/.gitkeep",
+        "HRMS.Data/ApplicationDbContext.cs",
+        "HRMS.UI/Program.cs",
+        "HRMS.Web/Program.cs",
+        "HRMS.UI/appsettings.json"
+      ],
+      "module": "PlannerCoder",
+      "feature": "Create the base .NET 6 solution with projects: HRMS.Data ...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    },
+    {
+      "task_id": "T-002",
+      "name": "Initialize Folder Structures",
+      "status": "completed",
+      "req_refs": [
+        "R-003"
+      ],
+      "files_written": [
+        "HRMS.sln",
+        "HRMS.Models/HRMS.Models.csproj",
+        "HRMS.Data/HRMS.Data.csproj",
+        "HRMS.Services/HRMS.Services.csproj",
+        "HRMS.Web/HRMS.Web.csproj",
+        "HRMS.UI/HRMS.UI.csproj",
+        "HRMS.Models/Entities/.gitkeep",
+        "HRMS.Models/DTOs/.gitkeep",
+        "HRMS.Data/Repositories/.gitkeep",
+        "HRMS.Data/Configurations/.gitkeep",
+        "HRMS.Services/Interfaces/.gitkeep",
+        "HRMS.Services/Implementations/.gitkeep",
+        "HRMS.Web/Jobs/.gitkeep",
+        "HRMS.UI/Controllers/.gitkeep",
+        "HRMS.UI/Views/.gitkeep",
+        "HRMS.UI/wwwroot/js/.gitkeep",
+        "HRMS.Data/ApplicationDbContext.cs",
+        "HRMS.UI/Program.cs",
+        "HRMS.Web/Program.cs",
+        "HRMS.UI/appsettings.json"
+      ],
+      "module": "PlannerCoder",
+      "feature": "Create the base .NET 6 solution with projects: HRMS.Data ...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    },
+    {
+      "task_id": "T-003",
+      "name": "Entry Points and Basic Wiring",
+      "status": "completed",
+      "req_refs": [
+        "R-004"
+      ],
+      "files_written": [
+        "HRMS.sln",
+        "HRMS.Models/HRMS.Models.csproj",
+        "HRMS.Data/HRMS.Data.csproj",
+        "HRMS.Services/HRMS.Services.csproj",
+        "HRMS.Web/HRMS.Web.csproj",
+        "HRMS.UI/HRMS.UI.csproj",
+        "HRMS.Models/Entities/.gitkeep",
+        "HRMS.Models/DTOs/.gitkeep",
+        "HRMS.Data/Repositories/.gitkeep",
+        "HRMS.Data/Configurations/.gitkeep",
+        "HRMS.Services/Interfaces/.gitkeep",
+        "HRMS.Services/Implementations/.gitkeep",
+        "HRMS.Web/Jobs/.gitkeep",
+        "HRMS.UI/Controllers/.gitkeep",
+        "HRMS.UI/Views/.gitkeep",
+        "HRMS.UI/wwwroot/js/.gitkeep",
+        "HRMS.Data/ApplicationDbContext.cs",
+        "HRMS.UI/Program.cs",
+        "HRMS.Web/Program.cs",
+        "HRMS.UI/appsettings.json"
+      ],
+      "module": "PlannerCoder",
+      "feature": "Create the base .NET 6 solution with projects: HRMS.Data ...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 4,
+    "covered": 4,
+    "partial": 0,
+    "uncovered": 0,
+    "coverage_pct": 100,
+    "total_tasks": 3,
+    "tasks_completed": 3,
+    "tasks_failed": 0,
+    "files_written": 20,
+    "validation_status": "passed"
+  }
+}

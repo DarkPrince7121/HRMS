@@ -1,0 +1,89 @@
+{
+  "task_id": 99,
+  "task_name": "HRMS",
+  "execution_path": "planner_coder",
+  "complexity_tier": "simple",
+  "requirement_text": "As an user, If i try to open/run the project in any system, i shouldn't get any error, but i could sense that the postgres instance should be created in docker container before running this app, so, can you create a docker yaml file with the connection string provided in it, so that if any user wants to try using the application must execute the docker command to create the postgres instance and then they can start the app, and the app will automatically create database/initial migrations in it",
+  "generated_at": "2026-08-17T06:37:55.762Z",
+  "requirements": [
+    {
+      "req_id": "R-001",
+      "text": "The project must run on any system without errors.",
+      "status": "uncovered",
+      "covered_by": []
+    },
+    {
+      "req_id": "R-002",
+      "text": "A Docker Compose YAML file must be created to provision a PostgreSQL instance.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-003",
+      "text": "The Docker configuration must include the necessary database connection string.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-004",
+      "text": "The application must automatically handle database creation and initial migrations upon startup.",
+      "status": "uncovered",
+      "covered_by": []
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "T-001",
+      "name": "Infrastructure — Docker Compose setup",
+      "status": "completed",
+      "req_refs": [
+        "R-002",
+        "R-003"
+      ],
+      "files_written": [
+        "docker-compose.yml",
+        "HRMS.UI/Program.cs",
+        "HRMS.Web/Program.cs"
+      ],
+      "module": "PlannerCoder",
+      "feature": "As an user, If i try to open/run the project in any syste...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    },
+    {
+      "task_id": "T-0",
+      "name": "Analysing and planning implementation...",
+      "status": "pending",
+      "req_refs": [],
+      "files_written": [
+        "docker-compose.yml",
+        "HRMS.UI/Program.cs",
+        "HRMS.Web/Program.cs"
+      ],
+      "module": "PlannerCoder",
+      "feature": "As an user, If i try to open/run the project in any system, i shouldn't get any ",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 4,
+    "covered": 2,
+    "partial": 0,
+    "uncovered": 2,
+    "coverage_pct": 50,
+    "total_tasks": 2,
+    "tasks_completed": 1,
+    "tasks_failed": 0,
+    "files_written": 3,
+    "validation_status": "passed"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "task_id": 93,
+  "task_name": "HRMS",
+  "execution_path": "planner_coder",
+  "complexity_tier": "simple",
+  "requirement_text": "On clicking the Register button  after entering the details in the input fields of the Register page, Getting the below error in the browser console.\nknockout-latest.js:79 Uncaught ReferenceError: Unable to process binding \"visible: function(){return successMessage }\"\nMessage: successMessage is not defined\nvisible @ VM91:3\nupdate @ knockout-latest.js:117\na.$.l @ knockout-latest.js:79\nyd @ knockout-latest.js:55\nzd @ knockout-latest.js:55\nha @ knockout-latest.js:54\na.o.a.$ @ knockout-latest.js:52\n(anonymous) @ knockout-latest.js:79\nD @ knockout-latest.js:11\np @ knockout-latest.js:78\nk @ knockout-latest.js:76\nm @ knockout-latest.js:76\nk @ knockout-latest.js:76\nm @ knockout-latest.js:76\nk @ knockout-latest.js:76\nm @ knockout-latest.js:76\nk @ knockout-latest.js:76\na.vc @ knockout-latest.js:85\n(anonymous) @ auth.js:36\nRegister:40 Uncaught ReferenceError: RegisterViewModel is not defined\n    at Register:40:30\n(anonymous) @ Register:40\n[NEW] Explain Console errors by using Copilot in Edge: click  to explain an error. Learn moreDon't show again\n\nAnalyze the root cause and fix it",
+  "generated_at": "2026-08-05T07:26:49.743Z",
+  "requirements": [
+    {
+      "req_id": "R-001",
+      "text": "The successMessage variable must be defined within the Knockout.js binding context to prevent ReferenceErrors during visibility checks.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-002",
+      "text": "The RegisterViewModel must be properly defined and initialized before the script execution on the Register page.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-003",
+      "text": "The system must successfully process the form submission button click on the registration page without console errors.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "T-001",
+      "name": "Frontend UI — Fix Register page script execution and ViewModel definition",
+      "status": "completed",
+      "req_refs": [
+        "R-001",
+        "R-002",
+        "R-003"
+      ],
+      "files_written": [
+        "HRMS.UI/Views/Account/Register.cshtml",
+        "HRMS.UI/wwwroot/js/auth.js"
+      ],
+      "module": "PlannerCoder",
+      "feature": "On clicking the Register button  after entering the detai...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 3,
+    "covered": 3,
+    "partial": 0,
+    "uncovered": 0,
+    "coverage_pct": 100,
+    "total_tasks": 1,
+    "tasks_completed": 1,
+    "tasks_failed": 0,
+    "files_written": 2,
+    "validation_status": "passed"
+  }
+}

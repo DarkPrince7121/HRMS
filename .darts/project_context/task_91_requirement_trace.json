@@ -1,0 +1,67 @@
+{
+  "task_id": 91,
+  "task_name": "HRMS",
+  "execution_path": "planner_coder",
+  "complexity_tier": "simple",
+  "requirement_text": "After entering the data in the register page, and clicking the register, the user data is not added in the users table. Please check the root cause and fix it.,\nAnd along with that, in login, if the user provided username & password, after getting the user from the database, the passwordhash verification is performed, but the problem here is, the password entered by the user is not hashed before checking with the existing hash, so please fix that as well.\nbefore starting the both, please go through the flow of both Register & Login functionality and find the gap",
+  "generated_at": "2026-08-05T06:35:35.944Z",
+  "requirements": [
+    {
+      "req_id": "R-001",
+      "text": "The system must persist user data into the users database table upon successful submission of the registration form.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-002",
+      "text": "The login process must hash the user-provided password before comparing it against the stored password hash in the database.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-003",
+      "text": "The registration and login workflows must be audited to identify and resolve any existing architectural or logical gaps.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "T-001",
+      "name": "Fix Login/Register backend logic",
+      "status": "completed",
+      "req_refs": [
+        "R-001",
+        "R-002",
+        "R-003"
+      ],
+      "files_written": [
+        "HRMS.UI/Controllers/AccountController.cs"
+      ],
+      "module": "PlannerCoder",
+      "feature": "After entering the data in the register page, and clickin...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 3,
+    "covered": 3,
+    "partial": 0,
+    "uncovered": 0,
+    "coverage_pct": 100,
+    "total_tasks": 1,
+    "tasks_completed": 1,
+    "tasks_failed": 0,
+    "files_written": 1,
+    "validation_status": "passed"
+  }
+}

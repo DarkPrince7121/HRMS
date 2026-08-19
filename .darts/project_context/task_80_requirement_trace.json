@@ -1,0 +1,113 @@
+{
+  "task_id": 80,
+  "task_name": "HRMS",
+  "execution_path": "planner_coder",
+  "complexity_tier": "medium",
+  "requirement_text": "Create the Dashboard module providing high-level metrics and visual summaries using AJAX/Knockout bindings.\n\nAcceptance Criteria:\n- Dashboard displays counts for Employees, Departments, and active Leaves.\n- Knockout observables update charts/widgets.\n\nDependencies: Task core_employee_dept_modules_crud",
+  "generated_at": "2026-07-27T06:47:15.690Z",
+  "requirements": [
+    {
+      "req_id": "R-001",
+      "text": "The system shall provide a dashboard module using Knockout.js bindings for high-level metrics and visual summaries.",
+      "status": "covered",
+      "covered_by": [
+        "T-002"
+      ]
+    },
+    {
+      "req_id": "R-002",
+      "text": "The dashboard shall display the total count of Employees.",
+      "status": "covered",
+      "covered_by": [
+        "T-001",
+        "T-002"
+      ]
+    },
+    {
+      "req_id": "R-003",
+      "text": "The dashboard shall display the total count of Departments.",
+      "status": "covered",
+      "covered_by": [
+        "T-001",
+        "T-002"
+      ]
+    },
+    {
+      "req_id": "R-004",
+      "text": "The dashboard shall display the count of active Leaves.",
+      "status": "covered",
+      "covered_by": [
+        "T-001",
+        "T-002"
+      ]
+    },
+    {
+      "req_id": "R-005",
+      "text": "The system shall use Knockout observables to dynamically update charts and widgets.",
+      "status": "covered",
+      "covered_by": [
+        "T-002"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "T-001",
+      "name": "Backend Dashboard API",
+      "status": "completed",
+      "req_refs": [
+        "R-002",
+        "R-003",
+        "R-004"
+      ],
+      "files_written": [
+        "HRMS.Models/DTOs/DashboardStatsResponse.cs",
+        "HRMS.UI/Controllers/HomeController.cs",
+        "HRMS.UI/wwwroot/js/dashboard.js",
+        "HRMS.UI/Views/Home/Index.cshtml"
+      ],
+      "module": "PlannerCoder",
+      "feature": "Create the Dashboard module providing high-level metrics ...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    },
+    {
+      "task_id": "T-002",
+      "name": "Frontend Dashboard UI",
+      "status": "completed",
+      "req_refs": [
+        "R-001",
+        "R-002",
+        "R-003",
+        "R-004",
+        "R-005"
+      ],
+      "files_written": [
+        "HRMS.Models/DTOs/DashboardStatsResponse.cs",
+        "HRMS.UI/Controllers/HomeController.cs",
+        "HRMS.UI/wwwroot/js/dashboard.js",
+        "HRMS.UI/Views/Home/Index.cshtml"
+      ],
+      "module": "PlannerCoder",
+      "feature": "Create the Dashboard module providing high-level metrics ...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 5,
+    "covered": 5,
+    "partial": 0,
+    "uncovered": 0,
+    "coverage_pct": 100,
+    "total_tasks": 2,
+    "tasks_completed": 2,
+    "tasks_failed": 0,
+    "files_written": 4,
+    "validation_status": "passed"
+  }
+}

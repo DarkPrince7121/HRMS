@@ -1,0 +1,58 @@
+@{
+    ViewData["Title"] = "Holiday Calendar";
+}
+
+<div id="pageContent">
+<h2>Holiday Calendar</h2>
+
+<div class="row mb-3">
+    <div class="col-md-3">
+        <input type="text" class="form-control" placeholder="Name" data-bind="value: newName">
+    </div>
+    <div class="col-md-3">
+        <input type="date" class="form-control" data-bind="value: newDate">
+    </div>
+    <div class="col-md-2">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" data-bind="checked: newIsRecurring">
+            <label class="form-check-label">Recurring</label>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <button class="btn btn-primary" data-bind="click: addHoliday">Add</button>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Recurring</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: holidays">
+        <tr>
+            <td data-bind="text: name"></td>
+            <td data-bind="text: new Date(date).toLocaleDateString()"></td>
+            <td data-bind="text: isRecurring ? 'Yes' : 'No'"></td>
+            <td>
+                <button class="btn btn-danger btn-sm" data-bind="click: $parent.deleteHoliday">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+@section Scripts {
+    <script src="~/js/holidays.js"></script>
+    <script>
+        $(document).ready(function () {
+            var el = document.getElementById('pageContent');
+            if (el && !ko.dataFor(el)) {
+                ko.applyBindings(new HolidaysViewModel(), el);
+            }
+        });
+    </script>
+}
