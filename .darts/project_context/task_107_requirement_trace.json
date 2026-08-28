@@ -1,0 +1,86 @@
+{
+  "task_id": 107,
+  "task_name": "HRMS-Phase-1",
+  "execution_path": "planner_coder",
+  "complexity_tier": "simple",
+  "requirement_text": "As an user, I'm still getting the error on the Leave page loaded\nThis was the error i got in the console: jquery-3.6.0.min.js:2\n Uncaught TypeError: Cannot read properties of undefined (reading 'style')\n\nCan you analyze the root cause of this issue and fix this, since a similar issue was present in other page and it was fixed, so check the other pages with similar implementation like the viewmodel and datatable so that this page also implemented the similar way so the user can able to apply for leave and can able to view all the leave requests made by him and the admin user can able to approve it right?\n",
+  "generated_at": "2026-08-21T08:13:42.044Z",
+  "requirements": [
+    {
+      "req_id": "R-001",
+      "text": "The system must resolve the 'Uncaught TypeError: Cannot read properties of undefined (reading 'style')' JavaScript error on the Leave page.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-002",
+      "text": "The Leave page implementation must be aligned with the ViewModel and DataTable patterns used in other successfully fixed pages.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-003",
+      "text": "Users must be able to apply for leave without encountering script errors during page load.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-004",
+      "text": "Users must be able to view a comprehensive list of all leave requests they have submitted.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-005",
+      "text": "Admin users must have the functionality to approve pending leave requests.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "T-001",
+      "name": "Frontend UI — Fix Leave page JS and CSHTML",
+      "status": "completed",
+      "req_refs": [
+        "R-001",
+        "R-002",
+        "R-003",
+        "R-004",
+        "R-005"
+      ],
+      "files_written": [
+        "C:/DARTS-development-environment/sandbox/rmanoj/HRMS-Phase-1/HRMS.UI/wwwroot/js/leaves.js",
+        "C:/DARTS-development-environment/sandbox/rmanoj/HRMS-Phase-1/HRMS.UI/Views/Leave/Index.cshtml"
+      ],
+      "module": "PlannerCoder",
+      "feature": "As an user, I'm still getting the error on the Leave page...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 5,
+    "covered": 5,
+    "partial": 0,
+    "uncovered": 0,
+    "coverage_pct": 100,
+    "total_tasks": 1,
+    "tasks_completed": 1,
+    "tasks_failed": 0,
+    "files_written": 2,
+    "validation_status": "passed"
+  }
+}

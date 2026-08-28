@@ -43,7 +43,6 @@ public class LeaveController : Controller
     }
 
     [HttpPost]
-    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> UpdateStatus(int id, string status)
     {
         var success = await _leaveService.UpdateStatusAsync(id, status);

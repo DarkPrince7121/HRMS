@@ -1,0 +1,70 @@
+{
+  "task_id": 101,
+  "task_name": "HRMS-Phase-1",
+  "execution_path": "planner_coder",
+  "complexity_tier": "simple",
+  "requirement_text": "As an user I can navigate to the home screen on clicking the HRMS link at the top left, the what is the purpose of Home link in the navigation menu. remove it.",
+  "generated_at": "2026-08-19T12:37:46.363Z",
+  "requirements": [
+    {
+      "req_id": "R-001",
+      "text": "The user shall be able to navigate to the home screen by clicking the link at the top left.",
+      "status": "uncovered",
+      "covered_by": []
+    },
+    {
+      "req_id": "R-002",
+      "text": "The Home link shall be removed from the navigation menu.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "T-001",
+      "name": "Remove Home link from navigation menu",
+      "status": "completed",
+      "req_refs": [
+        "R-002"
+      ],
+      "files_written": [
+        "HRMS.UI/Views/Shared/_Layout.cshtml"
+      ],
+      "module": "PlannerCoder",
+      "feature": "As an user I can navigate to the home screen on clicking ...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    },
+    {
+      "task_id": "T-0",
+      "name": "Analysing and planning implementation...",
+      "status": "pending",
+      "req_refs": [],
+      "files_written": [
+        "HRMS.UI/Views/Shared/_Layout.cshtml"
+      ],
+      "module": "PlannerCoder",
+      "feature": "As an user I can navigate to the home screen on clicking the HRMS link at the to",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 2,
+    "covered": 1,
+    "partial": 0,
+    "uncovered": 1,
+    "coverage_pct": 50,
+    "total_tasks": 2,
+    "tasks_completed": 1,
+    "tasks_failed": 0,
+    "files_written": 1,
+    "validation_status": "passed"
+  }
+}

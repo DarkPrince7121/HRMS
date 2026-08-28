@@ -9,4 +9,7 @@ public class Employee
     public int DepartmentId { get; set; }
     public Department Department { get; set; } = null!;
     public decimal BaseSalary { get; set; }
+    
+    public int? UserId { get; set; }
+    public User? User { get; set; }
 }

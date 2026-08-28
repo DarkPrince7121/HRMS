@@ -8,4 +8,5 @@ public class EmployeeRequest
     public string Email { get; set; } = string.Empty;
     public int DepartmentId { get; set; }
     public decimal BaseSalary { get; set; }
+    public int? UserId { get; set; }
 }

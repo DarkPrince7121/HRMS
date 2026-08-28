@@ -7,6 +7,7 @@ using HRMS.Models.DTOs;
 using HRMS.Models.Entities;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Identity;
+using HRMS.Services.Interfaces;
 
 namespace HRMS.UI.Controllers;
 
@@ -14,10 +15,12 @@ public class AccountController : Controller
 {
     private readonly ApplicationDbContext _context;
     private readonly IPasswordHasher<User> _passwordHasher;
+    private readonly IEmployeeService _employeeService;
 
-    public AccountController(ApplicationDbContext context)
+    public AccountController(ApplicationDbContext context, IEmployeeService employeeService)
     {
         _context = context;
+        _employeeService = employeeService;
         _passwordHasher = new PasswordHasher<User>();
     }
 
@@ -62,7 +65,11 @@ public class AccountController : Controller
 
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
 
-            return Ok(new { success = true });
+            // Check if employee exists
+            var employee = await _employeeService.GetByEmailAsync(user.Email);
+            bool needsEmployeeRegistration = employee == null;
+
+            return Ok(new { success = true, needsEmployeeRegistration });
         }
         catch (Exception ex)
         {
@@ -99,7 +106,6 @@ public class AccountController : Controller
 
             if (defaultRole == null)
             {
-                // Create a default role if none exists
                 defaultRole = new Role { Name = "Employee" };
                 _context.Roles.Add(defaultRole);
                 await _context.SaveChangesAsync();
@@ -117,6 +123,60 @@ public class AccountController : Controller
 
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
+
+            return Ok(new { success = true });
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(new { message = ex.Message });
+        }
+    }
+
+    [HttpGet]
+    public IActionResult RegisterEmployee()
+    {
+        if (User.Identity?.IsAuthenticated != true)
+            return RedirectToAction("Login");
+
+        return View();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> RegisterEmployee([FromBody] EmployeeRequest request)
+    {
+        try
+        {
+            if (User.Identity == null || !User.Identity.IsAuthenticated)
+                return Unauthorized();
+
+            var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (string.IsNullOrEmpty(userIdClaim)) return Unauthorized();
+            
+            var userId = int.Parse(userIdClaim);
+            var userEmail = User.FindFirstValue(ClaimTypes.Email);
+
+            if (string.IsNullOrEmpty(request.FirstName) || string.IsNullOrEmpty(request.LastName))
+            {
+                return BadRequest(new { message = "First and Last Name are required" });
+            }
+
+            // Set default IT department if not provided
+            if (request.DepartmentId <= 0)
+            {
+                var itDept = await _context.Departments.FirstOrDefaultAsync(d => d.Name == "IT");
+                if (itDept == null)
+                {
+                    itDept = new Department { Name = "IT", Code = "IT", Description = "Information Technology" };
+                    _context.Departments.Add(itDept);
+                    await _context.SaveChangesAsync();
+                }
+                request.DepartmentId = itDept.Id;
+            }
+
+            request.Email = userEmail ?? "";
+            request.UserId = userId;
+
+            await _employeeService.CreateAsync(request);
 
             return Ok(new { success = true });
         }

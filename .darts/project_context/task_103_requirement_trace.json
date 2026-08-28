@@ -1,0 +1,163 @@
+{
+  "task_id": 103,
+  "task_name": "HRMS-Phase-1",
+  "execution_path": "planner_coder",
+  "complexity_tier": "medium",
+  "requirement_text": "i can see there is an gap between the users and employees table, lets say if an user creates/register login the same user could also be the employee, so once the user created, Bore redirecting the user after logging in with the same account, there should be a check like does accountexists / employeeexists and that should check whether any employee data has been created with the emailaddress that the user provided when creating the user. if the user does not exists, then system should redirect them to the registerlogin page in which it should prompt for the employees details like firstname, lastname and the department should be IT by default and it should not be displayed for employee as of now where as admin can see it. maybe you can create a partial view for the employee register form and can use them in both this and add employee page. so create new migration with clear structure a foreign key reference for users table in employees table as userId with .net ef core migration tool for that, so that system can map it accordingly. \nonce the user saves the registerlogin page, then the employee record should get added and in the employees table make the emailaddress column as unique as well since there shouldn't be any duplicate email addresses.\nthis new migration and other changes should not break the existing system and this should be an extended functionality. so make necessary changes in the related files and component as well",
+  "generated_at": "2026-08-21T07:12:41.786Z",
+  "requirements": [
+    {
+      "req_id": "R-001",
+      "text": "The system must check if an employee record exists with the user's email address upon login.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-002",
+      "text": "Users without an existing employee record must be redirected to a registration/login page to provide employee details.",
+      "status": "covered",
+      "covered_by": [
+        "T-001",
+        "T-002"
+      ]
+    },
+    {
+      "req_id": "R-003",
+      "text": "The employee registration form must include fields for first name and last name.",
+      "status": "covered",
+      "covered_by": [
+        "T-001",
+        "T-002"
+      ]
+    },
+    {
+      "req_id": "R-004",
+      "text": "The department field for new employees must default to 'IT' and be hidden from the employee view while visible to admins.",
+      "status": "covered",
+      "covered_by": [
+        "T-001",
+        "T-002"
+      ]
+    },
+    {
+      "req_id": "R-005",
+      "text": "A reusable partial view must be created for the employee registration form to be used in both the registration and add employee pages.",
+      "status": "covered",
+      "covered_by": [
+        "T-002"
+      ]
+    },
+    {
+      "req_id": "R-006",
+      "text": "A new EF Core migration must add a 'userId' foreign key column to the employees table referencing the users table.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-007",
+      "text": "The email address column in the employees table must be configured as unique to prevent duplicate records.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-008",
+      "text": "The system must save a new employee record linked to the user account upon completion of the registration form.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-009",
+      "text": "The new functionality must be implemented as an extension that does not break existing system features.",
+      "status": "covered",
+      "covered_by": [
+        "T-001",
+        "T-002"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "T-001",
+      "name": "Backend — ALL models + ALL controllers + DbContext updates",
+      "status": "completed",
+      "req_refs": [
+        "R-001",
+        "R-002",
+        "R-003",
+        "R-004",
+        "R-006",
+        "R-007",
+        "R-008",
+        "R-009"
+      ],
+      "files_written": [
+        "HRMS.Models/Entities/Employee.cs",
+        "HRMS.Models/DTOs/EmployeeRequest.cs",
+        "HRMS.Data/Configurations/EmployeeConfiguration.cs",
+        "HRMS.Services/Interfaces/IEmployeeService.cs",
+        "HRMS.Services/EmployeeService.cs",
+        "HRMS.UI/Controllers/AccountController.cs",
+        "HRMS.UI/Controllers/EmployeesController.cs",
+        "HRMS.UI/Views/Shared/_EmployeeFormPartial.cshtml",
+        "HRMS.UI/Views/Account/RegisterEmployee.cshtml",
+        "HRMS.UI/wwwroot/js/auth.js"
+      ],
+      "module": "PlannerCoder",
+      "feature": "i can see there is an gap between the users and employees...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    },
+    {
+      "task_id": "T-002",
+      "name": "Frontend UI — ALL components + CSS + Views",
+      "status": "completed",
+      "req_refs": [
+        "R-002",
+        "R-003",
+        "R-004",
+        "R-005",
+        "R-009"
+      ],
+      "files_written": [
+        "HRMS.Models/Entities/Employee.cs",
+        "HRMS.Models/DTOs/EmployeeRequest.cs",
+        "HRMS.Data/Configurations/EmployeeConfiguration.cs",
+        "HRMS.Services/Interfaces/IEmployeeService.cs",
+        "HRMS.Services/EmployeeService.cs",
+        "HRMS.UI/Controllers/AccountController.cs",
+        "HRMS.UI/Controllers/EmployeesController.cs",
+        "HRMS.UI/Views/Shared/_EmployeeFormPartial.cshtml",
+        "HRMS.UI/Views/Account/RegisterEmployee.cshtml",
+        "HRMS.UI/wwwroot/js/auth.js"
+      ],
+      "module": "PlannerCoder",
+      "feature": "i can see there is an gap between the users and employees...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 9,
+    "covered": 9,
+    "partial": 0,
+    "uncovered": 0,
+    "coverage_pct": 100,
+    "total_tasks": 2,
+    "tasks_completed": 2,
+    "tasks_failed": 0,
+    "files_written": 10,
+    "validation_status": "passed"
+  }
+}
