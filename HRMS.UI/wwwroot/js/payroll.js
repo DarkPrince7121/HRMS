@@ -41,6 +41,17 @@ function PayrollViewModel() {
                     }
                 },
                 {
+                    data: null,
+                    render: function (data, type, row) {
+                        var basic = row.basicPay || 0;
+                        var allowances = row.allowances || 0;
+                        var deductions = row.deductions || 0;
+                        var leaves = row.leaveDeductions || 0;
+                        var absences = row.absentDeductions || 0;
+                        return '<small>Basic: $' + basic.toFixed(2) + ' | Allowances: $' + allowances.toFixed(2) + ' | Deductions: -$' + deductions.toFixed(2) + ' (Leaves: $' + leaves.toFixed(2) + ', Absences: $' + absences.toFixed(2) + ')</small>';
+                    }
+                },
+                {
                     data: 'status',
                     render: function (data) {
                         var badgeClass = data === 'Processed' ? 'bg-success' : 'bg-warning';

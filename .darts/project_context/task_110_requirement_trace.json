@@ -1,0 +1,74 @@
+{
+  "task_id": 110,
+  "task_name": "HRMS-Phase-1",
+  "execution_path": "full_pipeline",
+  "complexity_tier": "medium",
+  "requirement_text": "As an user, if i process payroll, for the users with existing leave also getting zero deductions. so unless or until the leave type is sick/maternity/paternity others are considered as deduction. in the code i saw the leave type as unpaid, but there is no leave type named unpaid when we apply for a leave. so for the leavetypes that are not mentioned in the above, consider them as deduction and include that in the payroll generation. first analyze the complete workflow related to the employees and payroll before making any changes because this payroll is based on the employee salary and the leave they have applied/taken",
+  "generated_at": "2026-08-28T07:27:39.536Z",
+  "requirements": [
+    {
+      "req_id": "R-001",
+      "text": "Leave types matching 'sick', 'maternity', or 'paternity' must result in zero deduction during payroll processing.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-002",
+      "text": "Leave types other than 'sick', 'maternity', or 'paternity' must be treated as deductions and included in payroll generation.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-003",
+      "text": "Payroll deductions must be calculated based on the employee's salary and the overlapping days of applied leave.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-004",
+      "text": "Analyze the complete employee and payroll workflow, including employee salary and applied leaves, before modifying payroll generation.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "T-001",
+      "name": "Realign leave deduction rules in PayrollService",
+      "status": "completed",
+      "req_refs": [
+        "R-001",
+        "R-002",
+        "R-003",
+        "R-004"
+      ],
+      "files_written": [],
+      "module": "Payroll Management",
+      "feature": "Leave Deduction Rules Realignment",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 4,
+    "covered": 4,
+    "partial": 0,
+    "uncovered": 0,
+    "coverage_pct": 100,
+    "total_tasks": 1,
+    "tasks_completed": 1,
+    "tasks_failed": 0,
+    "files_written": 0,
+    "validation_status": "passed"
+  }
+}

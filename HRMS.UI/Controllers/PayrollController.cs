@@ -24,18 +24,28 @@ public class PayrollController : Controller
     public async Task<IActionResult> GetAll()
     {
         var payrolls = await _payrollService.GetAllAsync();
-        var response = payrolls.Select(p => new PayrollResponse
+        var responseList = new List<PayrollResponse>();
+
+        foreach (var p in payrolls)
         {
-            Id = p.Id,
-            EmployeeId = p.EmployeeId,
-            EmployeeName = p.Employee.FirstName + " " + p.Employee.LastName,
-            PayDate = p.PayDate,
-            GrossPay = p.GrossPay,
-            Deductions = p.Deductions,
-            NetPay = p.NetPay,
-            Status = p.Status
-        });
-        return Json(new { data = response });
+            var breakdown = await _payrollService.GetPayrollBreakdownAsync(p.EmployeeId, p.PayDate, p.GrossPay);
+            responseList.Add(new PayrollResponse
+            { 
+                Id = p.Id,
+                EmployeeId = p.EmployeeId,
+                EmployeeName = p.Employee.FirstName + " " + p.Employee.LastName,
+                PayDate = p.PayDate,
+                GrossPay = p.GrossPay,
+                Deductions = p.Deductions,
+                NetPay = p.NetPay,
+                BasicPay = breakdown.BasicPay,
+                Allowances = breakdown.Allowances,
+                LeaveDeductions = breakdown.LeaveDeductions,
+                AbsentDeductions = breakdown.AbsentDeductions,
+                Status = p.Status
+            });
+        }
+        return Json(new { data = responseList });
     }
 
     [HttpGet]

@@ -45,6 +45,7 @@
                             <th class="py-3 border-0">Last Name</th>
                             <th class="py-3 border-0">Email</th>
                             <th class="py-3 border-0">Department</th>
+                            <th class="py-3 border-0">Base Salary</th>
                             <th class="px-4 py-3 border-0 text-end">Actions</th>
                         </tr>
                     </thead>
@@ -81,6 +82,10 @@
                         <div class="col-12">
                             <label class="form-label small fw-semibold text-muted">Department Assignment</label>
                             <select class="form-select bg-light border-0 py-2 rounded-3 shadow-none" data-bind="options: $parent.departments, optionsText: 'name', optionsValue: 'id', optionsCaption: 'Choose Department...', value: departmentId"></select>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label small fw-semibold text-muted">Base Salary</label>
+                            <input type="number" min="0" step="0.01" class="form-control bg-light border-0 py-2 shadow-none" data-bind="value: baseSalary" required />
                         </div>
                     </div>
                 </div>

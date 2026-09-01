@@ -1,0 +1,145 @@
+{
+  "task_id": 108,
+  "task_name": "HRMS-Phase-1",
+  "execution_path": "full_pipeline",
+  "complexity_tier": "medium",
+  "requirement_text": "I can see a column named Salary in the employees table, but there is no input control to add data to it, so because of that, the payroll generation results in 0, so add one more input control in the employees edit/add page and and display the salary value in the employees list page table as well. then this salary should be non-negative value. and also during payroll generation, the grosspay, deduction and netpay should be calculated based on the salary and it should have some breakdown structure. this should not break any other page",
+  "generated_at": "2026-08-28T05:29:50.913Z",
+  "requirements": [
+    {
+      "req_id": "R-001",
+      "text": "Add an input control for the salary field in the employees edit and add page.",
+      "status": "covered",
+      "covered_by": [
+        "T-002"
+      ]
+    },
+    {
+      "req_id": "R-002",
+      "text": "Display the salary value in the employees list page table.",
+      "status": "covered",
+      "covered_by": [
+        "T-001",
+        "T-002"
+      ]
+    },
+    {
+      "req_id": "R-003",
+      "text": "Ensure that the salary value is a non-negative number.",
+      "status": "covered",
+      "covered_by": [
+        "T-001",
+        "T-002"
+      ]
+    },
+    {
+      "req_id": "R-004",
+      "text": "Calculate Gross Pay, Deductions, and Net Pay based on the salary during payroll generation.",
+      "status": "uncovered",
+      "covered_by": [
+        "T-003"
+      ]
+    },
+    {
+      "req_id": "R-005",
+      "text": "Provide a detailed breakdown structure of the payroll calculations.",
+      "status": "partial",
+      "covered_by": [
+        "T-003",
+        "T-004"
+      ]
+    },
+    {
+      "req_id": "R-006",
+      "text": "Ensure that these additions and modifications do not break any other page in the application.",
+      "status": "uncovered",
+      "covered_by": []
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "T-001",
+      "name": "Implement Employee Salary — Backend Support & Validation",
+      "status": "completed",
+      "req_refs": [
+        "R-002",
+        "R-003"
+      ],
+      "files_written": [
+        "HRMS.UI/wwwroot/js/payroll.js"
+      ],
+      "module": "Employee Management",
+      "feature": "Employee Salary Field",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    },
+    {
+      "task_id": "T-002",
+      "name": "Implement Employee Salary — Frontend UI Integration",
+      "status": "completed",
+      "req_refs": [
+        "R-001",
+        "R-002",
+        "R-003"
+      ],
+      "files_written": [
+        "HRMS.UI/wwwroot/js/payroll.js"
+      ],
+      "module": "Employee Management",
+      "feature": "Employee Salary Field",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    },
+    {
+      "task_id": "T-003",
+      "name": "Implement Payroll Calculations & Breakdown — Backend Logic",
+      "status": "pending",
+      "req_refs": [
+        "R-004",
+        "R-005"
+      ],
+      "files_written": [
+        "HRMS.UI/wwwroot/js/payroll.js"
+      ],
+      "module": "Payroll Management",
+      "feature": "Payroll Calculation & Breakdown",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    },
+    {
+      "task_id": "T-004",
+      "name": "Display Payroll Breakdown in UI",
+      "status": "completed",
+      "req_refs": [
+        "R-005"
+      ],
+      "files_written": [
+        "HRMS.UI/wwwroot/js/payroll.js"
+      ],
+      "module": "Payroll Management",
+      "feature": "Payroll Calculation & Breakdown",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 6,
+    "covered": 3,
+    "partial": 1,
+    "uncovered": 2,
+    "coverage_pct": 58,
+    "total_tasks": 4,
+    "tasks_completed": 3,
+    "tasks_failed": 0,
+    "files_written": 1,
+    "validation_status": "passed"
+  }
+}

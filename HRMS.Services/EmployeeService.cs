@@ -26,7 +26,8 @@ public class EmployeeService : IEmployeeService
                 LastName = e.LastName,
                 Email = e.Email,
                 DepartmentId = e.DepartmentId,
-                DepartmentName = e.Department.Name
+                DepartmentName = e.Department.Name,
+                BaseSalary = e.BaseSalary
             })
             .ToListAsync();
     }
@@ -46,7 +47,8 @@ public class EmployeeService : IEmployeeService
             LastName = e.LastName,
             Email = e.Email,
             DepartmentId = e.DepartmentId,
-            DepartmentName = e.Department.Name
+            DepartmentName = e.Department.Name,
+            BaseSalary = e.BaseSalary
         };
     }
 
@@ -65,7 +67,8 @@ public class EmployeeService : IEmployeeService
             LastName = e.LastName,
             Email = e.Email,
             DepartmentId = e.DepartmentId,
-            DepartmentName = e.Department.Name
+            DepartmentName = e.Department.Name,
+            BaseSalary = e.BaseSalary
         };
     }
 
