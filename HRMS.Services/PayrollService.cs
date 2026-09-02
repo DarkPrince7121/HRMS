@@ -37,12 +37,13 @@ public class PayrollService : IPayrollService
         _context.Payrolls.RemoveRange(existing);
 
         foreach (var employee in employees)
-        {
-            var netPay = await CalculateNetPayAsync(employee.Id, month);
-            var deductions = employee.BaseSalary - netPay;
+        { 
+            var breakdown = await GetPayrollBreakdownAsync(employee.Id, month, employee.BaseSalary);
+            var deductions = breakdown.LeaveDeductions + breakdown.AbsentDeductions;
+            var netPay = Math.Max(0, employee.BaseSalary - deductions);
 
             var payroll = new Payroll
-            {
+            { 
                 EmployeeId = employee.Id,
                 PayDate = lastDayOfMonth,
                 GrossPay = employee.BaseSalary,
@@ -62,6 +63,13 @@ public class PayrollService : IPayrollService
         var employee = await _context.Employees.FindAsync(employeeId);
         if (employee == null) return 0;
 
+        var breakdown = await GetPayrollBreakdownAsync(employeeId, month, employee.BaseSalary);
+        decimal deductions = breakdown.LeaveDeductions + breakdown.AbsentDeductions;
+        return Math.Max(0, employee.BaseSalary - deductions);
+    }
+
+    public async Task<(decimal BasicPay, decimal Allowances, decimal LeaveDeductions, decimal AbsentDeductions)> GetPayrollBreakdownAsync(int employeeId, DateTime month, decimal baseSalary)
+    {
         var firstDayOfMonth = new DateTime(month.Year, month.Month, 1);
         var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
 
@@ -75,8 +83,11 @@ public class PayrollService : IPayrollService
         int leaveDays = 0;
         foreach (var leave in leaves)
         { 
-            // Only deduct for Unpaid leaves
-            if (leave.LeaveType.Contains("Unpaid", StringComparison.OrdinalIgnoreCase))
+            // Deduct for approved leaves unless they are sick, maternity, or paternity
+            if (leave.LeaveType != null &&
+                !(leave.LeaveType.Contains("sick", StringComparison.OrdinalIgnoreCase) ||
+                  leave.LeaveType.Contains("maternity", StringComparison.OrdinalIgnoreCase) ||
+                  leave.LeaveType.Contains("paternity", StringComparison.OrdinalIgnoreCase)))
             {
                 var start = leave.StartDate < firstDayOfMonth ? firstDayOfMonth : leave.StartDate;
                 var end = leave.EndDate > lastDayOfMonth ? lastDayOfMonth : leave.EndDate;
@@ -91,14 +102,15 @@ public class PayrollService : IPayrollService
                         a.Date <= lastDayOfMonth)
             .ToListAsync();
 
-        // Assuming 22 standard working days per month
-        // Deduct for 'Absent' status in attendance records
         int absentDays = attendance.Count(a => a.Status.Equals("Absent", StringComparison.OrdinalIgnoreCase));
 
-        decimal dailyRate = employee.BaseSalary / 22m;
-        decimal totalDeductionDays = leaveDays + absentDays;
-        decimal deduction = Math.Round(totalDeductionDays * dailyRate, 2);
+        decimal dailyRate = baseSalary / 22m;
+        decimal leaveDeductions = Math.Round(leaveDays * dailyRate, 2);
+        decimal absentDeductions = Math.Round(absentDays * dailyRate, 2);
 
-        return Math.Max(0, employee.BaseSalary - deduction);
+        decimal basicPay = Math.Round(baseSalary * 0.70m, 2);
+        decimal allowances = Math.Round(baseSalary * 0.30m, 2);
+
+        return (basicPay, allowances, leaveDeductions, absentDeductions);
     }
 }

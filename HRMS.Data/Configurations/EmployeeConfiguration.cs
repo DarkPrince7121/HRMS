@@ -32,6 +32,11 @@ public class EmployeeConfiguration : IEntityTypeConfiguration<Employee>
             .HasForeignKey(e => e.DepartmentId)
             .OnDelete(DeleteBehavior.Restrict);
 
+        builder.HasOne(e => e.User)
+            .WithOne()
+            .HasForeignKey<Employee>(e => e.UserId)
+            .OnDelete(DeleteBehavior.SetNull);
+
         builder.HasIndex(e => e.Email).IsUnique();
     }
 }

@@ -42,6 +42,12 @@ function EmployeeViewModel() {
                 { data: 'email' },
                 { data: 'departmentName' },
                 {
+                    data: 'baseSalary',
+                    render: function (data) {
+                        return '$' + parseFloat(data || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                    }
+                },
+                {
                     data: 'id',
                     render: function (data) {
                         return '<button class="btn btn-sm btn-info me-2" onclick="editEmployee(' + data + ')">Edit</button>' +
@@ -73,6 +79,10 @@ function EmployeeViewModel() {
     };
 
     self.saveEmployee = function () {
+        if (parseFloat(self.currentEmployee.baseSalary() || 0) < 0) {
+            alert('Base salary must be a non-negative value.');
+            return;
+        }
         var url = self.isEdit() ? '/Employees/Edit' : '/Employees/Create';
         var data = {
             id: self.currentEmployee.id(),
@@ -94,7 +104,7 @@ function EmployeeViewModel() {
                     table.ajax.reload();
                 } else {
                     alert('Error saving employee');
-                }
+                } 
             }
         });
     };
@@ -126,7 +136,7 @@ function EmployeeViewModel() {
                     }
                 }
             });
-        }
+        } 
     };
 
     self.loadDepartments();

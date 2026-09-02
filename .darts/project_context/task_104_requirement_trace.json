@@ -1,0 +1,87 @@
+{
+  "task_id": 104,
+  "task_name": "HRMS-Phase-1",
+  "execution_path": "planner_coder",
+  "complexity_tier": "simple",
+  "requirement_text": "After trying to login with an account, i'm getting this error:\n42703: column e.UserId does not exist POSITION: 90\n\nthe userid column was not added in the database table of employees, since there is no migrations file created. create a new migration file for adding userid column in employees table and apply the migration on application startup. create migration file for this with ef core migrations tool",
+  "generated_at": "2026-08-21T07:21:26.329Z",
+  "requirements": [
+    {
+      "req_id": "R-001",
+      "text": "Add a new column named 'UserId' to the 'Employees' database table.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-002",
+      "text": "Generate a new EF Core migration file specifically for adding the 'UserId' column.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-003",
+      "text": "Automatically apply pending database migrations during the application startup process.",
+      "status": "covered",
+      "covered_by": [
+        "T-002"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "T-001",
+      "name": "Backend — Create EF Core Migration for UserId",
+      "status": "completed",
+      "req_refs": [
+        "R-001",
+        "R-002"
+      ],
+      "files_written": [
+        "HRMS.Data/Migrations/20231027000000_AddUserIdToEmployee.cs",
+        "HRMS.Data/Migrations/20231027000000_AddUserIdToEmployee.Designer.cs",
+        "HRMS.Data/Migrations/ApplicationDbContextModelSnapshot.cs"
+      ],
+      "module": "PlannerCoder",
+      "feature": "After trying to login with an account, i'm getting this e...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    },
+    {
+      "task_id": "T-002",
+      "name": "Entry points — Verify Migration Application",
+      "status": "completed",
+      "req_refs": [
+        "R-003"
+      ],
+      "files_written": [
+        "HRMS.Data/Migrations/20231027000000_AddUserIdToEmployee.cs",
+        "HRMS.Data/Migrations/20231027000000_AddUserIdToEmployee.Designer.cs",
+        "HRMS.Data/Migrations/ApplicationDbContextModelSnapshot.cs"
+      ],
+      "module": "PlannerCoder",
+      "feature": "After trying to login with an account, i'm getting this e...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 3,
+    "covered": 3,
+    "partial": 0,
+    "uncovered": 0,
+    "coverage_pct": 100,
+    "total_tasks": 2,
+    "tasks_completed": 2,
+    "tasks_failed": 0,
+    "files_written": 3,
+    "validation_status": "passed"
+  }
+}

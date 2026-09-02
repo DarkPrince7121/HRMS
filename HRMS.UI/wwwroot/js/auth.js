@@ -18,9 +18,16 @@ function LoginViewModel() {
             },
             body: JSON.stringify(loginData)
         })
-        .then(async response => {
+            .then(async response => {
+                console.log(response);
             if (response.ok) {
-                window.location.href = '/';
+                debugger;
+                var result = await response.json();
+                if (result.needsEmployeeRegistration) {
+                    window.location.href = '/Account/RegisterEmployee';
+                } else {
+                    window.location.href = '/';
+                }
             } else {
                 var error = await response.json();
                 self.errorMessage(error.message || 'Login failed');
@@ -71,6 +78,43 @@ function RegisterViewModel() {
         })
         .catch(error => {
             console.error('Error:', error);
+            self.errorMessage('An unexpected error occurred.');
+        });
+    };
+}
+
+function EmployeeRegistrationViewModel() {
+    var self = this;
+    self.firstName = ko.observable('');
+    self.lastName = ko.observable('');
+    self.departmentId = ko.observable(0);
+    self.baseSalary = ko.observable(0);
+    self.departments = ko.observableArray([]);
+    self.isAdmin = ko.observable(false); // Hardcoded false for this view as per requirement
+    self.errorMessage = ko.observable('');
+
+    self.registerEmployee = function() {
+        var data = {
+            firstName: self.firstName(),
+            lastName: self.lastName(),
+            departmentId: self.departmentId(),
+            baseSalary: self.baseSalary()
+        };
+
+        fetch('/Account/RegisterEmployee', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        })
+        .then(async response => {
+            if (response.ok) {
+                window.location.href = '/';
+            } else {
+                var error = await response.json();
+                self.errorMessage(error.message || 'Failed to save profile');
+            }
+        })
+        .catch(err => {
             self.errorMessage('An unexpected error occurred.');
         });
     };

@@ -1,8 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
+
 using HRMS.Services.Interfaces;
 
 namespace HRMS.UI.Controllers;
 
+[Authorize(Roles = "Admin")]
 public class AuditController : Controller
 {
     private readonly IAuditService _auditService;

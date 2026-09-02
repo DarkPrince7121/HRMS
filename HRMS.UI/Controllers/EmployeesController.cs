@@ -61,7 +61,8 @@ public class EmployeesController : Controller
         return Json(new { success });
     }
 
-    [HttpGet]
+    [HttpPost]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Delete(int id)
     {
         var success = await _employeeService.DeleteAsync(id);
