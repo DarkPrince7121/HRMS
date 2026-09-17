@@ -1,0 +1,162 @@
+{
+  "task_id": 116,
+  "task_name": "HRMS-ApplicationProcess",
+  "execution_path": "planner_coder",
+  "complexity_tier": "medium",
+  "requirement_text": "Implement the general KnockoutJS list view for withdrawal applications, including a global navigation item, list table rendering, and an entry button to launch the multi-step application wizard flow.\n\nAcceptance Criteria:\n- New global application layout or sidebar contains nav link 'Applications'\n- Clicking 'Applications' navigates to the table list page without browser-wide refresh, rendering a table listing all existing withdrawal applications with their metadata (ID, Status, Amount, Target Employee, Dates)\n- Add a 'Create New Withdrawal Application' button on the page that initiates the 4-step application wizard\n\nTechnical Hints: Define a new KnockoutJS route or component for the applications list. Use standard data-bind templates to render rows and status badges.\n\nDependencies: Task backend-api-application-wizard",
+  "generated_at": "2026-09-02T08:51:28.272Z",
+  "requirements": [
+    {
+      "req_id": "R-001",
+      "text": "Add an 'Applications' navigation link to the global application layout or sidebar.",
+      "status": "covered",
+      "covered_by": [
+        "T-002"
+      ]
+    },
+    {
+      "req_id": "R-002",
+      "text": "Navigate to the table list page without a browser-wide refresh when clicking the 'Applications' link.",
+      "status": "covered",
+      "covered_by": [
+        "T-002",
+        "T-003"
+      ]
+    },
+    {
+      "req_id": "R-003",
+      "text": "Render a table listing existing withdrawal applications with their metadata including ID, Status, Amount, Target Employee, and Dates.",
+      "status": "covered",
+      "covered_by": [
+        "T-001",
+        "T-003",
+        "T-004"
+      ]
+    },
+    {
+      "req_id": "R-004",
+      "text": "Provide a 'Create New Withdrawal Application' button on the page to launch the 4-step application wizard.",
+      "status": "covered",
+      "covered_by": [
+        "T-003",
+        "T-004"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "T-001",
+      "name": "Backend - Implement ApplicationsController and endpoints",
+      "status": "completed",
+      "req_refs": [
+        "R-003"
+      ],
+      "files_written": [
+        "HRMS.UI/Controllers/ApplicationsController.cs",
+        "HRMS.UI/Views/Shared/_Layout.cshtml",
+        "HRMS.UI/wwwroot/js/applications.js",
+        "HRMS.UI/Views/Applications/Index.cshtml"
+      ],
+      "module": "PlannerCoder",
+      "feature": "Implement the general KnockoutJS list view for withdrawal...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    },
+    {
+      "task_id": "T-002",
+      "name": "Entry points - Register navigation in Layout and scripts",
+      "status": "completed",
+      "req_refs": [
+        "R-001",
+        "R-002"
+      ],
+      "files_written": [
+        "HRMS.UI/Controllers/ApplicationsController.cs",
+        "HRMS.UI/Views/Shared/_Layout.cshtml",
+        "HRMS.UI/wwwroot/js/applications.js",
+        "HRMS.UI/Views/Applications/Index.cshtml"
+      ],
+      "module": "PlannerCoder",
+      "feature": "Implement the general KnockoutJS list view for withdrawal...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    },
+    {
+      "task_id": "T-003",
+      "name": "Frontend services - Create applications.js with Knockout ViewModel",
+      "status": "completed",
+      "req_refs": [
+        "R-002",
+        "R-003",
+        "R-004"
+      ],
+      "files_written": [
+        "HRMS.UI/Controllers/ApplicationsController.cs",
+        "HRMS.UI/Views/Shared/_Layout.cshtml",
+        "HRMS.UI/wwwroot/js/applications.js",
+        "HRMS.UI/Views/Applications/Index.cshtml"
+      ],
+      "module": "PlannerCoder",
+      "feature": "Implement the general KnockoutJS list view for withdrawal...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    },
+    {
+      "task_id": "T-004",
+      "name": "Frontend UI - Create Applications view page and wizard modal",
+      "status": "completed",
+      "req_refs": [
+        "R-003",
+        "R-004"
+      ],
+      "files_written": [
+        "HRMS.UI/Controllers/ApplicationsController.cs",
+        "HRMS.UI/Views/Shared/_Layout.cshtml",
+        "HRMS.UI/wwwroot/js/applications.js",
+        "HRMS.UI/Views/Applications/Index.cshtml"
+      ],
+      "module": "PlannerCoder",
+      "feature": "Implement the general KnockoutJS list view for withdrawal...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    },
+    {
+      "task_id": "T-0",
+      "name": "Analysing and planning implementation...",
+      "status": "pending",
+      "req_refs": [],
+      "files_written": [
+        "HRMS.UI/Controllers/ApplicationsController.cs",
+        "HRMS.UI/Views/Shared/_Layout.cshtml",
+        "HRMS.UI/wwwroot/js/applications.js",
+        "HRMS.UI/Views/Applications/Index.cshtml"
+      ],
+      "module": "PlannerCoder",
+      "feature": "Implement the general KnockoutJS list view for withdrawal applications, includin",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 4,
+    "covered": 4,
+    "partial": 0,
+    "uncovered": 0,
+    "coverage_pct": 100,
+    "total_tasks": 5,
+    "tasks_completed": 4,
+    "tasks_failed": 0,
+    "files_written": 4,
+    "validation_status": "passed"
+  }
+}

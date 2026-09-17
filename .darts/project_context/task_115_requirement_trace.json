@@ -1,0 +1,114 @@
+{
+  "task_id": 115,
+  "task_name": "HRMS-ApplicationProcess",
+  "execution_path": "full_pipeline",
+  "complexity_tier": "medium",
+  "requirement_text": "Build backend controllers and APIs in ASP.NET to manage the withdrawal applications workflow, retrieve active employee metadata, fetch real-time calculated balances, and finalize application transactions with safe database deductions.\n\nAcceptance Criteria:\n- GET /api/applications endpoint returns list of all applications with status names, target employee info, amount, and relevant metadata timestamps\n- POST /api/applications/initiate starts an application (or resumes existing in-progress one), updating status to 'Application Created' (StatusId matching its value) and returns application ID\n- PUT /api/applications/{id}/status updates the status (e.g. to 'User Selected', 'Amount Entered', or 'Application Submitted') and updates LastChangeDate and StatusLastChangeDate\n- GET /api/employees list returns all active employees with Name, Email, Department, and Salary information\n- GET /api/employees/{id}/balance returns Employee's processed payroll balance minus any pending withdrawal application amounts\n- POST /api/applications/{id}/complete updates application status to 'Application Submitted', subtracts the finalized withdrawal amount from EmployeeSalaryBalance, and saves transaction\n\nTechnical Hints: Use transactions or safe EF Core updates during '/complete' invocation to avoid concurrency conflicts when updating EmployeeSalaryBalance. Ensure to deduct the application's Amount from EmployeeSalaryBalance inside a unified transaction.\n\nDependencies: Task db-migration-withdrawal-application, Task db-migration-employee-salary-balance",
+  "generated_at": "2026-09-02T08:45:15.056Z",
+  "requirements": [
+    {
+      "req_id": "R-001",
+      "text": "The GET /api/applications endpoint must return a list of all withdrawal applications, including status names, target employee information, amounts, and relevant metadata timestamps.",
+      "status": "covered",
+      "covered_by": [
+        "T-002"
+      ]
+    },
+    {
+      "req_id": "R-002",
+      "text": "The POST /api/applications/initiate endpoint must start a new withdrawal application or resume an existing in-progress one, updating the status to 'Application Created' and returning the application ID.",
+      "status": "covered",
+      "covered_by": [
+        "T-002"
+      ]
+    },
+    {
+      "req_id": "R-003",
+      "text": "The PUT /api/applications/{id}/status endpoint must update the status of the application and update the LastChangeDate and StatusLastChangeDate timestamps.",
+      "status": "covered",
+      "covered_by": [
+        "T-002"
+      ]
+    },
+    {
+      "req_id": "R-004",
+      "text": "The GET /api/employees endpoint must return a list of all active employees including their Name, Email, and Salary information.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-005",
+      "text": "The GET /api/employees/{id}/balance endpoint must return the employee's payroll balance minus any pending withdrawal application amounts.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-006",
+      "text": "The POST /api/applications/{id}/complete endpoint must update the status to 'Application Submitted', subtract the finalized amount from the employee's salary balance, and save the transaction using safe database operations to prevent concurrency conflicts.",
+      "status": "covered",
+      "covered_by": [
+        "T-002"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "T-001",
+      "name": "Implement Employee API endpoints for metadata and net balance retrieval",
+      "status": "completed",
+      "req_refs": [
+        "R-004",
+        "R-005"
+      ],
+      "files_written": [
+        "HRMS.Models/DTOs/WithdrawalApplicationDto.cs",
+        "C:/DARTS-development-environment/sandbox/rmanoj/]HRMS-ApplicationProcess/HRMS.Models/DTOs/UpdateStatusDto.cs",
+        "HRMS.Models/DTOs/UpdateStatusDto.cs"
+      ],
+      "module": "Withdrawal Workflow Management",
+      "feature": "Active Employee Metadata & Calculated Balances",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    },
+    {
+      "task_id": "T-002",
+      "name": "Implement Withdrawal Application workflow lifecycle and safe completion APIs",
+      "status": "completed",
+      "req_refs": [
+        "R-001",
+        "R-002",
+        "R-003",
+        "R-006"
+      ],
+      "files_written": [
+        "HRMS.Models/DTOs/WithdrawalApplicationDto.cs",
+        "C:/DARTS-development-environment/sandbox/rmanoj/]HRMS-ApplicationProcess/HRMS.Models/DTOs/UpdateStatusDto.cs",
+        "HRMS.Models/DTOs/UpdateStatusDto.cs"
+      ],
+      "module": "Withdrawal Workflow Management",
+      "feature": "Withdrawal Application Workflow",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 6,
+    "covered": 6,
+    "partial": 0,
+    "uncovered": 0,
+    "coverage_pct": 100,
+    "total_tasks": 2,
+    "tasks_completed": 2,
+    "tasks_failed": 0,
+    "files_written": 3,
+    "validation_status": "passed"
+  }
+}

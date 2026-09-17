@@ -1,145 +1,141 @@
 {
-  "hash": "e51cde43e27de7fd7acd5ade78a43001",
+  "hash": "9c67c9a439e5af597beab137f66e2665",
   "requirements": [
     {
       "req_id": "R-001",
-      "text": "The system shall be built using C# and .NET 6."
+      "text": "The application must provide a 4-page wizard process for users to apply to withdraw processed payroll."
     },
     {
       "req_id": "R-002",
-      "text": "The system shall use Entity Framework Core for data persistence."
+      "text": "The wizard must consist of 4 sequential pages: 1. Instructions Page, 2. User Selection Page, 3. Amount Entering Page, and 4. Application Submitted Page."
     },
     {
       "req_id": "R-003",
-      "text": "The database shall be SQL Server LocalDB."
+      "text": "The Instructions Page must display approximately 100 words of instruction text related to the withdrawal process."
     },
     {
       "req_id": "R-004",
-      "text": "The frontend shall use Razor Views (.cshtml)."
+      "text": "The Instructions Page must feature a button at the bottom, which displays 'Continue application' if an application is already in progress."
     },
     {
       "req_id": "R-005",
-      "text": "The frontend shall use Knockout.js for client-side view models and data binding."
+      "text": "Clicking the button on the Instructions Page must redirect the user to the User Selection Page."
     },
     {
       "req_id": "R-006",
-      "text": "The frontend shall use jQuery."
+      "text": "The User Selection Page must contain a dropdown list of employees."
     },
     {
       "req_id": "R-007",
-      "text": "The system shall use DataTables for displaying list data."
+      "text": "Selecting an employee from the dropdown on the User Selection Page must trigger an API call to fetch their details."
     },
     {
       "req_id": "R-008",
-      "text": "The UI framework shall be Bootstrap 5."
+      "text": "The User Selection Page must display the selected employee's full name, email address, department, and salary below the dropdown."
     },
     {
       "req_id": "R-009",
-      "text": "The system shall use Dependency Injection."
+      "text": "The User Selection Page must have 'Back' and 'Next' buttons at the bottom."
     },
     {
       "req_id": "R-010",
-      "text": "All CRUD operations must use AJAX to avoid full page refreshes."
+      "text": "Clicking the 'Back' button on the User Selection Page must redirect the user to the Instructions Page."
     },
     {
       "req_id": "R-011",
-      "text": "The solution must contain a project named HRMS.Data responsible only for persistence."
+      "text": "Clicking the 'Next' button on the User Selection Page must transition the application status and redirect the user to the Amount Entering Page."
     },
     {
       "req_id": "R-012",
-      "text": "The HRMS.Data project must contain the DbContext and EF Configurations."
+      "text": "The Amount Entering Page must display the total processed salary amount balance for the selected employee, with already submitted application amounts subtracted."
     },
     {
       "req_id": "R-013",
-      "text": "The HRMS.Data project must contain EF Core Migrations."
+      "text": "The Amount Entering Page must contain an input field for the user to enter the desired withdrawal amount."
     },
     {
       "req_id": "R-014",
-      "text": "The solution must contain a project for shared models containing Entities, DTOs, and ViewModels."
+      "text": "The Amount Entering Page must display a read-only control showing the remaining balance amount that will be left in the account after the application is submitted."
     },
     {
       "req_id": "R-015",
-      "text": "The solution must contain an application business layer project for logic, validation, and CRUD."
+      "text": "The Amount Entering Page must have 'Back' and 'Next' buttons at the bottom."
     },
     {
       "req_id": "R-016",
-      "text": "The business layer project must communicate with HRMS.Data."
+      "text": "Clicking the 'Back' button on the Amount Entering Page must redirect the user to the User Selection Page."
     },
     {
       "req_id": "R-017",
-      "text": "The solution must contain a Web project responsible for background processing using Quartz Jobs."
+      "text": "Clicking the 'Next' button on the Amount Entering Page must transition the application status and redirect the user to the Application Submitted Page."
     },
     {
       "req_id": "R-018",
-      "text": "The solution must contain a web application project containing Controllers and Razor Views."
+      "text": "The Application Submitted Page must display text indicating that the application has been submitted, along with the generated application ID, selected user information, and entered withdrawal amount."
     },
     {
       "req_id": "R-019",
-      "text": "The UI must follow a pattern where every page consists of a Controller, a .cshtml view, and a ViewModel.js."
+      "text": "The Application Submitted Page must have a 'Complete application process' button at the bottom."
     },
     {
       "req_id": "R-020",
-      "text": "Knockout ViewModels must expose load, save, update, delete, search, reset, refresh, export, import, and validate methods."
+      "text": "Clicking the 'Complete application process' button must update the final status of the application, subtract the withdrawal amount from the employee's salary balance, and redirect the user to the home/dashboard page."
     },
     {
       "req_id": "R-021",
-      "text": "DataTables must support sorting, paging, searching, and filtering."
+      "text": "A new navigation link named 'applications' must be added to the application navigation menu."
     },
     {
       "req_id": "R-022",
-      "text": "The system must implement role-based authentication."
+      "text": "Clicking the 'applications' navigation link must redirect the user to a page containing an application list table."
     },
     {
       "req_id": "R-023",
-      "text": "Controllers must validate permissions before rendering pages."
+      "text": "The application table must display columns for metadata, statusId, created person id, created date, lastchangedate, status last change date, and amount."
     },
     {
       "req_id": "R-024",
-      "text": "Services must validate permissions for sensitive operations."
+      "text": "The application status must be set to 'Application Created' when the user transitions from the Instructions Page to the User Selection Page."
     },
     {
       "req_id": "R-025",
-      "text": "Database schema management must be handled through EF Migrations only."
+      "text": "The application status must be set to 'User Selected' when the user transitions from the User Selection Page to the Amount Entering Page."
     },
     {
       "req_id": "R-026",
-      "text": "The system must include a Dashboard module."
+      "text": "The application status must be set to 'Amount Entered' when the user transitions from the Amount Entering Page to the Application Submitted Page."
     },
     {
       "req_id": "R-027",
-      "text": "The system must include an Employee management module."
+      "text": "The application status must be set to 'Application Submitted' when the user completes the wizard on the Application Submitted Page."
     },
     {
       "req_id": "R-028",
-      "text": "The system must include a Department management module."
+      "text": "A database migration must be created to define the Application table with statusId, created person id, created date, lastchangedate, and status last change date fields."
     },
     {
       "req_id": "R-029",
-      "text": "The system must include an Attendance tracking module."
+      "text": "A database migration must be created to define the Status table and link its ID to the statusId field in the Application table."
     },
     {
       "req_id": "R-030",
-      "text": "The system must include a Payroll module."
+      "text": "The Status table must be seeded with the values: 'Application Created', 'User Selected', 'Amount Entered', and 'Application Submitted'."
     },
     {
       "req_id": "R-031",
-      "text": "The system must include Audit Logs and Notification modules."
+      "text": "A database migration must be created for an Employee Salary Balance table that holds employee ID and their remaining amount balance."
     },
     {
       "req_id": "R-032",
-      "text": "Files must be organized into folders segregated by business domain."
+      "text": "The Employee Salary Balance must be increased and updated whenever payroll is processed for an employee."
     },
     {
       "req_id": "R-033",
-      "text": "The project must include a README.md file at the root with setup and architecture documentation."
+      "text": "The Employee Salary Balance must be decreased by the withdrawn amount upon completion of the application."
     },
     {
       "req_id": "R-034",
-      "text": "The project shall exclude React, Angular, Vue, and Blazor frameworks."
-    },
-    {
-      "req_id": "R-035",
-      "text": "The project shall exclude MediatR, CQRS, and Clean/Onion Architecture patterns."
+      "text": "The implementation of the payroll withdrawal application process must not affect any existing systems or flows."
     }
   ]
 }

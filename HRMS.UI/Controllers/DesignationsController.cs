@@ -54,7 +54,8 @@ public class DesignationsController : Controller
         return Json(new { success });
     }
 
-    [HttpGet]
+    [HttpDelete]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Delete(int id)
     {
         await _designationService.DeleteAsync(id);

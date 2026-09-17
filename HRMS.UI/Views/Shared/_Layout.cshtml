@@ -129,6 +129,9 @@
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="Payroll" asp-action="Index">Payroll</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Applications" id="nav-applications-link">Applications</a>
+                        </li>
                         @if (User.IsInRole("Admin"))
                         {
                             <li class="nav-item dropdown">
@@ -236,6 +239,7 @@
     <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.print.min.js"></script>
 
     <script src="/js/notifications.js"></script>
+    <script src="/js/applications.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

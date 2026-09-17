@@ -1,0 +1,83 @@
+{
+  "task_id": 113,
+  "task_name": "HRMS-ApplicationProcess",
+  "execution_path": "planner_coder",
+  "complexity_tier": "simple",
+  "requirement_text": "Create database entity model and EF Core migration for EmployeeSalaryBalance table. This table tracks the payroll balance processed for each employee. It must contain the columns: EmployeeId, AmountBalance.\n\nAcceptance Criteria:\n- Create EF Core migration for EmployeeSalaryBalance table\n- Verify fields: EmployeeId (or equivalent unique identifier matching system's employee model), AmountBalance (decimal)\n- Apply migrations to the PostgreSQL database successfully\n\nTechnical Hints: Map EmployeeId as key or foreign key depending on the system's existing Employee model. Set scale/precision for AmountBalance to handle monetary values accurately.",
+  "generated_at": "2026-09-02T07:45:23.579Z",
+  "requirements": [
+    {
+      "req_id": "R-001",
+      "text": "Create the database entity model for EmployeeSalaryBalance table tracking processed payroll balance.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-002",
+      "text": "Create an EF Core migration for the EmployeeSalaryBalance table.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-003",
+      "text": "Configure EmployeeId as a unique identifier or foreign key matching the existing employee model.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-004",
+      "text": "Configure AmountBalance as a decimal with appropriate scale and precision for monetary values.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-005",
+      "text": "Apply migrations to the PostgreSQL database successfully.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "T-001",
+      "name": "Backend Configuration and Migrations Ensure",
+      "status": "completed",
+      "req_refs": [
+        "R-001",
+        "R-002",
+        "R-003",
+        "R-004",
+        "R-005"
+      ],
+      "files_written": [],
+      "module": "PlannerCoder",
+      "feature": "Create database entity model and EF Core migration for Em...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 5,
+    "covered": 5,
+    "partial": 0,
+    "uncovered": 0,
+    "coverage_pct": 100,
+    "total_tasks": 1,
+    "tasks_completed": 1,
+    "tasks_failed": 0,
+    "files_written": 0,
+    "validation_status": "passed"
+  }
+}

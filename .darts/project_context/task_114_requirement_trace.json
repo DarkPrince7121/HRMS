@@ -1,0 +1,114 @@
+{
+  "task_id": 114,
+  "task_name": "HRMS-ApplicationProcess",
+  "execution_path": "planner_coder",
+  "complexity_tier": "medium",
+  "requirement_text": "Create database entity model and migration for the WithdrawalApplication table. It must contain the following fields verbatim: Id, StatusId, CreatedPersonId, CreatedDate, LastChangeDate, StatusLastChangeDate, Amount, SelectedEmployeeId.\n\nAcceptance Criteria:\n- Create EF Core migration for WithdrawalApplication table\n- Verify fields: Id, StatusId (foreign key to ApplicationStatus), CreatedPersonId (author/creator of application), CreatedDate, LastChangeDate, StatusLastChangeDate, Amount (decimal), SelectedEmployeeId (nullable/target employee)\n- Apply migration to PostgreSQL database successfully\n\nTechnical Hints: Configure foreign key relations from StatusId to the ApplicationStatus table. Ensure default values or timestamps are configured for date fields in PostgreSQL.\n\nDependencies: Task db-migration-application-status",
+  "generated_at": "2026-09-02T07:52:36.276Z",
+  "requirements": [
+    {
+      "req_id": "R-001",
+      "text": "Create the database entity model for the redacted table containing fields: Id, StatusId, CreatedPersonId, CreatedDate, LastChangeDate, StatusLastChangeDate, Amount, and SelectedEmployeeId.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-002",
+      "text": "Create EF Core migration for the redacted table.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-003",
+      "text": "Configure StatusId as a foreign key relation to the application status table.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-004",
+      "text": "Configure SelectedEmployeeId as a nullable field.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-005",
+      "text": "Configure Amount as a decimal field.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-006",
+      "text": "Ensure default values or timestamps are configured for date fields in PostgreSQL.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-007",
+      "text": "Apply the migration to the PostgreSQL database successfully.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "T-001",
+      "name": "Create backend entities, db configuration, and migration files",
+      "status": "completed",
+      "req_refs": [
+        "R-001",
+        "R-002",
+        "R-003",
+        "R-004",
+        "R-005",
+        "R-006",
+        "R-007"
+      ],
+      "files_written": [],
+      "module": "PlannerCoder",
+      "feature": "Create database entity model and migration for the Withdr...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    },
+    {
+      "task_id": "T-0",
+      "name": "Analysing and planning implementation...",
+      "status": "pending",
+      "req_refs": [],
+      "files_written": [],
+      "module": "PlannerCoder",
+      "feature": "Create database entity model and migration for the WithdrawalApplication table. ",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 7,
+    "covered": 7,
+    "partial": 0,
+    "uncovered": 0,
+    "coverage_pct": 100,
+    "total_tasks": 2,
+    "tasks_completed": 1,
+    "tasks_failed": 0,
+    "files_written": 0,
+    "validation_status": "passed"
+  }
+}

@@ -43,20 +43,9 @@ namespace HRMS.Data.Implementations
                     throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
                 }
 
-                // Check if database exists
-                var databaseExists = await _context.Database.CanConnectAsync();
-                
-                if (!databaseExists)
-                {
-                    _logger.LogInformation("Database does not exist. Creating database and schema...");
-                    await _context.Database.EnsureCreatedAsync();
-                    _logger.LogInformation("Database and schema created successfully.");
-                }
-                else
-                {
-                    _logger.LogInformation("Database already exists. Applying any pending migrations...");
-                    await _context.Database.MigrateAsync();
-                }
+                _logger.LogInformation("Applying any pending migrations...");
+                await _context.Database.MigrateAsync();
+                _logger.LogInformation("Migrations applied successfully.");
 
                 _logger.LogInformation("Starting data seeding...");
                 await _seeder.SeedAsync();

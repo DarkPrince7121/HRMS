@@ -1,0 +1,122 @@
+{
+  "task_id": 117,
+  "task_name": "HRMS-ApplicationProcess",
+  "execution_path": "full_pipeline",
+  "complexity_tier": "medium",
+  "requirement_text": "Implement the 4-step KnockoutJS application wizard UI flow (Instructions, User Selection, Amount Entering, and Application Submitted) dynamically handling state, back/next navigation, validation of remaining balances, and API integrations.\n\nAcceptance Criteria:\n- Instructions step shows 100+ words of descriptive process text and a dynamic action button (e.g., 'Start Application' or 'Continue Application')\n- User Selection step renders a dropdown populated with employees, showing Full Name, Email, Department, and Salary below upon selection. Includes 'Back' and 'Next' buttons\n- Amount Entering step displays total processed salary, calculated pending deduction, lets user input withdrawal amount, shows real-time final balance remaining. Includes 'Back' and 'Next' buttons\n- Application Submitted step displays confirmation layout, application ID, target employee details, finalized amount, and a 'Complete Application' button that posts the completion, updates state, and redirects to dashboard\n- State transitions successfully update StatusId in database via api calls at each wizard progression\n\nTechnical Hints: Create a view-model containing wizard page index, selectedEmployee observable, balance calculations, and ajax calls for each wizard step. Handle navigation state properly so users cannot proceed to the next page without valid step inputs (e.g., selection made or positive amount entered).\n\nDependencies: Task frontend-applications-list",
+  "generated_at": "2026-09-02T08:58:30.077Z",
+  "requirements": [
+    {
+      "req_id": "R-001",
+      "text": "Implement a 4-step KnockoutJS application wizard containing Instructions, User Selection, Amount Entering, and Application Submitted steps.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-002",
+      "text": "The Instructions step must display at least 100 words of descriptive process text and a dynamic action button ('Start Application' or 'Continue Application').",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-003",
+      "text": "The User Selection step must feature an employee dropdown that dynamically displays the selected employee's Full Name, Email, [REDACTED], and Salary.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-004",
+      "text": "The User Selection step must include 'Back' and '[REDACTED]' navigation buttons, blocking progression if no employee is selected.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-005",
+      "text": "The Amount Entering step must display the total processed salary, calculated pending deductions, withdrawal amount input, and real-time final remaining balance.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-006",
+      "text": "The Amount Entering step must validate that the entered withdrawal amount is positive and does not exceed the remaining balance before proceeding.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-007",
+      "text": "The Application Submitted step must display a confirmation layout containing the application ID, target employee details, finalized amount, and a completion button.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-008",
+      "text": "Clicking the completion button on the final step must post the completion state, close the modal, and redirect to the dashboard home page.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-009",
+      "text": "Wizard step transitions must trigger HTTP PUT requests to '/api/applications/{id}/status' to update the StatusId in the database.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "T-001",
+      "name": "Implement 4-step KnockoutJS application wizard UI flow",
+      "status": "completed",
+      "req_refs": [
+        "R-001",
+        "R-002",
+        "R-003",
+        "R-004",
+        "R-005",
+        "R-006",
+        "R-007",
+        "R-008",
+        "R-009"
+      ],
+      "files_written": [
+        "HRMS.UI/wwwroot/js/applications.js",
+        "HRMS.UI/Views/Applications/Index.cshtml"
+      ],
+      "module": "Withdrawal Management",
+      "feature": "Withdrawal Wizard Workflow",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 9,
+    "covered": 9,
+    "partial": 0,
+    "uncovered": 0,
+    "coverage_pct": 100,
+    "total_tasks": 1,
+    "tasks_completed": 1,
+    "tasks_failed": 0,
+    "files_written": 2,
+    "validation_status": "passed"
+  }
+}

@@ -8,7 +8,7 @@ public class ApplicationDbContext : DbContext
 {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options)
-    {
+    { 
     }
 
     public DbSet<Employee> Employees => Set<Employee>();
@@ -23,6 +23,9 @@ public class ApplicationDbContext : DbContext
     public DbSet<AuditLog> AuditLogs => Set<AuditLog>();
     public DbSet<Notification> Notifications => Set<Notification>();
     public DbSet<SystemSetting> SystemSettings => Set<SystemSetting>();
+    public DbSet<ApplicationStatus> ApplicationStatuses => Set<ApplicationStatus>();
+    public DbSet<EmployeeSalaryBalance> EmployeeSalaryBalances => Set<EmployeeSalaryBalance>();
+    public DbSet<WithdrawalApplication> WithdrawalApplications => Set<WithdrawalApplication>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     { 
@@ -38,5 +41,8 @@ public class ApplicationDbContext : DbContext
         modelBuilder.ApplyConfiguration(new AuditLogConfiguration());
         modelBuilder.ApplyConfiguration(new NotificationConfiguration());
         modelBuilder.ApplyConfiguration(new SystemSettingConfiguration());
+        modelBuilder.ApplyConfiguration(new ApplicationStatusConfiguration());
+        modelBuilder.ApplyConfiguration(new EmployeeSalaryBalanceConfiguration());
+        modelBuilder.ApplyConfiguration(new WithdrawalApplicationConfiguration());
     }
 }

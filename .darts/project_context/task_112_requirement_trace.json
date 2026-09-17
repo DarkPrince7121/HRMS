@@ -1,0 +1,93 @@
+{
+  "task_id": 112,
+  "task_name": "HRMS-ApplicationProcess",
+  "execution_path": "planner_coder",
+  "complexity_tier": "simple",
+  "requirement_text": "Create the database migration and entity model for ApplicationStatus. The table must contain: Id (integer or guid), Name (string). Populate the table with seed data for 'Application Created', 'User Selected', 'Amount Entered', and 'Application Submitted'.\n\nAcceptance Criteria:\n- Create EF Core migration for ApplicationStatus table with Name column\n- Seed ApplicationStatus with: 'Application Created', 'User Selected', 'Amount Entered', 'Application Submitted'\n- Run migration against PostgreSQL to ensure table is created and seeded successfully\n\nTechnical Hints: Use EF Core HasData in OnModelCreating to seed statuses. Ensure the table is mapped to PostgreSQL.",
+  "generated_at": "2026-09-02T07:36:53.131Z",
+  "requirements": [
+    {
+      "req_id": "R-001",
+      "text": "Create the ApplicationStatus entity model with Id and Name columns.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-002",
+      "text": "Seed the ApplicationStatus table with 'Application Created', 'User Selected', 'Amount Entered', and 'Application Submitted'.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-003",
+      "text": "Create and run the EF Core migration to create and seed the ApplicationStatus table in the PostgreSQL database.",
+      "status": "covered",
+      "covered_by": [
+        "T-002"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "T-001",
+      "name": "Create ApplicationStatus Entity and Configuration with HasData Seeding, and update ApplicationDbContext",
+      "status": "completed",
+      "req_refs": [
+        "R-001",
+        "R-002"
+      ],
+      "files_written": [
+        "HRMS.Models/Entities/ApplicationStatus.cs",
+        "HRMS.Data/Configurations/ApplicationStatusConfiguration.cs",
+        "HRMS.Data/ApplicationDbContext.cs",
+        "HRMS.Data/Migrations/ApplicationDbContextModelSnapshot.cs",
+        "HRMS.Data/Migrations/20260902073606_AddApplicationStatusTable.cs",
+        "HRMS.Data/Migrations/20260902073606_AddApplicationStatusTable.Designer.cs"
+      ],
+      "module": "PlannerCoder",
+      "feature": "Create the database migration and entity model for Applic...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    },
+    {
+      "task_id": "T-002",
+      "name": "Add EF Core Migration for ApplicationStatus and Apply it",
+      "status": "completed",
+      "req_refs": [
+        "R-003"
+      ],
+      "files_written": [
+        "HRMS.Models/Entities/ApplicationStatus.cs",
+        "HRMS.Data/Configurations/ApplicationStatusConfiguration.cs",
+        "HRMS.Data/ApplicationDbContext.cs",
+        "HRMS.Data/Migrations/ApplicationDbContextModelSnapshot.cs",
+        "HRMS.Data/Migrations/20260902073606_AddApplicationStatusTable.cs",
+        "HRMS.Data/Migrations/20260902073606_AddApplicationStatusTable.Designer.cs"
+      ],
+      "module": "PlannerCoder",
+      "feature": "Create the database migration and entity model for Applic...",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 3,
+    "covered": 3,
+    "partial": 0,
+    "uncovered": 0,
+    "coverage_pct": 100,
+    "total_tasks": 2,
+    "tasks_completed": 2,
+    "tasks_failed": 0,
+    "files_written": 6,
+    "validation_status": "passed"
+  }
+}

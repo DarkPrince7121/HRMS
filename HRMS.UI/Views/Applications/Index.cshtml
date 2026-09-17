@@ -1,0 +1,286 @@
+@{
+    ViewData["Title"] = "Withdrawal Applications";
+}
+
+<div id="applicationsPageContainer" class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="fw-bold text-dark">Withdrawal Applications</h2>
+            <p class="text-muted mb-0">View all submitted withdrawal applications and initiate step-by-step withdrawal workflows.</p>
+        </div>
+        <button class="btn btn-primary px-4 py-2" data-bind="click: initiateWizard">
+            <i class="fas fa-plus me-2"></i>Create New Withdrawal Application
+        </button>
+    </div>
+
+    <!-- Applications Table List -->
+    <div class="card shadow-sm">
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0" id="applicationsListTable">
+                    <thead class="bg-light table-light">
+                        <tr>
+                            <th class="ps-4">Application ID</th>
+                            <th>Target Employee</th>
+                            <th>Requested Amount</th>
+                            <th>Status</th>
+                            <th>Created Date</th>
+                            <th class="pe-4 text-end">Last Updated</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: applications">
+                        <tr>
+                            <td class="ps-4 fw-bold text-primary" data-bind="text: '#' + id"></td>
+                            <td>
+                                <div class="fw-medium text-dark" data-bind="text: selectedEmployeeName"></div>
+                                <div class="text-muted small" data-bind="text: selectedEmployeeEmail"></div>
+                            </td>
+                            <td class="fw-bold" data-bind="text: '$' + parseFloat(amount).toFixed(2)"></td>
+                            <td>
+                                <span class="badge px-2.5 py-1.5" data-bind="
+                                    text: statusName,
+                                    css: {
+                                        'bg-secondary': statusId === 1,
+                                        'bg-info': statusId === 2,
+                                        'bg-warning text-dark': statusId === 3,
+                                        'bg-success': statusId === 4
+                                    }
+                                "></span>
+                            </td>
+                            <td data-bind="text: new Date(createdDate).toLocaleDateString() + ' ' + new Date(createdDate).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})"></td>
+                            <td class="pe-4 text-end text-muted small" data-bind="text: new Date(lastChangeDate).toLocaleDateString()"></td>
+                        </tr>
+                    </tbody>
+                    <tbody data-bind="visible: applications().length === 0">
+                        <tr>
+                            <td colspan="6" class="text-center py-5">
+                                <div class="text-muted mb-2">
+                                    <i class="fas fa-file-invoice-dollar fs-1 text-secondary opacity-50 mb-3"></i>
+                                </div>
+                                <h5 class="fw-semibold text-secondary">No Applications Found</h5>
+                                <p class="text-muted mb-0">Initiate a new withdrawal application wizard to create the first record.</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4-Step Application Wizard Modal -->
+    <div class="modal fade" id="wizardModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content shadow border-0 rounded-4">
+                <div class="modal-header border-bottom bg-light px-4 py-3">
+                    <h5 class="modal-title fw-bold text-dark d-flex align-items-center">
+                        <i class="fas fa-magic text-primary me-2"></i>
+                        <span>Withdrawal Application Wizard</span>
+                        <span class="badge bg-primary ms-3 fs-7" data-bind="text: 'Step ' + currentStep() + ' of 4'"></span>
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body px-4 py-4">
+                    <!-- Step Progress Tracker Header -->
+                    <div class="row text-center mb-4 g-2">
+                        <div class="col-3">
+                            <div class="p-2 rounded-3 border fw-semibold" data-bind="css: { 'bg-primary text-white': currentStep() === 1, 'bg-light text-muted': currentStep() !== 1 }">1. Instructions</div>
+                        </div>
+                        <div class="col-3">
+                            <div class="p-2 rounded-3 border fw-semibold" data-bind="css: { 'bg-primary text-white': currentStep() === 2, 'bg-light text-muted': currentStep() !== 2 }">2. Target</div>
+                        </div>
+                        <div class="col-3">
+                            <div class="p-2 rounded-3 border fw-semibold" data-bind="css: { 'bg-primary text-white': currentStep() === 3, 'bg-light text-muted': currentStep() !== 3 }">3. Amount</div>
+                        </div>
+                        <div class="col-3">
+                            <div class="p-2 rounded-3 border fw-semibold" data-bind="css: { 'bg-primary text-white': currentStep() === 4, 'bg-light text-muted': currentStep() !== 4 }">4. Submit</div>
+                        </div>
+                    </div>
+
+                    <!-- Step Error Alert Banner -->
+                    <div class="alert alert-danger d-flex align-items-center mb-4" role="alert" data-bind="visible: stepError() !== ''">
+                        <i class="fas fa-exclamation-triangle me-2"></i>
+                        <div data-bind="text: stepError"></div>
+                    </div>
+
+                    <!-- STEP 1: Instructions -->
+                    <div data-bind="visible: currentStep() === 1">
+                        <div class="card bg-light border-0 mb-3">
+                            <div class="card-body p-4">
+                                <h5 class="fw-bold text-dark mb-3">Important Withdrawal Process Instructions</h5>
+                                <p class="text-dark lh-base" style="font-size: 0.95rem;">
+                                    Welcome to the automated HRMS payroll withdrawal application workflow. This guided 4-step wizard permits authorized administrators to quickly request and finalize partial salary withdrawals on behalf of target active employees. Please ensure that you have obtained appropriate written approval and verified all employee credentials prior to moving forward. The system will calculate real-time net salary balances dynamically by querying the current payroll cycle configuration and subtracting all active pending applications, preventing overdrafts or discrepancies. Once completed, the finalized withdrawal amount will be instantly subtracted from the employee's net balance. All steps are saved automatically so you can resume later.
+                                </p>
+                                <div class="text-center mt-4">
+                                    <button type="button" class="btn btn-primary btn-lg px-5 py-3 shadow-sm fw-bold" data-bind="click: nextStep">
+                                        <span data-bind="text: isResuming() ? 'Continue Application' : 'Start Application'"></span>
+                                        <i class="fas fa-arrow-right ms-2"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 2: Target Employee Selection -->
+                    <div data-bind="visible: currentStep() === 2">
+                        <div class="mb-4">
+                            <label for="employeeSelect" class="form-label fw-bold">Select Target Employee</label>
+                            <select id="employeeSelect" class="form-select form-select-lg" data-bind="
+                                options: employees,
+                                optionsText: 'name',
+                                optionsValue: 'id',
+                                value: selectedEmployeeId,
+                                optionsCaption: 'Choose an active employee...'
+                            "></select>
+                        </div>
+                        <div class="card border-0 bg-light shadow-sm p-4 rounded-3 mb-3" data-bind="visible: selectedEmployeeId">
+                            <h6 class="fw-bold mb-3 text-primary"><i class="fas fa-user me-2"></i>Target Employee Profile</h6>
+                            <div class="row g-3">
+                                <div class="col-6">
+                                    <div class="small text-muted">Full Name</div>
+                                    <div class="fw-bold text-dark" data-bind="text: selectedEmployeeName"></div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="small text-muted">Email Address</div>
+                                    <div class="fw-bold text-dark" data-bind="text: selectedEmployeeEmail"></div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="small text-muted">Department</div>
+                                    <div class="fw-bold text-dark" data-bind="text: selectedEmployeeDepartment"></div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="small text-muted">Base Salary</div>
+                                    <div class="fw-bold text-dark" data-bind="text: '$' + parseFloat(selectedEmployeeSalary()).toFixed(2)"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card border-0 bg-light-subtle shadow-sm p-3 rounded-3" data-bind="visible: selectedEmployeeId">
+                            <h6 class="fw-bold mb-2 text-primary"><i class="fas fa-wallet me-2"></i>Real-Time Account Balance Information</h6>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="text-muted">Calculated Net Balance:</span>
+                                <span class="fs-5 fw-bold text-success" data-bind="text: '$' + parseFloat(netBalance()).toFixed(2)"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 3: Amount Entering -->
+                    <div data-bind="visible: currentStep() === 3">
+                        <div class="p-3 mb-4 rounded-3 border bg-light">
+                            <div class="row align-items-center">
+                                <div class="col-auto">
+                                    <div class="bg-primary bg-opacity-10 text-primary rounded-circle p-3 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                        <i class="fas fa-user-check"></i>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="fw-bold text-dark" data-bind="text: selectedEmployeeName"></div>
+                                    <div class="text-muted small">Available Balance: <strong class="text-success" data-bind="text: '$' + parseFloat(netBalance()).toFixed(2)"></strong></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card border-0 bg-light-subtle shadow-sm p-4 rounded-3 mb-4">
+                            <h6 class="fw-bold mb-3 text-primary"><i class="fas fa-calculator me-2"></i>Advanced Salary Balance Calculations</h6>
+                            <div class="row g-3">
+                                <div class="col-md-4">
+                                    <div class="p-3 bg-light rounded-3 border text-center">
+                                        <div class="small text-muted mb-1">Processed Salary</div>
+                                        <h5 class="fw-bold text-secondary mb-0" data-bind="text: '$' + parseFloat(processedSalary()).toFixed(2)"></h5>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="p-3 bg-light rounded-3 border text-center">
+                                        <div class="small text-muted mb-1">Pending Deductions</div>
+                                        <h5 class="fw-bold text-danger mb-0" data-bind="text: '$' + parseFloat(pendingDeductions()).toFixed(2)"></h5>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="p-3 bg-light rounded-3 border text-center">
+                                        <div class="small text-muted mb-1">Net Balance</div>
+                                        <h5 class="fw-bold text-success mb-0" data-bind="text: '$' + parseFloat(netBalance()).toFixed(2)"></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <hr class="my-3" />
+                            
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-semibold text-dark">Real-Time Remaining Balance:</span>
+                                <span class="fs-4 fw-bold text-primary" data-bind="text: '$' + parseFloat(remainingBalance()).toFixed(2)"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="withdrawAmount" class="form-label fw-bold">Enter Desired Withdrawal Amount ($)</label>
+                            <div class="input-group input-group-lg">
+                                <span class="input-group-text">$</span>
+                                <input type="number" id="withdrawAmount" class="form-control" placeholder="0.00" step="0.01" min="0.01" data-bind="value: enteredAmount, valueUpdate: 'keyup'">
+                            </div>
+                            <div class="form-text text-muted">The requested amount must be greater than $0.00 and cannot exceed the employee's calculated net salary balance.</div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 4: Application Submitted / Confirmation -->
+                    <div data-bind="visible: currentStep() === 4">
+                        <div class="text-center py-4">
+                            <div class="bg-warning bg-opacity-10 text-warning rounded-circle p-4 d-inline-block mb-3">
+                                <i class="fas fa-clipboard-check fs-1"></i>
+                            </div>
+                            <h4 class="fw-bold text-dark mb-2">Ready to Finalize and Submit?</h4>
+                            <p class="text-muted px-4 mb-4">Please review the details below before completing the withdrawal application. This process will instantly commit the transaction and deduct the balance.</p>
+
+                            <div class="row justify-content-center text-start">
+                                <div class="col-md-8">
+                                    <div class="card shadow-none border rounded-3 overflow-hidden">
+                                        <div class="list-group list-group-flush">
+                                            <div class="list-group-item d-flex justify-content-between py-3">
+                                                <span class="text-muted font-monospace">Application ID</span>
+                                                <strong class="text-primary" data-bind="text: '#' + currentApplicationId()"></strong>
+                                            </div>
+                                            <div class="list-group-item d-flex justify-content-between py-3">
+                                                <span class="text-muted">Target Employee</span>
+                                                <strong data-bind="text: selectedEmployeeName"></strong>
+                                            </div>
+                                            <div class="list-group-item d-flex justify-content-between py-3">
+                                                <span class="text-muted">Department</span>
+                                                <strong data-bind="text: selectedEmployeeDepartment"></strong>
+                                            </div>
+                                            <div class="list-group-item d-flex justify-content-between py-3">
+                                                <span class="text-muted">Final Amount</span>
+                                                <strong class="text-dark fs-5" data-bind="text: '$' + parseFloat(enteredAmount()).toFixed(2)"></strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer border-top bg-light px-4 py-3 justify-content-between">
+                    <div>
+                        <button type="button" class="btn btn-outline-secondary px-4 py-2" data-bind="click: prevStep, visible: currentStep() > 1">
+                            <i class="fas fa-arrow-left me-2"></i>Back
+                        </button>
+                    </div>
+                    <div>
+                        <!-- ko if: currentStep() === 1 -->
+                        <button type="button" class="btn btn-primary px-4 py-2" data-bind="click: nextStep">
+                            <span data-bind="text: isResuming() ? 'Continue Application' : 'Start Application'"></span>
+                            <i class="fas fa-arrow-right ms-2"></i>
+                        </button>
+                        <!-- /ko -->
+                        <!-- ko if: currentStep() > 1 && currentStep() < 4 -->
+                        <button type="button" class="btn btn-primary px-4 py-2" data-bind="click: nextStep">
+                            Next<i class="fas fa-arrow-right ms-2"></i>
+                        </button>
+                        <!-- /ko -->
+                        <button type="button" class="btn btn-success px-4 py-2" data-bind="click: completeApplication, visible: currentStep() === 4">
+                            <i class="fas fa-check me-2"></i>Complete application process
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

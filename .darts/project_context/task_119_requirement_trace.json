@@ -1,0 +1,71 @@
+{
+  "task_id": 119,
+  "task_name": "HRMS-ApplicationProcess",
+  "execution_path": "full_pipeline",
+  "complexity_tier": "medium",
+  "requirement_text": "As an user, if i generate Payroll then the salary should get added to the employeesalarybalances against the each employees.\nalso, lets say if the user creates an application with an amount entered then the amount should get reduced from the employeesalarybalances table against the same employee.. there should be an relationship between the employeeid column in employeesalarybalance and the id of employees table. go through the requirement that i have given, because of i try to create a new application, there the amount displays as zero since there is no record in the employeesalarybalances table even after generating multiple payroll, this issue repeats. analyze the root cause and fix this",
+  "generated_at": "2026-09-11T07:33:14.085Z",
+  "requirements": [
+    {
+      "req_id": "R-001",
+      "text": "Generating payroll must add the calculated salary amount to the EmployeeSalaryBalances table for each respective employee.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-002",
+      "text": "Creating a withdrawal application with an entered amount must reduce that amount from the employee's balance in the EmployeeSalaryBalances table.",
+      "status": "uncovered",
+      "covered_by": []
+    },
+    {
+      "req_id": "R-003",
+      "text": "The EmployeeSalaryBalances table must maintain a foreign key relationship between its EmployeeId column and the ID column of the Employees table.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    },
+    {
+      "req_id": "R-004",
+      "text": "The system must ensure records exist in EmployeeSalaryBalances after payroll generation to prevent the application UI from displaying a zero balance.",
+      "status": "covered",
+      "covered_by": [
+        "T-001"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "T-001",
+      "name": "Implement Payroll Balance Synchronization and Upsert Logic",
+      "status": "completed",
+      "req_refs": [
+        "R-001",
+        "R-003",
+        "R-004"
+      ],
+      "files_written": [],
+      "module": "Payroll & Finance",
+      "feature": "Salary Balance Management",
+      "validation": {
+        "compiled": true,
+        "spec_alignment": "unchecked"
+      }
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 4,
+    "covered": 3,
+    "partial": 0,
+    "uncovered": 1,
+    "coverage_pct": 75,
+    "total_tasks": 1,
+    "tasks_completed": 1,
+    "tasks_failed": 0,
+    "files_written": 0,
+    "validation_status": "passed"
+  }
+}

@@ -53,6 +53,23 @@ public class PayrollService : IPayrollService
             };
 
             _context.Payrolls.Add(payroll);
+
+            // Update or Create Salary Balance
+            var balance = await _context.EmployeeSalaryBalances
+                .FirstOrDefaultAsync(b => b.EmployeeId == employee.Id);
+
+            if (balance != null)
+            {
+                balance.AmountBalance += netPay;
+            }
+            else
+            {
+                _context.EmployeeSalaryBalances.Add(new EmployeeSalaryBalance
+                {
+                    EmployeeId = employee.Id,
+                    AmountBalance = netPay
+                });
+            }
         }
 
         await _context.SaveChangesAsync();

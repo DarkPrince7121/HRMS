@@ -93,7 +93,7 @@ function DesignationsViewModel() {
         if (confirm('Are you sure you want to delete this designation?')) {
             $.ajax({
                 url: '/Designations/Delete?id=' + id,
-                type: 'POST',
+                type: 'DELETE',
                 success: function (response) {
                     if (response.success) {
                         table.ajax.reload();

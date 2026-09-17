@@ -1,7 +1,7 @@
-using System;
 using HRMS.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -10,10 +10,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace HRMS.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
-    { 
-        protected override void BuildModel(ModelBuilder modelBuilder)
-        {
+    [Migration("20260902073628_AddApplicationStatusTable")]
+    partial class AddApplicationStatusTable
+    {
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        { 
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "6.0.0")
@@ -105,19 +106,6 @@ namespace HRMS.Data.Migrations
                     b.ToTable("Employees", (string)null);
                 });
 
-            modelBuilder.Entity("HRMS.Models.Entities.EmployeeSalaryBalance", b =>
-                {
-                    b.Property<int>("EmployeeId")
-                        .HasColumnType("integer");
-
-                    b.Property<decimal>("AmountBalance")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.HasKey("EmployeeId");
-
-                    b.ToTable("EmployeeSalaryBalances", (string)null);
-                });
-
             modelBuilder.Entity("HRMS.Models.Entities.User", b =>
                 {
                     b.Property<int>("Id")
@@ -129,48 +117,6 @@ namespace HRMS.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users", (string)null);
-                });
-
-            modelBuilder.Entity("HRMS.Models.Entities.WithdrawalApplication", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<decimal>("Amount")
-                        .HasColumnType("numeric(18,2)");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("timestamp with time zone")
-                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
-
-                    b.Property<int>("CreatedPersonId")
-                        .HasColumnType("integer");
-
-                    b.Property<DateTime>("LastChangeDate")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("timestamp with time zone")
-                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
-
-                    b.Property<int?>("SelectedEmployeeId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("StatusId")
-                        .HasColumnType("integer");
-
-                    b.Property<DateTime>("StatusLastChangeDate")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("timestamp with time zone")
-                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("StatusId");
-
-                    b.ToTable("WithdrawalApplications", (string)null);
                 });
 
             modelBuilder.Entity("HRMS.Models.Entities.Employee", b =>
@@ -189,28 +135,6 @@ namespace HRMS.Data.Migrations
                     b.Navigation("Department");
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("HRMS.Models.Entities.EmployeeSalaryBalance", b =>
-                {
-                    b.HasOne("HRMS.Models.Entities.Employee", "Employee")
-                        .WithOne()
-                        .HasForeignKey("HRMS.Models.Entities.EmployeeSalaryBalance", "EmployeeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Employee");
-                });
-
-            modelBuilder.Entity("HRMS.Models.Entities.WithdrawalApplication", b =>
-                {
-                    b.HasOne("HRMS.Models.Entities.ApplicationStatus", "Status")
-                        .WithMany()
-                        .HasForeignKey("StatusId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Status");
                 });
 #pragma warning restore 612, 618
         }

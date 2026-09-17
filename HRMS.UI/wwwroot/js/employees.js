@@ -127,7 +127,7 @@ function EmployeeViewModel() {
         if (confirm('Are you sure you want to delete this employee?')) {
             $.ajax({
                 url: '/Employees/Delete?id=' + id,
-                type: 'POST',
+                type: 'DELETE',
                 success: function (response) {
                     if (response.success) {
                         table.ajax.reload();
@@ -136,7 +136,7 @@ function EmployeeViewModel() {
                     }
                 }
             });
-        } 
+        }
     };
 
     self.loadDepartments();
